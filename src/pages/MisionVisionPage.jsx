@@ -16,7 +16,7 @@ export default function MisionVisionPage() {
           <ul>
             <li>
               <Link to="/#mision-vision" style={{ color: 'var(--gold-primary)', fontWeight: 'bold' }}>
-                ← Volver a Propósito Estratégico
+                ← Volver a Misión y Visión
               </Link>
             </li>
           </ul>
@@ -24,7 +24,7 @@ export default function MisionVisionPage() {
       </header>
 
       {/* Hero de la Página */}
-      <section className="hero" style={{ minHeight: '40vh', padding: '120px 5% 40px 5%' }}>
+      <section className="hero" style={{ minHeight: '45vh', padding: '120px 5% 40px 5%' }}>
         <div className="hero-content">
           <h1>{misionVisionData.title}</h1>
           <p>{misionVisionData.subtitle}</p>
@@ -44,10 +44,11 @@ export default function MisionVisionPage() {
           <div
             style={{
               background: 'var(--bg-surface)',
+              backdropFilter: 'blur(16px)',
               border: '2px solid var(--gold-primary)',
               borderRadius: '20px',
               padding: '3.5rem 3rem',
-              boxShadow: '0 20px 45px rgba(184, 134, 11, 0.15)',
+              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(245, 197, 66, 0.1) inset',
               position: 'relative',
               display: 'flex',
               flexDirection: 'column',
@@ -62,6 +63,7 @@ export default function MisionVisionPage() {
                 marginBottom: '1.5rem',
                 letterSpacing: '1px',
                 lineHeight: '1.2',
+                textShadow: '0 0 20px rgba(245, 197, 66, 0.3)',
               }}
             >
               Nuestra Misión
@@ -83,10 +85,11 @@ export default function MisionVisionPage() {
           <div
             style={{
               background: 'var(--bg-surface)',
+              backdropFilter: 'blur(16px)',
               border: '2px solid var(--gold-primary)',
               borderRadius: '20px',
               padding: '3.5rem 3rem',
-              boxShadow: '0 20px 45px rgba(184, 134, 11, 0.15)',
+              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(245, 197, 66, 0.1) inset',
               position: 'relative',
               display: 'flex',
               flexDirection: 'column',
@@ -101,6 +104,7 @@ export default function MisionVisionPage() {
                 marginBottom: '1.5rem',
                 letterSpacing: '1px',
                 lineHeight: '1.2',
+                textShadow: '0 0 20px rgba(245, 197, 66, 0.3)',
               }}
             >
               Nuestra Visión
@@ -120,9 +124,9 @@ export default function MisionVisionPage() {
         </div>
       </section>
 
-      {/* EXPLICACIÓN TEÓRICA: ¿QUÉ ES LA MISIÓN Y QUÉ ES LA VISIÓN? */}
-      <section style={{ background: 'var(--bg-surface-light)', padding: '80px 5%' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      {/* Conceptos Teóricos */}
+      <section style={{ background: 'rgba(12, 14, 21, 0.6)', padding: '80px 5%' }}>
+        <div style={{ maxWidth: '1250px', margin: '0 auto' }}>
           <h2 className="section-title" style={{ marginBottom: '2.5rem', fontSize: '2.2rem' }}>
             Conceptos Fundamentales de Dirección
           </h2>
@@ -131,8 +135,8 @@ export default function MisionVisionPage() {
             <div
               className="mv-card"
               style={{
-                background: 'rgba(212, 175, 55, 0.05)',
-                borderColor: 'rgba(212, 175, 55, 0.3)',
+                background: 'var(--bg-surface)',
+                borderColor: 'var(--border-glass)',
                 padding: '2.5rem',
                 borderRadius: '16px',
               }}
@@ -150,8 +154,8 @@ export default function MisionVisionPage() {
             <div
               className="mv-card"
               style={{
-                background: 'rgba(212, 175, 55, 0.05)',
-                borderColor: 'rgba(212, 175, 55, 0.3)',
+                background: 'var(--bg-surface)',
+                borderColor: 'var(--border-glass)',
                 padding: '2.5rem',
                 borderRadius: '16px',
               }}
@@ -169,9 +173,9 @@ export default function MisionVisionPage() {
         </div>
       </section>
 
-      {/* CITAS DE DIRECCIÓN ESTRATÉGICA */}
+      {/* Citas de Dirección Estratégica */}
       <section style={{ padding: '80px 5%' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1250px', margin: '0 auto' }}>
           <h3 className="section-title" style={{ fontSize: '2.2rem', marginBottom: '2.5rem' }}>
             Perspectivas de Líderes en Management
           </h3>
@@ -182,7 +186,7 @@ export default function MisionVisionPage() {
                 key={index}
                 style={{
                   borderLeft: '4px solid var(--gold-primary)',
-                  background: 'var(--bg-surface-light)',
+                  background: 'var(--bg-surface)',
                   padding: '2.5rem',
                 }}
               >
@@ -197,15 +201,25 @@ export default function MisionVisionPage() {
         </div>
       </section>
 
-      {/* DESARROLLO TEÓRICO COMPLETO */}
-      <section style={{ background: 'var(--bg-surface-light)', padding: '80px 5%' }}>
+      {/* Desarrollo Teórico Completo */}
+      <section style={{ background: 'rgba(12, 14, 21, 0.6)', padding: '80px 5%' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <h2 className="section-title" style={{ marginBottom: '2.5rem' }}>
             Fundamentos Teóricos e Integración Normativa
           </h2>
 
           {misionVisionData.sections.map((sec, index) => (
-            <div key={index} style={{ marginBottom: '2.5rem' }}>
+            <div
+              key={index}
+              style={{
+                background: 'var(--bg-surface)',
+                backdropFilter: 'blur(16px)',
+                border: '1px solid var(--border-glass)',
+                borderRadius: '16px',
+                padding: '2.5rem',
+                marginBottom: '2.2rem',
+              }}
+            >
               <h3 style={{ fontFamily: 'var(--font-title)', color: 'var(--gold-light)', fontSize: '1.6rem', marginBottom: '1rem' }}>
                 {sec.heading}
               </h3>
@@ -217,9 +231,9 @@ export default function MisionVisionPage() {
         </div>
       </section>
 
-      {/* ENLACES A PAPERS Y PUBLICACIONES */}
+      {/* Enlaces a Papers y Publicaciones */}
       <section style={{ padding: '80px 5%' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1150px', margin: '0 auto' }}>
           <h2 className="section-title" style={{ marginBottom: '1rem' }}>
             Literatura Académica y Estándares de Dirección
           </h2>
@@ -229,7 +243,7 @@ export default function MisionVisionPage() {
 
           <div className="positions-grid">
             {misionVisionData.papers.map((paper, index) => (
-              <div className="pos-card" key={index} style={{ background: 'var(--bg-surface)' }}>
+              <div className="pos-card" key={index}>
                 <h4 style={{ fontSize: '1.15rem' }}>{paper.title}</h4>
                 <p style={{ fontSize: '0.9rem', color: 'var(--gold-light)', fontWeight: 'bold' }}>
                   {paper.author} — <em style={{ fontWeight: 'normal' }}>{paper.source}</em>
@@ -240,7 +254,7 @@ export default function MisionVisionPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn"
-                  style={{ fontSize: '0.8rem', padding: '0.5rem 1rem', marginTop: '0.8rem', display: 'inline-block' }}
+                  style={{ fontSize: '0.8rem', padding: '0.6rem 1.2rem', marginTop: '0.8rem', display: 'inline-block' }}
                 >
                   Ver Publicación / Estándar ↗
                 </a>

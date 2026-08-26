@@ -6,7 +6,7 @@ export default function CienciaTecnologiaPage() {
   return (
     <div>
       {/* Header con botón de regreso */}
-      <header style={{ position: 'sticky', top: 0 }}>
+      <header style={{ position: 'sticky', top: 0, zIndex: 1000 }}>
         <div className="logo">
           <Link to="/#inicio" style={{ textDecoration: 'none', color: 'inherit' }}>
             AITECH <span>| Calidad</span>
@@ -15,8 +15,8 @@ export default function CienciaTecnologiaPage() {
         <nav>
           <ul>
             <li>
-              <Link to="/#conocimiento" style={{ color: 'var(--gold-primary)', fontWeight: 'bold' }}>
-                ← Volver a Ciencia y Gestión
+              <Link to="/#ciencia-tecnologia" style={{ color: 'var(--gold-primary)', fontWeight: 'bold' }}>
+                ← Volver a Ciencia y Tecnología
               </Link>
             </li>
           </ul>
@@ -24,7 +24,7 @@ export default function CienciaTecnologiaPage() {
       </header>
 
       {/* Hero de la Página */}
-      <section className="hero" style={{ minHeight: '60vh', padding: '120px 5% 60px 5%' }}>
+      <section className="hero" style={{ minHeight: '50vh', padding: '120px 5% 50px 5%' }}>
         <div className="hero-content">
           <h1>{cienciaTecnologiaData.title}</h1>
           <p>{cienciaTecnologiaData.subtitle}</p>
@@ -32,7 +32,7 @@ export default function CienciaTecnologiaPage() {
       </section>
 
       {/* Citas Destacadas */}
-      <section style={{ background: 'var(--bg-surface-light)', padding: '60px 5%' }}>
+      <section style={{ background: 'rgba(12, 14, 21, 0.6)', padding: '60px 5%' }}>
         <div className="mv-grid">
           {cienciaTecnologiaData.quotes.map((quote, index) => (
             <div
@@ -43,7 +43,7 @@ export default function CienciaTecnologiaPage() {
                 background: 'var(--bg-surface)',
               }}
             >
-              <p style={{ fontStyle: 'italic', fontSize: '1.1rem', marginBottom: '1rem', color: 'var(--text-main)' }}>
+              <p style={{ fontStyle: 'italic', fontSize: '1.1rem', marginBottom: '1.2rem', color: 'var(--text-main)' }}>
                 "{quote.text}"
               </p>
               <h4 style={{ color: 'var(--gold-primary)', fontFamily: 'var(--font-title)' }}>{quote.author}</h4>
@@ -55,16 +55,26 @@ export default function CienciaTecnologiaPage() {
 
       {/* Desarrollo Teórico */}
       <section style={{ padding: '80px 5%', maxWidth: '1100px', margin: '0 auto' }}>
-        <h2 className="section-title" style={{ marginBottom: '2.5rem' }}>
+        <h2 className="section-title" style={{ marginBottom: '2.8rem' }}>
           Fundamentación Teórica y Metodológica
         </h2>
 
         {cienciaTecnologiaData.sections.map((sec, index) => (
-          <div key={index} style={{ marginBottom: '2.5rem' }}>
+          <div
+            key={index}
+            style={{
+              background: 'var(--bg-surface)',
+              backdropFilter: 'blur(16px)',
+              border: '1px solid var(--border-glass)',
+              borderRadius: '16px',
+              padding: '2.5rem',
+              marginBottom: '2.2rem',
+            }}
+          >
             <h3 style={{ fontFamily: 'var(--font-title)', color: 'var(--gold-light)', fontSize: '1.6rem', marginBottom: '1rem' }}>
               {sec.heading}
             </h3>
-            <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-muted)' }}>
+            <p style={{ fontSize: '1.08rem', lineHeight: '1.85', color: 'var(--text-muted)' }}>
               {sec.content}
             </p>
           </div>
@@ -73,25 +83,26 @@ export default function CienciaTecnologiaPage() {
         {/* Aplicación en AITECH */}
         <div
           style={{
-            background: 'linear-gradient(135deg, rgba(184, 134, 11, 0.08), rgba(248, 250, 252, 0.9))',
-            padding: '2.5rem',
-            borderRadius: '12px',
-            border: '1px solid var(--gold-dim)',
-            marginTop: '3rem',
+            background: 'linear-gradient(135deg, rgba(245, 197, 66, 0.1), rgba(18, 20, 29, 0.95))',
+            padding: '2.8rem',
+            borderRadius: '16px',
+            border: '1px solid var(--gold-primary)',
+            boxShadow: '0 0 30px rgba(245, 197, 66, 0.15)',
+            marginTop: '3.5rem',
           }}
         >
-          <h3 style={{ fontFamily: 'var(--font-title)', color: 'var(--gold-primary)', fontSize: '1.5rem', marginBottom: '1rem' }}>
+          <h3 style={{ fontFamily: 'var(--font-title)', color: 'var(--gold-primary)', fontSize: '1.6rem', marginBottom: '1rem' }}>
             Aplicación en el Área de Calidad AITECH
           </h3>
-          <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)' }}>
+          <p style={{ fontSize: '1.08rem', lineHeight: '1.85', color: 'var(--text-main)' }}>
             {cienciaTecnologiaData.aitechApplication}
           </p>
         </div>
       </section>
 
       {/* Enlaces a Papers y Publicaciones */}
-      <section style={{ background: 'var(--bg-surface-light)', padding: '80px 5%' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+      <section style={{ background: 'rgba(12, 14, 21, 0.6)', padding: '80px 5%' }}>
+        <div style={{ maxWidth: '1150px', margin: '0 auto' }}>
           <h2 className="section-title" style={{ marginBottom: '1rem' }}>
             Literatura Científica y Estándares de Referencia
           </h2>
@@ -101,8 +112,8 @@ export default function CienciaTecnologiaPage() {
 
           <div className="positions-grid">
             {cienciaTecnologiaData.papers.map((paper, index) => (
-              <div className="pos-card" key={index} style={{ background: 'var(--bg-surface)' }}>
-                <h4 style={{ fontSize: '1.15rem' }}>{paper.title}</h4>
+              <div className="pos-card" key={index}>
+                <h4 style={{ fontSize: '1.2rem' }}>{paper.title}</h4>
                 <p style={{ fontSize: '0.9rem', color: 'var(--gold-light)', fontWeight: 'bold' }}>
                   {paper.author} — <em style={{ fontWeight: 'normal' }}>{paper.source}</em>
                 </p>
@@ -112,7 +123,7 @@ export default function CienciaTecnologiaPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn"
-                  style={{ fontSize: '0.8rem', padding: '0.5rem 1rem', marginTop: '0.8rem', display: 'inline-block' }}
+                  style={{ fontSize: '0.8rem', padding: '0.6rem 1.2rem', marginTop: '0.8rem', display: 'inline-block' }}
                 >
                   Ver Publicación / Paper ↗
                 </a>
