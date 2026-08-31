@@ -1,0 +1,87 @@
+export const aitechAreas = [
+  {
+    id: 'software',
+    title: 'Software',
+    iconKey: 'code',
+    image: '/assets/verticals/software.jpg',
+    description: 'Aseguramiento de la calidad de código, pruebas de arquitectura, pruebas funcionales y automatización de procesos de desarrollo.',
+    meta: [
+      { label: 'Enfoque', value: 'Arquitectura & QA Automatizado' },
+      { label: 'Métricas', value: 'Cobertura > 95% & CI/CD' },
+      { label: 'Estándar', value: 'Clean Code & ISO 25010' },
+    ],
+  },
+  {
+    id: 'hardware',
+    title: 'Hardware',
+    iconKey: 'cpu',
+    image: '/assets/verticals/hardware.jpg',
+    description: 'Estándares físicos, pruebas de estrés térmico y eléctrico, verificación de componentes y durabilidad de equipos.',
+    meta: [
+      { label: 'Enfoque', value: 'Estrés Térmico & Diagnóstico' },
+      { label: 'Métricas', value: 'MTBF & Tolerancia Eléctrica' },
+      { label: 'Estándar', value: 'IPC / IEEE Hardware QA' },
+    ],
+  },
+  {
+    id: 'redes',
+    title: 'Redes',
+    iconKey: 'network',
+    image: '/assets/verticals/redes.jpg',
+    description: 'Validación de rendimiento en conectividad, control de latencia, topología de red y alta disponibilidad de enlaces.',
+    meta: [
+      { label: 'Enfoque', value: 'Topologías & Rendimiento' },
+      { label: 'Métricas', value: 'Latencia < 15ms & 99.99% Up' },
+      { label: 'Estándar', value: 'Cisco / ITU-T Quality' },
+    ],
+  },
+  {
+    id: 'calidad',
+    title: 'Calidad Global',
+    iconKey: 'crown',
+    isPrimary: true,
+    image: '/assets/verticals/calidad.jpg',
+    description: 'Gestión transversal de calidad en AITECH, estandarización de procesos de la empresa, auditorías internas y mejora continua.',
+    meta: [
+      { label: 'Enfoque', value: 'Gobernanza Transversal & QA' },
+      { label: 'Métricas', value: 'Cero No Conformidades' },
+      { label: 'Estándar', value: 'ISO 9001 & Six Sigma' },
+    ],
+  },
+  {
+    id: 'seguridad',
+    title: 'Seguridad',
+    iconKey: 'shield',
+    image: '/assets/verticals/seguridad.jpg',
+    description: 'Auditorías de ciberseguridad, gestión de vulnerabilidades, protección de datos y cumplimiento de normativas de seguridad.',
+    meta: [
+      { label: 'Enfoque', value: 'Pentesting & Criptografía' },
+      { label: 'Métricas', value: '0 Vulnerabilidades Críticas' },
+      { label: 'Estándar', value: 'ISO 27001 & OWASP Top 10' },
+    ],
+  },
+  {
+    id: 'cloud',
+    title: 'Cloud',
+    iconKey: 'cloud',
+    image: '/assets/verticals/cloud.jpg',
+    description: 'Garantía de escalabilidad, resiliencia, optimización de costos y continuidad operativa en infraestructura en la nube.',
+    meta: [
+      { label: 'Enfoque', value: 'Multi-Cloud & Auto-Scaling' },
+      { label: 'Métricas', value: 'SLA 99.999% & FinOps' },
+      { label: 'Estándar', value: 'AWS / Azure Well-Architected' },
+    ],
+  },
+  {
+    id: 'bigdata',
+    title: 'Big Data',
+    iconKey: 'database',
+    image: '/assets/verticals/bigdata.jpg',
+    description: 'Gobernanza de datos, calidad de la información, consistencia de pipelines de procesamiento e integridad analítica a gran escala.',
+    meta: [
+      { label: 'Enfoque', value: 'Pipelines & Data Governance' },
+      { label: 'Métricas', value: 'Consistencia & Purity 99.9%' },
+      { label: 'Estándar', value: 'DAMA-DMBOK Framework' },
+    ],
+  },
+];

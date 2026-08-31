@@ -1,0 +1,42 @@
+export const positions = [
+  {
+    id: 1,
+    title: '1. Jefatura de Calidad (QA Lead)',
+    mision: 'Liderar operativamente el equipo de QA, traduciendo la estrategia de calidad en planes concretos y asegurando coordinación total.',
+    funciones: 'Distribuir tareas, dar seguimiento a KPIs, aprobar planes de prueba, escalar riesgos críticos y realizar mentoring.',
+    themeClass: 'theme-white',
+    pdfUrl: '/docs/Descripcion_Posiciones_QA.pdf',
+  },
+  {
+    id: 2,
+    title: '2. Especialista de Automatización',
+    mision: 'Diseñar, desarrollar y mantener frameworks automatizados para reducir tiempos de regresión y acelerar la detección de defectos.',
+    funciones: 'Diseño de scripts, integración en pipelines de CI/CD y mantenimiento de la cobertura de pruebas.',
+    themeClass: 'theme-slate',
+    pdfUrl: '/docs/Descripcion_Posiciones_QA.pdf',
+  },
+  {
+    id: 3,
+    title: '3. Especialista de Calidad Funcional',
+    mision: 'Verificar que las funcionalidades cumplan requisitos definidos, ejecutando pruebas manuales y exploratorias.',
+    funciones: 'Diseño de casos de prueba, validación de historias de usuario, reporte de defectos y pruebas UAT.',
+    themeClass: 'theme-charcoal',
+    pdfUrl: '/docs/Descripcion_Posiciones_QA.pdf',
+  },
+  {
+    id: 4,
+    title: '4. Especialista de Rendimiento',
+    mision: 'Evaluar estabilidad, velocidad y escalabilidad bajo condiciones de carga para anticipar problemas en producción.',
+    funciones: 'Pruebas de carga/estrés, análisis de métricas de rendimiento y elaboración de reportes de optimización.',
+    themeClass: 'theme-emerald',
+    pdfUrl: '/docs/Descripcion_Posiciones_QA.pdf',
+  },
+  {
+    id: 5,
+    title: '5. Especialista de Integración',
+    mision: 'Validar que distintos componentes y servicios interactúen correctamente, asegurando la coherencia de extremo a extremo.',
+    funciones: 'Ejecución de pruebas entre módulos/APIs, verificación de flujos y reporte de incompatibilidades.',
+    themeClass: 'theme-mint',
+    pdfUrl: '/docs/Descripcion_Posiciones_QA.pdf',
+  },
+];
