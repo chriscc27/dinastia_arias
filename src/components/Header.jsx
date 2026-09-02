@@ -6,6 +6,7 @@ const SECTION_MAP = {
   'gestion-tecnologias': 'gestion-tecnologias',
   'ciencia-tecnologia': 'ciencia-tecnologia',
   'mision-vision': 'mision-vision',
+  'tablero-kanban': null,
   'equipo': null,       // Sección sin botón en header -> desmarca todo
   'organizacion': 'organizacion',
   'alcance': null,      // Sección sin botón en header -> desmarca todo
@@ -17,6 +18,7 @@ const ALL_SECTIONS = [
   'gestion-tecnologias',
   'ciencia-tecnologia',
   'mision-vision',
+  'tablero-kanban',
   'equipo',
   'organizacion',
   'alcance',
@@ -40,6 +42,10 @@ export default function Header() {
     }
     if (pathname === '/ciencia-tecnologia-innovacion') {
       setActiveSection('ciencia-tecnologia');
+      return;
+    }
+    if (pathname === '/tablero-kanban') {
+      setActiveSection('tablero-kanban');
       return;
     }
 
@@ -86,6 +92,7 @@ export default function Header() {
     { to: '/#gestion-tecnologias', id: 'gestion-tecnologias', label: 'Gestión' },
     { to: '/#ciencia-tecnologia', id: 'ciencia-tecnologia', label: 'Ciencia & Innovación' },
     { to: '/#mision-vision', id: 'mision-vision', label: 'Misión & Visión' },
+    { to: '/tablero-kanban', id: 'tablero-kanban', label: 'Tablero Kanban' },
     { to: '/#organizacion', id: 'organizacion', label: 'Organización' },
   ];
 
