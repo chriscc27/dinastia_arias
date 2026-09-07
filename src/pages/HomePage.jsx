@@ -5,6 +5,8 @@ import CienciaTecnologiaSection from '../components/CienciaTecnologiaSection';
 import MissionVisionSection from '../components/MissionVisionSection';
 import TeamSection from '../components/TeamSection';
 import OrgChartSection from '../components/OrgChartSection';
+import MBTISection from '../components/MBTISection';
+import ScrumSection from '../components/ScrumSection';
 import AitechScopeSection from '../components/AitechScopeSection';
 import Footer from '../components/Footer';
 
@@ -18,6 +20,8 @@ export default function HomePage() {
       <MissionVisionSection />
       <TeamSection />
       <OrgChartSection />
+      <MBTISection />
+      <ScrumSection />
       <AitechScopeSection />
       <Footer />
     </>

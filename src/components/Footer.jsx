@@ -36,6 +36,8 @@ export default function Footer() {
                 <li><Link to="/ciencia-tecnologia-innovacion">Ciencia e Innovación</Link></li>
                 <li><Link to="/mision-vision">Misión y Visión</Link></li>
                 <li><Link to="/#organizacion">Organización</Link></li>
+                <li><Link to="/#mbti">MBTI</Link></li>
+                <li><Link to="/#scrum">SCRUM</Link></li>
               </ul>
             </div>
 
