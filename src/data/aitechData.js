@@ -3,7 +3,7 @@ export const aitechAreas = [
     id: 'software',
     title: 'Software',
     iconKey: 'code',
-    image: '/assets/verticals/software.jpg',
+    image: '/dinastia_arias/assets/verticals/software.jpg',
     description: 'Aseguramiento de la calidad de código, pruebas de arquitectura, pruebas funcionales y automatización de procesos de desarrollo.',
     meta: [
       { label: 'Enfoque', value: 'Arquitectura & QA Automatizado' },
@@ -15,7 +15,7 @@ export const aitechAreas = [
     id: 'hardware',
     title: 'Hardware',
     iconKey: 'cpu',
-    image: '/assets/verticals/hardware.jpg',
+    image: '/dinastia_arias/assets/verticals/hardware.jpg',
     description: 'Estándares físicos, pruebas de estrés térmico y eléctrico, verificación de componentes y durabilidad de equipos.',
     meta: [
       { label: 'Enfoque', value: 'Estrés Térmico & Diagnóstico' },
@@ -27,7 +27,7 @@ export const aitechAreas = [
     id: 'redes',
     title: 'Redes',
     iconKey: 'network',
-    image: '/assets/verticals/redes.jpg',
+    image: '/dinastia_arias/assets/verticals/redes.jpg',
     description: 'Validación de rendimiento en conectividad, control de latencia, topología de red y alta disponibilidad de enlaces.',
     meta: [
       { label: 'Enfoque', value: 'Topologías & Rendimiento' },
@@ -40,7 +40,7 @@ export const aitechAreas = [
     title: 'Calidad Global',
     iconKey: 'crown',
     isPrimary: true,
-    image: '/assets/verticals/calidad.jpg',
+    image: '/dinastia_arias/assets/verticals/calidad.jpg',
     description: 'Gestión transversal de calidad en AITECH, estandarización de procesos de la empresa, auditorías internas y mejora continua.',
     meta: [
       { label: 'Enfoque', value: 'Gobernanza Transversal & QA' },
@@ -52,7 +52,7 @@ export const aitechAreas = [
     id: 'seguridad',
     title: 'Seguridad',
     iconKey: 'shield',
-    image: '/assets/verticals/seguridad.jpg',
+    image: '/dinastia_arias/assets/verticals/seguridad.jpg',
     description: 'Auditorías de ciberseguridad, gestión de vulnerabilidades, protección de datos y cumplimiento de normativas de seguridad.',
     meta: [
       { label: 'Enfoque', value: 'Pentesting & Criptografía' },
@@ -64,7 +64,7 @@ export const aitechAreas = [
     id: 'cloud',
     title: 'Cloud',
     iconKey: 'cloud',
-    image: '/assets/verticals/cloud.jpg',
+    image: '/dinastia_arias/assets/verticals/cloud.jpg',
     description: 'Garantía de escalabilidad, resiliencia, optimización de costos y continuidad operativa en infraestructura en la nube.',
     meta: [
       { label: 'Enfoque', value: 'Multi-Cloud & Auto-Scaling' },
@@ -76,7 +76,7 @@ export const aitechAreas = [
     id: 'bigdata',
     title: 'Big Data',
     iconKey: 'database',
-    image: '/assets/verticals/bigdata.jpg',
+    image: '/dinastia_arias/assets/verticals/bigdata.jpg',
     description: 'Gobernanza de datos, calidad de la información, consistencia de pipelines de procesamiento e integridad analítica a gran escala.',
     meta: [
       { label: 'Enfoque', value: 'Pipelines & Data Governance' },
