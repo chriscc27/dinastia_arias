@@ -8,6 +8,7 @@ const SECTION_MAP = {
   'mision-vision': 'mision-vision',
   'equipo': null,       // Sección sin botón en header -> desmarca todo
   'organizacion': 'organizacion',
+  'mbti': 'mbti',
   'alcance': null,      // Sección sin botón en header -> desmarca todo
   'contacto': 'contacto',
 };
@@ -19,6 +20,7 @@ const ALL_SECTIONS = [
   'mision-vision',
   'equipo',
   'organizacion',
+  'mbti',
   'alcance',
   'contacto'
 ];
@@ -87,6 +89,7 @@ export default function Header() {
     { to: '/#ciencia-tecnologia', id: 'ciencia-tecnologia', label: 'Ciencia & Innovación' },
     { to: '/#mision-vision', id: 'mision-vision', label: 'Misión & Visión' },
     { to: '/#organizacion', id: 'organizacion', label: 'Organización' },
+    { to: '/#mbti', id: 'mbti', label: 'MBTI' },
   ];
 
   return (
