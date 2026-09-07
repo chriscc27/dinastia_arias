@@ -1,0 +1,247 @@
+export const scrumTheory = {
+  badge: 'METODOLOGÍA ÁGIL & GESTIÓN DE CALIDAD',
+  title: 'Marco de Trabajo Scrum en AITECH',
+  lead: 'Scrum es un marco de trabajo ligero y adaptativo que permite a equipos multidisciplinarios generar valor de manera iterativa e incremental en entornos de alta complejidad tecnológica.',
+  pillars: [
+    {
+      id: 'transparencia',
+      name: 'Transparencia',
+      tag: 'Visibilidad Total',
+      desc: 'Los procesos, métricas y artefactos deben ser visibles y comprensibles tanto para quienes realizan el trabajo como para quienes lo reciben, garantizando un lenguaje común y criterios homogéneos.',
+      icon: 'eye',
+    },
+    {
+      id: 'inspeccion',
+      name: 'Inspección',
+      tag: 'Evaluación Frecuente',
+      desc: 'Evaluación periódica y diligente de los artefactos y del progreso hacia los objetivos del Sprint para detectar variaciones o anomalías potencialmente indeseables a tiempo.',
+      icon: 'search',
+    },
+    {
+      id: 'adaptacion',
+      name: 'Adaptación',
+      tag: 'Ajuste Inmediato',
+      desc: 'Si algún aspecto del proceso o del producto se desvía de los límites aceptables, el proceso o material que se está procesando debe ajustarse a la brevedad para minimizar desviaciones futuras.',
+      icon: 'refresh-cw',
+    },
+  ],
+  values: [
+    { name: 'Compromiso', desc: 'Las personas se comprometen personalmente a alcanzar los objetivos del equipo de calidad.' },
+    { name: 'Foco', desc: 'La máxima dedicación y atención se dirigen al trabajo del Sprint y al incremento actual.' },
+    { name: 'Franqueza', desc: 'El equipo y los stakeholders acuerdan ser abiertos sobre el trabajo y los desafíos encontrados.' },
+    { name: 'Respeto', desc: 'Los miembros se respetan mutuamente como profesionales capaces e independientes.' },
+    { name: 'Coraje', desc: 'Valor para abordar problemas difíciles, señalar defectos y hacer lo correcto.' },
+  ],
+};
+
+export const scrumRoles = {
+  title: 'Roles de Scrum en la Dirección de Calidad',
+  subtitle: 'Estructura ágil orientada al aseguramiento continuo en las 7 verticales de AITECH',
+  productOwner: {
+    title: 'Product Owner',
+    personName: 'Ingeniero Cárdenas',
+    roleTag: 'Gobierno del Producto & Valor',
+    responsibility: 'Responsable de maximizar el valor del producto resultante del trabajo del equipo y de gestionar efectivamente el Product Backlog. El Ingeniero Cárdenas actúa como el puente estratégico entre las necesidades del negocio en AITECH y los estándares de calidad.',
+    keyFunctions: [
+      'Definir y ordenar claramente las prioridades del Product Backlog',
+      'Alinear la visión de calidad con los objetivos corporativos de AITECH',
+      'Garantizar que el equipo comprenda los ítems del backlog al nivel requerido',
+      'Tomar decisiones finales sobre la aceptación de los incrementos en cada Sprint',
+    ],
+  },
+  scrumMaster: {
+    title: 'Scrum Master',
+    personName: 'Daniel Zamorano',
+    roleTag: 'Liderazgo Servicial & Facilitador',
+    responsibility: 'Líder servicial y facilitador del marco de trabajo Scrum. Daniel Zamorano (ISTP - El Virtuoso) promueve el entendimiento de Scrum según la guía oficial, eliminando impedimentos técnicos y operativos con criterio pragmático para maximizar la efectividad del equipo de calidad.',
+    keyFunctions: [
+      'Guiar y capacitar al equipo de calidad en autoorganización y agilidad',
+      'Remover impedimentos que obstaculicen el avance del aseguramiento técnico',
+      'Facilitar los eventos de Scrum asegurando que sean positivos y productivos',
+      'Impulsar la mejora continua y la adopción de buenas prácticas de ingeniería',
+    ],
+  },
+  developers: {
+    title: 'Equipo de Desarrollo / Especialistas de Calidad',
+    teamName: 'Dinastía Arias — Especialistas en Calidad',
+    roleTag: 'Ejecución Técnica & Excelencia',
+    responsibility: 'Equipo multidisciplinario y profesionalmente diverso comprometido con crear cualquier aspecto de un Incremento utilizable en cada Sprint.',
+    members: [
+      { name: 'Alan Flores', mbti: 'ENTJ-A', specialty: 'QA Lead & Coordinación Estratégica' },
+      { name: 'Sergio Arias', mbti: 'ENTP-T', specialty: 'Automatización de Pruebas & Frameworks' },
+      { name: 'Leonardo Delgado', mbti: 'ISTJ-A', specialty: 'Calidad Funcional & Pruebas Rigurosas' },
+      { name: 'Daniel Zamorano', mbti: 'ISTP', specialty: 'Rendimiento, Stress & Depuración Técnica' },
+      { name: 'Christian Coronel', mbti: 'ENFP-A', specialty: 'Integración Continua, CI/CD & Despliegue' },
+    ],
+  },
+};
+
+export const scrumEvents = [
+  {
+    id: 'sprint',
+    number: '01',
+    name: 'El Sprint',
+    timebox: '2 Semanas',
+    frequency: 'Ciclo Regular',
+    desc: 'El contenedor de todos los demás eventos. Un ciclo de duración fija donde se crea un incremento de producto potencialmente desplegable y de alta calidad.',
+  },
+  {
+    id: 'planning',
+    number: '02',
+    name: 'Sprint Planning',
+    timebox: '4 Horas máx.',
+    frequency: 'Inicio de cada Sprint',
+    desc: 'Sesión colaborativa donde el equipo define qué se puede entregar en el Sprint y cómo se llevará a cabo el trabajo para alcanzar el Sprint Goal.',
+  },
+  {
+    id: 'daily',
+    number: '03',
+    name: 'Daily Scrum',
+    timebox: '15 Minutos',
+    frequency: 'Diario',
+    desc: 'Inspección diaria del progreso hacia el Sprint Goal y adaptación del Sprint Backlog según sea necesario, identificando bloqueos en caliente.',
+  },
+  {
+    id: 'review',
+    number: '04',
+    name: 'Sprint Review',
+    timebox: '2 Horas máx.',
+    frequency: 'Final de cada Sprint',
+    desc: 'Inspección del Incremento terminado con el Product Owner (Ingeniero Cárdenas) y stakeholders para evaluar lo logrado y adaptar el Product Backlog.',
+  },
+  {
+    id: 'retrospective',
+    number: '05',
+    name: 'Sprint Retrospective',
+    timebox: '1.5 Horas máx.',
+    frequency: 'Conclusión del Sprint',
+    desc: 'Espacio de introspección facilitado por el Scrum Master (Daniel Zamorano) para identificar mejoras en procesos, herramientas y dinámicas humanas.',
+  },
+];
+
+export const scrumArtifacts = [
+  {
+    id: 'product-backlog',
+    name: 'Product Backlog',
+    commitment: 'Objetivo del Producto (Product Goal)',
+    desc: 'Lista viva y priorizada de todos los requisitos, funcionalidades, estándares y mejoras de calidad previstos para el ecosistema AITECH.',
+    tag: 'Estratégico / Largo Plazo',
+  },
+  {
+    id: 'sprint-backlog',
+    name: 'Sprint Backlog',
+    commitment: 'Objetivo del Sprint (Sprint Goal)',
+    desc: 'El conjunto de elementos del Product Backlog seleccionados para el Sprint actual, junto con un plan de entrega táctico y detallado.',
+    tag: 'Táctico / 2 Semanas',
+  },
+  {
+    id: 'increment',
+    name: 'Incremento',
+    commitment: 'Definición de Terminado (DoD)',
+    desc: 'Paso concreto hacia el Objetivo del Producto. Cada incremento debe ser verificable, cumplir al 100% la Definición de Terminado y ser potencialmente desplegable.',
+    tag: 'Operativo / Verificable',
+  },
+];
+
+export const initialKanbanTasks = [
+  {
+    id: 'task-1',
+    title: 'Framework E2E con Playwright para vertical Cloud',
+    assignee: 'Sergio Arias',
+    assigneeInitials: 'SA',
+    mbti: 'ENTP-T',
+    vertical: 'Cloud',
+    priority: 'Alta',
+    status: 'todo',
+  },
+  {
+    id: 'task-2',
+    title: 'Matriz de trazabilidad de requisitos ISO/IEC 25010',
+    assignee: 'Leonardo Delgado',
+    assigneeInitials: 'LD',
+    mbti: 'ISTJ-A',
+    vertical: 'Calidad',
+    priority: 'Media',
+    status: 'todo',
+  },
+  {
+    id: 'task-3',
+    title: 'Pruebas de carga y estrés en brokers MQTT de IoT',
+    assignee: 'Daniel Zamorano',
+    assigneeInitials: 'DZ',
+    mbti: 'ISTP / Scrum Master',
+    vertical: 'Hardware',
+    priority: 'Alta',
+    status: 'in-progress',
+  },
+  {
+    id: 'task-4',
+    title: 'Auditoría de seguridad y penetración en API Gateway',
+    assignee: 'Alan Flores',
+    assigneeInitials: 'AF',
+    mbti: 'ENTJ-A',
+    vertical: 'Seguridad',
+    priority: 'Crítica',
+    status: 'in-progress',
+  },
+  {
+    id: 'task-5',
+    title: 'Pipeline automatizado de QA en GitHub Actions',
+    assignee: 'Christian Coronel',
+    assigneeInitials: 'CC',
+    mbti: 'ENFP-A',
+    vertical: 'Software',
+    priority: 'Alta',
+    status: 'qa-review',
+  },
+  {
+    id: 'task-6',
+    title: 'Validación de integridad en clústeres Big Data Hadoop',
+    assignee: 'Sergio Arias',
+    assigneeInitials: 'SA',
+    mbti: 'ENTP-T',
+    vertical: 'Big Data',
+    priority: 'Media',
+    status: 'qa-review',
+  },
+  {
+    id: 'task-7',
+    title: 'Definición de Terminado (DoD) Sprint 04 aprobada',
+    assignee: 'Ing. Cárdenas / D. Zamorano',
+    assigneeInitials: 'PO',
+    mbti: 'Product Owner',
+    vertical: 'Gobernanza',
+    priority: 'Crítica',
+    status: 'done',
+  },
+  {
+    id: 'task-8',
+    title: 'Verificación de latencia de red en topología Mesh',
+    assignee: 'Daniel Zamorano',
+    assigneeInitials: 'DZ',
+    mbti: 'ISTP / Scrum Master',
+    vertical: 'Redes',
+    priority: 'Alta',
+    status: 'done',
+  },
+];
+
+export const scrumProjectApplication = {
+  title: 'Aplicación de Scrum en AITECH',
+  subtitle: 'Aseguramiento de Calidad Predictivo en las 7 Verticales',
+  lead: 'La Dirección de Calidad de AITECH implementa Scrum como motor de precisión operativa para supervisar de manera continua y rigurosa el desarrollo en Software, Hardware, Redes, Seguridad, Cloud, Big Data y Calidad.',
+  pillarsList: [
+    {
+      title: 'Sprints sincronizados con lanzamientos corporativos',
+      desc: 'Ciclos de 2 semanas alineados con las entregas de ingeniería, permitiendo certificar incrementos antes de su paso a producción.',
+    },
+    {
+      title: 'Definición de Terminado (DoD) basada en normas ISO/IEEE',
+      desc: 'Ninguna historia de usuario se considera terminada sin cobertura mínima del 85% en pruebas unitarias, análisis estático de código sin vulnerabilidades críticas y documentación técnica actualizada.',
+    },
+    {
+      title: 'Liderazgo y Gobernanza con el Product Owner y Scrum Master',
+      desc: 'El Product Owner Ingeniero Cárdenas establece el rumbo estratégico del producto y prioridades del backlog, mientras el Scrum Master Daniel Zamorano asegura la fluidez y eliminación de impedimentos técnicos en el equipo.',
+    },
+  ],
+};

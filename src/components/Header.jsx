@@ -9,6 +9,7 @@ const SECTION_MAP = {
   'equipo': null,       // Sección sin botón en header -> desmarca todo
   'organizacion': 'organizacion',
   'mbti': 'mbti',
+  'scrum': 'scrum',
   'alcance': null,      // Sección sin botón en header -> desmarca todo
   'contacto': 'contacto',
 };
@@ -21,6 +22,7 @@ const ALL_SECTIONS = [
   'equipo',
   'organizacion',
   'mbti',
+  'scrum',
   'alcance',
   'contacto'
 ];
@@ -90,6 +92,7 @@ export default function Header() {
     { to: '/#mision-vision', id: 'mision-vision', label: 'Misión & Visión' },
     { to: '/#organizacion', id: 'organizacion', label: 'Organización' },
     { to: '/#mbti', id: 'mbti', label: 'MBTI' },
+    { to: '/#scrum', id: 'scrum', label: 'SCRUM' },
   ];
 
   return (
