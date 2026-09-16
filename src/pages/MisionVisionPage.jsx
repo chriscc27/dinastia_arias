@@ -35,7 +35,7 @@ export default function MisionVisionPage() {
           width: '100%',
           minHeight: '80vh',
           padding: '150px 6% 80px 6%',
-          background: "linear-gradient(180deg, rgba(16, 25, 26, 0.78) 0%, rgba(18, 27, 28, 0.94) 100%), url('/assets/gestion_hero_art.jpg') center/cover no-repeat",
+          background: "linear-gradient(180deg, rgba(16, 25, 26, 0.78) 0%, rgba(18, 27, 28, 0.94) 100%), url('/dinastia_arias/assets/gestion_hero_art.jpg') center/cover no-repeat",
           borderBottomLeftRadius: '36px',
           borderBottomRightRadius: '36px',
           boxShadow: '0 24px 60px rgba(0, 0, 0, 0.22)',

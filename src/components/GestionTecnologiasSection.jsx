@@ -14,7 +14,7 @@ export default function GestionTecnologiasSection() {
 
           <div className="split-image-wrapper">
             <img
-              src="/assets/gestion_hero_art.jpg"
+              src="/dinastia_arias/assets/gestion_hero_art.jpg"
               alt="Gestión de Tecnologías AITECH"
               className="split-hero-image"
             />
