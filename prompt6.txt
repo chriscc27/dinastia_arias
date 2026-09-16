@@ -1,0 +1,1495 @@
+<USER_REQUEST>
+Actúa como:
+
+- Diseñador UI/UX Senior.
+- Front-End Developer Senior.
+- Especialista en arquitectura de interfaces empresariales.
+- Especialista en modelado IDEF-0.
+- Especialista en BPMN 2.0.2.
+- Especialista en procesos de aseguramiento y control de calidad de software.
+
+Debes continuar una página web existente denominada:
+
+AITECH | CALIDAD
+
+La página representa al Departamento de Calidad de una organización tecnológica.
+
+IMPORTANTE:
+
+NO diseñes una página nueva desde cero.
+
+NO cambies el diseño general existente.
+
+NO reemplaces la identidad visual.
+
+NO conviertas la página en un dashboard genérico.
+
+Debes integrar las nuevas secciones como una continuación natural de las secciones existentes.
+
+La implementación se realizará en DOS FASES:
+
+FASE 1 → IDEF-0
+FASE 2 → BPMN
+
+No implementar BPMN hasta terminar y validar IDEF-0.
+
+============================================================
+1. CONTEXTO ACTUAL DE LA PÁGINA
+============================================================
+
+La navegación existente contiene:
+
+INICIO
+GESTIÓN
+CIENCIA & INNOVACIÓN
+MISIÓN & VISIÓN
+ORGANIZACIÓN
+MBTI
+SCRUM
+MÁS
+
+Agregar después de SCRUM:
+
+IDEF-0
+BPMN
+
+El orden final debe ser:
+
+MBTI → SCRUM → IDEF-0 → BPMN
+
+La captura de pantalla proporcionada representa el lenguaje visual que debe mantenerse.
+
+La página utiliza:
+
+- fondo claro;
+- tarjetas blancas;
+- bloques oscuros;
+- verde/lima como color de énfasis;
+- bordes redondeados;
+- tipografía limpia;
+- estética tecnológica;
+- composición editorial;
+- grandes espacios;
+- botones compactos;
+- sombras suaves;
+- animaciones discretas;
+- navegación superior tipo pill;
+- composición premium/corporativa.
+
+Mantener exactamente este lenguaje visual.
+
+============================================================
+2. CONTEXTO ORGANIZACIONAL
+============================================================
+
+Todo el contenido debe representar al:
+
+DEPARTAMENTO DE CALIDAD
+
+de una empresa de:
+
+DESARROLLO DE SOFTWARE Y SOLUCIONES TECNOLÓGICAS.
+
+Por lo tanto, los ejemplos NO deben parecer de:
+
+- manufactura;
+- construcción;
+- industria pesada;
+- medicina;
+- logística;
+- producción física.
+
+Los ejemplos deben corresponder a actividades reales de una empresa de desarrollo de software.
+
+Ejemplos:
+
+- análisis de requisitos;
+- revisión de entregables;
+- pruebas funcionales;
+- pruebas no funcionales;
+- revisión de código;
+- seguridad;
+- rendimiento;
+- usabilidad;
+- documentación;
+- gestión de defectos;
+- criterios de aceptación;
+- validación;
+- corrección;
+- reevaluación;
+- liberación;
+- mejora continua.
+
+============================================================
+3. REFERENCIAS DE CALIDAD QUE DEBEN UTILIZARSE
+============================================================
+
+NO inventar estándares.
+
+Utilizar como referencias conceptuales, cuando correspondan:
+
+ISO 9001
+Sistema de gestión de calidad.
+
+ISO/IEC 25010:2023
+Modelo de calidad de productos de software.
+
+ISO/IEC/IEEE 12207:2026
+Procesos del ciclo de vida de software.
+
+ISO/IEC/IEEE 29119-1:2022
+Conceptos generales de testing.
+
+ISO/IEC/IEEE 29119-2:2021
+Procesos de pruebas de software.
+
+ISO/IEC/IEEE 29119-3:2021
+Documentación de pruebas.
+
+ISO/IEC 27001:2022
+Sistema de gestión de seguridad de la información.
+
+OWASP ASVS
+Verificación de seguridad de aplicaciones.
+
+BPMN 2.0.2
+Notación estándar para modelado de procesos.
+
+IMPORTANTE:
+
+No afirmar que AITECH está certificada en ninguna de estas normas.
+
+Estas normas deben presentarse como:
+
+"referencias y criterios utilizados para estructurar el modelo de calidad"
+
+y no como certificaciones reales de la organización.
+
+============================================================
+4. DIFERENCIA CONCEPTUAL
+============================================================
+
+La página debe enseñar claramente:
+
+IDEF-0 responde:
+
+"¿QUÉ FUNCIONES REALIZA EL DEPARTAMENTO DE CALIDAD?"
+
+BPMN responde:
+
+"¿CÓMO SE EJECUTA UN PROCESO ESPECÍFICO DE CALIDAD?"
+
+Por lo tanto:
+
+IDEF-0
+=
+visión funcional.
+
+BPMN
+=
+flujo operativo.
+
+Ambos modelos deben estar relacionados.
+
+============================================================
+FASE 1
+IDEF-0
+============================================================
+
+============================================================
+5. HERO IDEF-0
+============================================================
+
+Crear una sección visualmente coherente con el resto de la página.
+
+Etiqueta:
+
+IDEF-0
+
+Título:
+
+"Modelando la función de calidad"
+
+Subtítulo:
+
+"Estructura funcional del Departamento de Calidad"
+
+Texto:
+
+"IDEF-0 permite representar las funciones que conforman la gestión de calidad, identificando las entradas que reciben, los controles que las condicionan, las salidas que producen y los mecanismos necesarios para ejecutarlas."
+
+Mantener el diseño visual existente.
+
+============================================================
+6. DEFINICIÓN DE IDEF-0
+============================================================
+
+Crear una sección:
+
+"¿Qué es IDEF-0?"
+
+Explicar:
+
+IDEF-0 es una técnica de modelado funcional que permite representar de manera estructurada las funciones de un sistema, organización o proceso.
+
+Explicar los cuatro elementos:
+
+INPUT
+Entrada.
+
+CONTROL
+Regla, norma, política, criterio o condición que regula la ejecución.
+
+OUTPUT
+Resultado producido.
+
+MECHANISM
+Persona, equipo, sistema, herramienta o recurso que ejecuta la función.
+
+Representarlos gráficamente.
+
+============================================================
+7. ACLARACIÓN IMPORTANTE SOBRE LOS CONTROLES
+============================================================
+
+ESTA ES UNA PARTE CRÍTICA DEL MODELO.
+
+NO utilizar como controles genéricos frases como:
+
+"Calidad"
+"Buenas prácticas"
+"Normas"
+"Políticas"
+
+Eso es demasiado superficial.
+
+Los controles deben ser concretos y aplicables a una empresa real de desarrollo de software.
+
+Utilizar controles como:
+
+- criterios de aceptación;
+- requisitos funcionales aprobados;
+- requisitos no funcionales;
+- políticas de revisión de código;
+- estándares de desarrollo;
+- procedimientos de pruebas;
+- criterios de cobertura de pruebas;
+- política de gestión de defectos;
+- criterios de severidad y prioridad;
+- estándares de seguridad;
+- requisitos de protección de información;
+- criterios de rendimiento;
+- criterios de disponibilidad;
+- criterios de usabilidad;
+- procedimientos de liberación;
+- criterios de aprobación de versiones;
+- métricas de calidad;
+- procedimientos de auditoría;
+- requisitos contractuales;
+- requisitos del cliente.
+
+Relacionar estos controles con estándares reconocidos.
+
+============================================================
+8. REFERENCIA DE CONTROLES
+============================================================
+
+Los controles deben poder mostrar una referencia asociada.
+
+Ejemplo:
+
+CONTROL:
+
+"Criterios de calidad del producto"
+
+Referencia:
+
+ISO/IEC 25010:2023
+
+Aplicación:
+
+"Utilizado como referencia para evaluar características de calidad del producto de software."
+
+Otro:
+
+CONTROL:
+
+"Proceso de pruebas"
+
+Referencia:
+
+ISO/IEC/IEEE 29119-2:2021
+
+Aplicación:
+
+"Referencia para estructurar el proceso de pruebas de software."
+
+Otro:
+
+CONTROL:
+
+"Seguridad de la aplicación"
+
+Referencia:
+
+OWASP ASVS
+
+Aplicación:
+
+"Referencia para requisitos y verificación de controles técnicos de seguridad."
+
+Otro:
+
+CONTROL:
+
+"Gestión y mejora del sistema de calidad"
+
+Referencia:
+
+ISO 9001
+
+Aplicación:
+
+"Referencia para estructurar procesos de calidad, seguimiento y mejora continua."
+
+Otro:
+
+CONTROL:
+
+"Proceso del ciclo de vida del software"
+
+Referencia:
+
+ISO/IEC/IEEE 12207:2026
+
+Aplicación:
+
+"Referencia para organizar procesos relacionados con el ciclo de vida del software."
+
+============================================================
+9. MODELO IDEF-0 PRINCIPAL
+============================================================
+
+Crear:
+
+A-0
+
+Título de función:
+
+"Garantizar la calidad de soluciones de software"
+
+INPUTS:
+
+1. Requisitos funcionales.
+2. Requisitos no funcionales.
+3. Historias de usuario.
+4. Diseños y prototipos.
+5. Código fuente.
+6. Builds o versiones del sistema.
+7. Casos de prueba.
+8. Documentación técnica.
+9. Reportes de incidencias.
+10. Retroalimentación de usuarios.
+
+CONTROLS:
+
+1. Criterios de aceptación.
+2. ISO/IEC 25010:2023.
+3. ISO/IEC/IEEE 29119.
+4. ISO/IEC/IEEE 12207:2026.
+5. ISO/IEC 27001:2022.
+6. OWASP ASVS.
+7. Políticas internas de desarrollo.
+8. Estándares de revisión de código.
+9. Criterios de seguridad.
+10. Criterios de rendimiento.
+11. Criterios de usabilidad.
+12. Procedimientos de gestión de defectos.
+13. Requisitos contractuales y del cliente.
+
+OUTPUTS:
+
+1. Resultado de evaluación.
+2. Casos de prueba ejecutados.
+3. Defectos identificados.
+4. Informe de calidad.
+5. Recomendaciones de mejora.
+6. Solicitudes de corrección.
+7. Evidencias de pruebas.
+8. Validación de requisitos.
+9. Aprobación para liberación.
+10. Registro de métricas de calidad.
+
+MECHANISMS:
+
+1. Departamento de Calidad.
+2. QA/Testers.
+3. Desarrolladores.
+4. Líder técnico.
+5. Product Owner/Responsable del producto.
+6. Responsable del proyecto.
+7. Herramientas de gestión de pruebas.
+8. Repositorio de código.
+9. CI/CD.
+10. Herramientas de análisis estático.
+11. Herramientas de seguridad.
+12. Sistemas de seguimiento de incidencias.
+
+============================================================
+10. REPRESENTACIÓN VISUAL A-0
+============================================================
+
+Mostrar:
+
+                    CONTROLES
+                         ↓
+                         ↓
+INPUTS ─────────→ [ GARANTIZAR ] ─────────→ OUTPUTS
+                  [ CALIDAD DE ]
+                  [ SOFTWARE   ]
+                         ↑
+                         │
+                    MECHANISMS
+
+NO mostrarlo como ASCII.
+
+Crear una representación gráfica real.
+
+Debe parecer un diagrama IDEF-0 profesional.
+
+============================================================
+11. INTERACTIVIDAD DEL A-0
+============================================================
+
+Cada grupo debe ser seleccionable:
+
+INPUTS
+CONTROLS
+OUTPUTS
+MECHANISMS
+
+Al seleccionar:
+
+CONTROLS
+
+mostrar un panel con:
+
+"Controles de calidad"
+
+Y listar los controles.
+
+Cada control debe mostrar:
+
+Nombre
+Descripción
+Referencia
+Aplicación práctica
+
+Ejemplo:
+
+ISO/IEC 25010:2023
+
+Descripción:
+"Modelo de calidad de producto aplicable a software."
+
+Aplicación:
+"Permite definir y evaluar características de calidad del producto."
+
+============================================================
+12. DESCOMPOSICIÓN A0
+============================================================
+
+Crear:
+
+"A0 — Descomposición de la función de calidad"
+
+Dividir la función principal en:
+
+A1 — Definir criterios y requisitos de calidad.
+
+A2 — Revisar requisitos y entregables.
+
+A3 — Diseñar y preparar pruebas.
+
+A4 — Ejecutar controles y pruebas.
+
+A5 — Gestionar defectos y acciones correctivas.
+
+A6 — Validar resultados y liberar.
+
+A7 — Analizar métricas y promover mejora continua.
+
+Esto es más completo que limitarse a seis actividades.
+
+============================================================
+13. CONTROLES ESPECÍFICOS POR FUNCIÓN
+============================================================
+
+Cada función debe tener controles propios.
+
+A1 — Definir criterios y requisitos de calidad.
+
+Controles:
+
+- ISO/IEC 25010.
+- requisitos del cliente;
+- criterios de aceptación;
+- requisitos no funcionales;
+- políticas internas.
+
+A2 — Revisar requisitos y entregables.
+
+Controles:
+
+- revisión por pares;
+- criterios de completitud;
+- trazabilidad de requisitos;
+- estándares internos;
+- criterios de aceptación.
+
+A3 — Diseñar y preparar pruebas.
+
+Controles:
+
+- ISO/IEC/IEEE 29119;
+- estrategia de pruebas;
+- casos de prueba;
+- criterios de entrada/salida;
+- análisis de riesgos.
+
+A4 — Ejecutar controles y pruebas.
+
+Controles:
+
+- procedimientos de testing;
+- ISO/IEC/IEEE 29119;
+- criterios de calidad ISO/IEC 25010;
+- pruebas de seguridad;
+- OWASP ASVS;
+- criterios de rendimiento.
+
+A5 — Gestionar defectos y acciones correctivas.
+
+Controles:
+
+- política de gestión de defectos;
+- clasificación de severidad;
+- prioridad;
+- análisis de causa;
+- criterios de cierre.
+
+A6 — Validar resultados y liberar.
+
+Controles:
+
+- criterios de aceptación;
+- criterios de salida;
+- aprobación de calidad;
+- procedimiento de liberación;
+- requisitos del proyecto.
+
+A7 — Analizar métricas y promover mejora continua.
+
+Controles:
+
+- indicadores de calidad;
+- métricas de defectos;
+- resultados de pruebas;
+- tendencias;
+- acciones preventivas/correctivas;
+- mejora continua.
+
+============================================================
+14. PANEL DE DETALLE IDEF-0
+============================================================
+
+Cuando el usuario seleccione una función:
+
+mostrar:
+
+FUNCIÓN
+
+Objetivo
+
+Entradas
+
+Controles
+
+Salidas
+
+Mecanismos
+
+Referencias
+
+Ejemplo:
+
+A4 — Ejecutar controles y pruebas
+
+Objetivo:
+"Verificar que el producto cumpla los requisitos funcionales, no funcionales y de seguridad definidos."
+
+Entradas:
+"Versión candidata, requisitos y casos de prueba."
+
+Controles:
+"ISO/IEC 25010, ISO/IEC/IEEE 29119, OWASP ASVS y criterios de aceptación."
+
+Salidas:
+"Resultados de pruebas, evidencias e incidencias."
+
+Mecanismos:
+"QA, herramientas de testing, CI/CD y herramientas de análisis."
+
+============================================================
+15. MATRIZ INTERACTIVA DE CONTROLES
+============================================================
+
+Agregar una sección complementaria:
+
+"Marco de controles de calidad"
+
+Mostrar tarjetas o una tabla interactiva:
+
+CONTROL
+REFERENCIA
+OBJETIVO
+APLICACIÓN
+
+Ejemplos:
+
+Calidad del producto
+ISO/IEC 25010:2023
+Evaluar características de calidad del software.
+
+Proceso de pruebas
+ISO/IEC/IEEE 29119
+Estructurar y documentar pruebas.
+
+Ciclo de vida
+ISO/IEC/IEEE 12207:2026
+Estructurar procesos del ciclo de vida.
+
+Seguridad
+ISO/IEC 27001 / OWASP ASVS
+Gestionar y verificar controles de seguridad.
+
+Gestión de calidad
+ISO 9001
+Establecer y mejorar procesos de calidad.
+
+Al seleccionar una fila mostrar más información.
+
+============================================================
+FASE 2
+BPMN
+============================================================
+
+============================================================
+16. HERO BPMN
+============================================================
+
+Título:
+
+"BPMN"
+
+Subtítulo:
+
+"Del modelo funcional al proceso operativo"
+
+Texto:
+
+"BPMN permite representar cómo se ejecuta un proceso de calidad mediante actividades, eventos, decisiones, responsables y flujos de trabajo."
+
+============================================================
+17. DEFINICIÓN BPMN
+============================================================
+
+Explicar:
+
+BPMN significa:
+
+Business Process Model and Notation.
+
+Es una notación gráfica estandarizada para representar procesos empresariales.
+
+Utilizar como referencia BPMN 2.0.2 de OMG.
+
+Mostrar:
+
+EVENTO
+ACTIVIDAD
+GATEWAY
+FLUJO
+POOL
+LANE
+MENSAJE
+
+Cada elemento debe ser interactivo.
+
+============================================================
+18. PROCESO BPMN
+============================================================
+
+El proceso debe ser:
+
+"Evaluación y aprobación de una versión de software"
+
+No utilizar un flujo excesivamente simple.
+
+Debe representar un proceso realista de QA.
+
+============================================================
+19. POOL BPMN
+============================================================
+
+Crear un Pool:
+
+"AITECH — Proceso de Calidad de Software"
+
+Dentro utilizar Lanes:
+
+LANE 1:
+Equipo de Desarrollo
+
+LANE 2:
+Departamento de Calidad
+
+LANE 3:
+Responsable del Proyecto / Producto
+
+Opcional:
+
+LANE 4:
+DevOps / Infraestructura
+
+Utilizar únicamente si aporta valor al proceso.
+
+============================================================
+20. FLUJO BPMN DETALLADO
+============================================================
+
+EVENTO DE INICIO:
+
+"Versión candidata disponible"
+
+↓
+
+LANE DESARROLLO
+
+ACTIVIDAD:
+
+"Preparar versión candidata"
+
+↓
+
+ACTIVIDAD:
+
+"Entregar build y documentación"
+
+↓
+
+LANE CALIDAD
+
+ACTIVIDAD:
+
+"Recibir entregable"
+
+↓
+
+ACTIVIDAD:
+
+"Verificar requisitos y criterios de aceptación"
+
+↓
+
+GATEWAY:
+
+"¿Requisitos completos?"
+
+NO:
+
+"Registrar observaciones"
+
+↓
+
+"Solicitar ajustes"
+
+↓
+
+Regresar a:
+
+"Preparar versión candidata"
+
+SI:
+
+Continuar.
+
+↓
+
+ACTIVIDAD:
+
+"Preparar plan/casos de prueba"
+
+↓
+
+ACTIVIDAD:
+
+"Ejecutar pruebas funcionales"
+
+↓
+
+ACTIVIDAD:
+
+"Evaluar calidad no funcional"
+
+Aquí considerar:
+
+- rendimiento;
+- usabilidad;
+- compatibilidad;
+- confiabilidad;
+- mantenibilidad;
+- seguridad.
+
+Relacionar estas evaluaciones con ISO/IEC 25010.
+
+↓
+
+ACTIVIDAD:
+
+"Realizar verificaciones de seguridad"
+
+Relacionar con:
+
+OWASP ASVS
+ISO/IEC 27001
+
+↓
+
+GATEWAY:
+
+"¿Se detectaron defectos?"
+
+SI:
+
+↓
+
+"Registrar defecto"
+
+↓
+
+GATEWAY:
+
+"¿Defecto bloqueante o crítico?"
+
+SI:
+
+↓
+
+"Notificar al equipo de desarrollo"
+
+↓
+
+"Corregir defecto"
+
+↓
+
+"Generar nueva versión"
+
+↓
+
+"Reevaluar"
+
+↓
+
+Regresar a pruebas.
+
+NO:
+
+↓
+
+"Registrar defecto para tratamiento posterior"
+
+↓
+
+Continuar según criterio definido.
+
+Si NO se detectan defectos bloqueantes:
+
+↓
+
+ACTIVIDAD:
+
+"Consolidar resultados de pruebas"
+
+↓
+
+ACTIVIDAD:
+
+"Generar informe de calidad"
+
+↓
+
+LANE RESPONSABLE DEL PROYECTO
+
+ACTIVIDAD:
+
+"Revisar resultados"
+
+↓
+
+GATEWAY:
+
+"¿Cumple criterios de liberación?"
+
+NO:
+
+↓
+
+"Solicitar correcciones"
+
+↓
+
+Regresar a:
+
+"Corregir defecto"
+
+SI:
+
+↓
+
+ACTIVIDAD:
+
+"Autorizar liberación"
+
+↓
+
+EVENTO FINAL:
+
+"Versión aprobada"
+
+============================================================
+21. CONTROLES DENTRO DEL BPMN
+============================================================
+
+Los controles NO deben aparecer solamente en IDEF-0.
+
+También deben reflejarse en el proceso BPMN.
+
+Por ejemplo:
+
+Durante:
+
+"Verificar requisitos"
+
+mostrar:
+
+Criterios de aceptación.
+
+Durante:
+
+"Ejecutar pruebas"
+
+mostrar:
+
+ISO/IEC/IEEE 29119.
+
+Durante:
+
+"Evaluar calidad"
+
+mostrar:
+
+ISO/IEC 25010.
+
+Durante:
+
+"Verificar seguridad"
+
+mostrar:
+
+OWASP ASVS / ISO/IEC 27001.
+
+Durante:
+
+"Autorizar liberación"
+
+mostrar:
+
+criterios de salida y aprobación.
+
+============================================================
+22. INTERACTIVIDAD BPMN
+============================================================
+
+Cada actividad debe ser seleccionable.
+
+Mostrar:
+
+Nombre
+Responsable
+Objetivo
+Entrada
+Control aplicado
+Actividad
+Salida
+Siguiente paso
+
+Ejemplo:
+
+ACTIVIDAD:
+
+"Ejecutar pruebas funcionales"
+
+Responsable:
+
+Departamento de Calidad
+
+Entrada:
+
+Build + requisitos + casos de prueba.
+
+Control:
+
+ISO/IEC/IEEE 29119.
+
+Actividad:
+
+Ejecutar pruebas diseñadas.
+
+Salida:
+
+Resultados + evidencias + defectos.
+
+============================================================
+23. GATEWAYS INTERACTIVOS
+============================================================
+
+Los gateways deben mostrar claramente sus condiciones.
+
+Ejemplo:
+
+¿REQUISITOS COMPLETOS?
+
+SI
+→ Continuar.
+
+NO
+→ Registrar observaciones.
+
+Al seleccionar una ruta mostrar una explicación.
+
+============================================================
+24. EXPLORADOR BPMN
+============================================================
+
+Agregar botón:
+
+"EXPLORAR PROCESO"
+
+Al activarlo:
+
+PASO 01
+Versión candidata disponible.
+
+PASO 02
+Preparar versión.
+
+PASO 03
+Entregar documentación.
+
+PASO 04
+Revisar requisitos.
+
+PASO 05
+Preparar pruebas.
+
+PASO 06
+Ejecutar pruebas.
+
+PASO 07
+Evaluar calidad.
+
+PASO 08
+Verificar seguridad.
+
+PASO 09
+Gestionar defectos.
+
+PASO 10
+Reevaluar.
+
+PASO 11
+Generar informe.
+
+PASO 12
+Revisar resultados.
+
+PASO 13
+Autorizar liberación.
+
+PASO 14
+Versión aprobada.
+
+El nodo activo debe resaltarse dentro del BPMN.
+
+============================================================
+25. MÉTRICAS DE CALIDAD
+============================================================
+
+Agregar al final una sección:
+
+"Indicadores utilizados en el proceso"
+
+No inventar números.
+
+Mostrar solamente indicadores que podrían utilizarse.
+
+Ejemplos:
+
+- porcentaje de casos de prueba ejecutados;
+- porcentaje de casos exitosos;
+- defectos por severidad;
+- defectos abiertos/cerrados;
+- tasa de defectos encontrados;
+- porcentaje de requisitos validados;
+- cobertura de pruebas;
+- tiempo promedio de resolución;
+- incidencias bloqueantes;
+- porcentaje de retrabajo;
+- cumplimiento de criterios de aceptación.
+
+Cada indicador debe explicar brevemente para qué sirve.
+
+============================================================
+26. RELACIÓN IDEF-0 → BPMN
+============================================================
+
+Crear una sección final:
+
+"De la función al proceso"
+
+Mostrar:
+
+IDEF-0
+
+¿Qué hacemos?
+
+↓
+
+Funciones de Calidad
+
+↓
+
+BPMN
+
+¿Cómo lo hacemos?
+
+↓
+
+Proceso de evaluación y aprobación
+
+Explicar:
+
+"IDEF-0 permite identificar y organizar las funciones que conforman la gestión de calidad. BPMN toma una de esas funciones y representa su ejecución mediante actividades, responsables, decisiones, controles y resultados."
+
+============================================================
+27. REFERENCIAS VISUALES
+============================================================
+
+Agregar una sección discreta:
+
+"Referencias utilizadas"
+
+Mostrar:
+
+ISO 9001
+Gestión de calidad.
+
+ISO/IEC 25010
+Calidad del producto de software.
+
+ISO/IEC/IEEE 12207
+Procesos del ciclo de vida del software.
+
+ISO/IEC/IEEE 29119
+Testing de software.
+
+ISO/IEC 27001
+Gestión de seguridad de la información.
+
+OWASP ASVS
+Verificación de seguridad de aplicaciones.
+
+OMG BPMN 2.0.2
+Notación para modelado de procesos.
+
+IMPORTANTE:
+
+No afirmar certificación.
+
+Utilizar expresiones como:
+
+"Referencia"
+"Marco utilizado"
+"Criterio aplicado"
+"Estándar de referencia"
+
+============================================================
+28. DISEÑO
+============================================================
+
+Mantener exactamente:
+
+- colores;
+- tipografía;
+- botones;
+- bordes;
+- radios;
+- sombras;
+- navegación;
+- animaciones;
+- spacing;
+- estilo editorial;
+- footer;
+- header.
+
+El nuevo contenido debe parecer parte original de AITECH | CALIDAD.
+
+No crear un dashboard.
+
+No utilizar tablas gigantes.
+
+No utilizar demasiados iconos.
+
+No utilizar emojis.
+
+No utilizar colores adicionales sin justificación.
+
+============================================================
+29. RESPONSIVE
+============================================================
+
+Desktop:
+
+mostrar diagramas completos.
+
+Tablet:
+
+adaptar escala.
+
+Mobile:
+
+permitir desplazamiento horizontal controlado en diagramas complejos.
+
+NO deformar el BPMN.
+
+NO comprimir el texto hasta volverlo ilegible.
+
+Los paneles de información deben convertirse en:
+
+bottom sheet
+modal
+o
+panel vertical.
+
+============================================================
+30. CALIDAD DEL MODELADO
+============================================================
+
+IDEF-0 debe respetar:
+
+INPUT
+CONTROL
+OUTPUT
+MECHANISM
+
+No confundir:
+
+INPUT con CONTROL.
+
+CONTROL con OUTPUT.
+
+MECHANISM con INPUT.
+
+BPMN debe respetar:
+
+- eventos;
+- tareas;
+- gateways;
+- sequence flows;
+- lanes;
+- pool;
+- eventos finales;
+- decisiones;
+- ciclos;
+- responsabilidades.
+
+No crear diagramas decorativos.
+
+============================================================
+31. REGLA SOBRE NORMAS
+============================================================
+
+MUY IMPORTANTE:
+
+No utilizar una norma simplemente porque "suena profesional".
+
+Cada norma debe tener una función concreta.
+
+Ejemplo correcto:
+
+ISO/IEC 25010
+→ evaluación de calidad del producto.
+
+ISO/IEC/IEEE 29119
+→ proceso de testing.
+
+ISO/IEC/IEEE 12207
+→ ciclo de vida.
+
+ISO/IEC 27001
+→ gestión de seguridad de la información.
+
+OWASP ASVS
+→ verificación técnica de seguridad de aplicaciones.
+
+ISO 9001
+→ sistema de gestión y mejora de calidad.
+
+BPMN 2.0.2
+→ representación del proceso.
+
+============================================================
+32. IMPLEMENTACIÓN
+============================================================
+
+Antes de programar:
+
+1. Analizar estructura del proyecto.
+2. Identificar framework.
+3. Identificar router.
+4. Identificar componentes.
+5. Identificar CSS/Tailwind.
+6. Identificar componentes MBTI.
+7. Identificar componentes SCRUM.
+8. Identificar sistema de navegación.
+9. Reutilizar estilos existentes.
+
+No romper código existente.
+
+============================================================
+33. COMPONENTES
+============================================================
+
+Crear componentes separados para:
+
+IDEF0Page
+IDEF0Definition
+IDEF0Diagram
+IDEF0Block
+IDEF0ControlPanel
+IDEF0FunctionDetail
+QualityStandardsMatrix
+
+BPMNPage
+BPMNDefinition
+BPMNDiagram
+BPMNLane
+BPMNNode
+BPMNGateway
+BPMNDetailPanel
+BPMNProcessExplorer
+
+Adaptar los nombres a la arquitectura real.
+
+============================================================
+34. FASE DE VALIDACIÓN IDEF-0
+============================================================
+
+Antes de pasar a BPMN verificar:
+
+- modelo IDEF-0 correcto;
+- controles concretos;
+- referencias coherentes;
+- entradas correctas;
+- salidas correctas;
+- mecanismos correctos;
+- descomposición coherente;
+- interacción funcional;
+- responsive;
+- navegación;
+- ausencia de errores.
+
+SOLO después comenzar BPMN.
+
+============================================================
+35. FASE DE VALIDACIÓN BPMN
+============================================================
+
+Verificar:
+
+- Pool correcto;
+- Lanes correctas;
+- responsables;
+- evento inicial;
+- tareas;
+- gateways;
+- rutas SI/NO;
+- ciclo de corrección;
+- pruebas;
+- seguridad;
+- informe;
+- aprobación;
+- evento final.
+
+============================================================
+36. RESULTADO FINAL
+============================================================
+
+La navegación debe comunicar:
+
+MBTI
+↓
+SCRUM
+↓
+IDEF-0
+↓
+BPMN
+
+Donde:
+
+MBTI
+representa la dimensión de perfiles/personas.
+
+SCRUM
+representa la organización metodológica del trabajo.
+
+IDEF-0
+representa las funciones de calidad.
+
+BPMN
+representa la ejecución operativa del proceso de calidad.
+
+El resultado debe ser:
+
+profesional,
+interactivo,
+académico,
+tecnológico,
+visualmente coherente
+y técnicamente defendible.
+
+NO agregar contenido genérico.
+
+NO simplificar los modelos.
+
+NO inventar certificaciones.
+
+NO utilizar estándares sin explicar su aplicación.
+
+NO modificar innecesariamente las secciones existentes.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-16T02:44:51-04:00.
+</ADDITIONAL_METADATA>
