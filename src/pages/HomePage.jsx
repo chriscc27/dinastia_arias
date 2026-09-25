@@ -7,6 +7,8 @@ import TeamSection from '../components/TeamSection';
 import OrgChartSection from '../components/OrgChartSection';
 import MBTISection from '../components/MBTISection';
 import ScrumSection from '../components/ScrumSection';
+import IDEF0Section from '../components/IDEF0Section';
+import BPMNSection from '../components/BPMNSection';
 import AitechScopeSection from '../components/AitechScopeSection';
 import Footer from '../components/Footer';
 
@@ -22,6 +24,8 @@ export default function HomePage() {
       <OrgChartSection />
       <MBTISection />
       <ScrumSection />
+      <IDEF0Section />
+      <BPMNSection />
       <AitechScopeSection />
       <Footer />
     </>

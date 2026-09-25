@@ -11,6 +11,8 @@ const SECTION_MAP = {
   'organizacion': 'organizacion',
   'mbti': 'mbti',
   'scrum': 'scrum',
+  'idef-0': 'idef-0',
+  'bpmn': 'bpmn',
   'alcance': null,      // Sección sin botón en header -> desmarca todo
   'contacto': 'contacto',
 };
@@ -25,6 +27,8 @@ const ALL_SECTIONS = [
   'organizacion',
   'mbti',
   'scrum',
+  'idef-0',
+  'bpmn',
   'alcance',
   'contacto'
 ];
@@ -100,6 +104,8 @@ export default function Header() {
     { to: '/#organizacion', id: 'organizacion', label: 'Organización' },
     { to: '/#mbti', id: 'mbti', label: 'MBTI' },
     { to: '/#scrum', id: 'scrum', label: 'SCRUM' },
+    { to: '/#idef-0', id: 'idef-0', label: 'IDEF-0' },
+    { to: '/#bpmn', id: 'bpmn', label: 'BPMN' },
   ];
 
   return (
