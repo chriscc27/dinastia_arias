@@ -96,7 +96,7 @@ export default function KanbanBoardPage() {
           width: '100%',
           minHeight: '56vh',
           padding: '150px 6% 70px 6%',
-          background: "linear-gradient(180deg, rgba(16, 25, 26, 0.78) 0%, rgba(18, 27, 28, 0.95) 100%), url('/assets/gestion_hero_art.jpg') center/cover no-repeat",
+          background: `linear-gradient(180deg, rgba(16, 25, 26, 0.78) 0%, rgba(18, 27, 28, 0.95) 100%), url('${import.meta.env.BASE_URL}assets/gestion_hero_art.jpg') center/cover no-repeat`,
           borderBottomLeftRadius: '36px',
           borderBottomRightRadius: '36px',
           boxShadow: '0 24px 60px rgba(0, 0, 0, 0.22)',

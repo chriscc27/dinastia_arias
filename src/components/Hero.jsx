@@ -81,7 +81,7 @@ export default function Hero() {
               loop
               muted
               playsInline
-              src="/assets/integrated-loop.mp4"
+              src={`${import.meta.env.BASE_URL}assets/integrated-loop.mp4`}
             />
           </div>
 
