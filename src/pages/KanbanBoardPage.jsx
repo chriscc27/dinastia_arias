@@ -9,17 +9,28 @@ const COLUMNS = [
 ];
 
 const DEFAULT_MEMBERS = {
-  scrumMaster: 'Pendiente de asignar',
-  productOwner: 'Pendiente de asignar',
-  qaLead: 'Pendiente de asignar',
+  scrumMaster: 'Daniel Zamorano (ISTP)',
+  productOwner: 'Ingeniero Cárdenas',
+  qaLead: 'Alan Flores (ENTJ-A)',
 };
 
-const ROLE_OPTIONS = ['Developer', 'QA', 'Diseño UX/UI', 'Scrum Master', 'Product Owner', 'DevOps'];
+const ROLE_OPTIONS = [
+  'QA Lead & Estrategia',
+  'Automatización de Pruebas',
+  'Calidad Funcional',
+  'Rendimiento & Stress',
+  'Integración & CI/CD',
+  'Scrum Master',
+  'Product Owner',
+];
 
 const INITIAL_TASKS = [
-  { id: 1, title: 'Definir backlog del sprint', owner: 'Ana', role: 'Product Owner', status: 'todo' },
-  { id: 2, title: 'Diseñar flujo de onboarding', owner: 'Carlos', role: 'Diseño UX/UI', status: 'doing' },
-  { id: 3, title: 'Validar criterios de aceptación', owner: 'Luisa', role: 'QA', status: 'done' },
+  { id: 1, title: 'Framework E2E con Playwright para vertical Cloud', owner: 'Sergio Arias', role: 'Automatización de Pruebas', status: 'todo' },
+  { id: 2, title: 'Matriz de trazabilidad de requisitos ISO/IEC 25010', owner: 'Leonardo Delgado', role: 'Calidad Funcional', status: 'todo' },
+  { id: 3, title: 'Auditoría de seguridad y penetración en API Gateway', owner: 'Alan Flores', role: 'QA Lead & Estrategia', status: 'doing' },
+  { id: 4, title: 'Pipeline automatizado de QA en GitHub Actions', owner: 'Christian Coronel', role: 'Integración & CI/CD', status: 'doing' },
+  { id: 5, title: 'Pruebas de carga y estrés en brokers MQTT de IoT', owner: 'Daniel Zamorano', role: 'Rendimiento & Stress', status: 'done' },
+  { id: 6, title: 'Definición de Terminado (DoD) Sprint 04 aprobada', owner: 'Ing. Cárdenas', role: 'Product Owner', status: 'done' },
 ];
 
 export default function KanbanBoardPage() {
