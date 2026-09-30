@@ -104,12 +104,11 @@ export default function OrgChartSection() {
             onMouseEnter={() => setActiveArea(1)}
             onMouseLeave={() => setActiveArea(null)}
             style={{ textDecoration: 'none', cursor: 'pointer' }}
-            title="Abrir descripción de Jefatura de Calidad en el PDF (Página 1)"
           >
             <span className="lead-pulse-dot" />
             <div className="lead-text-group">
               <span className="lead-role">Jefatura de Calidad (QA Lead)</span>
-              <span className="lead-tag">Liderazgo & Gobernanza · Ver Pág. 1 PDF ↗</span>
+              <span className="lead-tag">Liderazgo & Gobernanza</span>
             </div>
           </a>
           <div className="org-root-stem-line" />
@@ -140,21 +139,9 @@ export default function OrgChartSection() {
                   onMouseEnter={() => setActiveArea(area.positionId)}
                   onMouseLeave={() => setActiveArea(null)}
                   style={{ textDecoration: 'none', cursor: 'pointer' }}
-                  title={`Abrir ${area.name} en el PDF (Página ${matchedPosition?.pdfPage || 1})`}
                 >
                   <div className="child-icon-box">{area.icon}</div>
                   <span className="child-name-text">{area.name}</span>
-                  <span
-                    style={{
-                      display: 'block',
-                      marginTop: '6px',
-                      fontSize: '0.68rem',
-                      fontFamily: 'var(--font-mono)',
-                      opacity: 0.75,
-                    }}
-                  >
-                    Pág. {matchedPosition?.pdfPage} PDF ↗
-                  </span>
                 </a>
               </div>
             );
@@ -194,7 +181,7 @@ export default function OrgChartSection() {
                     <span className="card-meta-badge">
                       POSICIÓN {pos.id}
                     </span>
-                    <span className="meta-date">PÁG. {pos.pdfPage} DEL PDF</span>
+                    <span className="meta-date">CALIDAD AITECH</span>
                   </div>
 
                   <h4 className="pos-title">{pos.title}</h4>
@@ -209,7 +196,7 @@ export default function OrgChartSection() {
 
                   {/* Texto de Acción "VER MÁS DETALLES" */}
                   <div className="cutout-action-row">
-                    <span className="cutout-link-text">IR A PÁGINA {pos.pdfPage} DEL PDF</span>
+                    <span className="cutout-link-text">VER MÁS DETALLES</span>
                   </div>
                 </div>
               </a>
@@ -220,7 +207,7 @@ export default function OrgChartSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cutout-pocket-arrow-btn"
-                aria-label={`Ver más detalles de ${pos.title} en la página ${pos.pdfPage} del PDF`}
+                aria-label={`Ver más detalles de ${pos.title}`}
               >
                 <svg width="14" height="14" viewBox="0 0 10 10" fill="none">
                   <path fill="currentColor" d="M7.703 5.8H.398V4.6h7.305l-3.36-3.36.855-.84 4.8 4.8-4.8 4.8-.855-.84 3.36-3.36Z" />
