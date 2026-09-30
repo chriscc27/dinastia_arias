@@ -10,7 +10,7 @@ export default function Footer() {
               Impulsando los más altos estándares tecnológicos para el futuro de AITECH.
             </h2>
 
-            <a className="u-btn--1" href="mailto:calidad@aitech.com">
+            <Link className="u-btn--1" to="/trabaja-con-nosotros">
               <span className="btn_label">
                 Trabaja con Nosotros
                 <div className="label_corner">
@@ -24,7 +24,7 @@ export default function Footer() {
                   <path fill="currentColor" d="M6.728 9.09A12 12 0 0 1 18.369 0H39c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H12.37C4.561 48-1.167 40.663.727 33.09l6-24Z" />
                 </svg>
               </i>
-            </a>
+            </Link>
           </div>
 
           <div className="footer-columns">
@@ -49,6 +49,17 @@ export default function Footer() {
                 <li><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a></li>
                 <li><a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a></li>
                 <li><a href="https://x.com" target="_blank" rel="noreferrer">X (Twitter)</a></li>
+              </ul>
+            </div>
+
+            <div className="footer-col">
+              <h5>Contactos</h5>
+              <ul>
+                <li><a href="mailto:leonardo.delgado@ucb.edu.bo">Leonardo Delgado</a></li>
+                <li><a href="mailto:alan.flores.c@ucb.edu.bo">Alan Flores</a></li>
+                <li><a href="mailto:christian.coronel@ucb.edu.bo">Christian Coronel</a></li>
+                <li><a href="mailto:sergio.arias@ucb.edu.bo">Sergio Arias</a></li>
+                <li><a href="mailto:alejandro.zamorano@ucb.edu.bo">Alejandro Zamorano</a></li>
               </ul>
             </div>
           </div>
