@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { gestionTecnologiasData } from '../data/knowledgeDetailData';
+import RelatedVideosBlock from '../components/RelatedVideosBlock';
+import { relatedVideosData } from '../data/relatedVideosData';
 import Footer from '../components/Footer';
 
 export default function GestionTecnologiasPage() {
@@ -267,6 +269,10 @@ export default function GestionTecnologiasPage() {
               );
             })}
           </div>
+        </div>
+
+        <div style={{ marginBottom: '6rem' }}>
+          <RelatedVideosBlock data={relatedVideosData.gestionTecnologias} />
         </div>
       </div>
 

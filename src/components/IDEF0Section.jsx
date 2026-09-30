@@ -3,6 +3,8 @@ import {
   idef0GeneralTheory,
   idef0QualityContext,
 } from '../data/idef0Data';
+import RelatedVideosBlock from './RelatedVideosBlock';
+import { relatedVideosData } from '../data/relatedVideosData';
 
 export default function IDEF0Section() {
   // Estado para el cuadrante ICOM seleccionado en el diagrama A-0 ('controls', 'inputs', 'outputs', 'mechanisms')
@@ -373,6 +375,8 @@ export default function IDEF0Section() {
             ))}
           </div>
         </div>
+
+        <RelatedVideosBlock data={relatedVideosData.idef0} />
       </div>
     </section>
   );

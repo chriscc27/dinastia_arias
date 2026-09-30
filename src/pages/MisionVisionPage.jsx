@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { misionVisionData } from '../data/misionVisionDetailData';
+import RelatedVideosBlock from '../components/RelatedVideosBlock';
+import { relatedVideosData } from '../data/relatedVideosData';
 import Footer from '../components/Footer';
 
 export default function MisionVisionPage() {
@@ -286,6 +288,10 @@ export default function MisionVisionPage() {
               );
             })}
           </div>
+        </div>
+
+        <div style={{ marginBottom: '6rem' }}>
+          <RelatedVideosBlock data={relatedVideosData.misionVision} />
         </div>
       </div>
 

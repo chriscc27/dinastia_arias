@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { bpmnGeneralTheory } from '../data/bpmnData';
 import { bpmnDiagramConfig, generateBpmnXml } from '../data/bpmnDiagramLayout';
+import RelatedVideosBlock from './RelatedVideosBlock';
+import { relatedVideosData } from '../data/relatedVideosData';
 
 // Subcomponente de glifos estándar BPMN para esquinas superiores de tareas
 function TaskTypeIcon({ type }) {
@@ -708,6 +710,8 @@ export default function BPMNSection() {
             </div>
           )}
         </div>
+
+        <RelatedVideosBlock data={relatedVideosData.bpmn} />
       </div>
     </section>
   );

@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { cienciaTecnologiaData } from '../data/knowledgeDetailData';
+import RelatedVideosBlock from '../components/RelatedVideosBlock';
+import { relatedVideosData } from '../data/relatedVideosData';
 import Footer from '../components/Footer';
 
 export default function CienciaTecnologiaPage() {
@@ -266,6 +268,10 @@ export default function CienciaTecnologiaPage() {
               );
             })}
           </div>
+        </div>
+
+        <div style={{ marginBottom: '6rem' }}>
+          <RelatedVideosBlock data={relatedVideosData.cienciaTecnologia} />
         </div>
       </div>
 

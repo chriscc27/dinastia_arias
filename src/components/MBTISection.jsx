@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { mbtiTheory, teamMbtiMembers, mbtiRoleDistribution } from '../data/mbtiData';
+import RelatedVideosBlock from './RelatedVideosBlock';
+import { relatedVideosData } from '../data/relatedVideosData';
 
 export default function MBTISection() {
   const [activeDimension, setActiveDimension] = useState(0);
@@ -291,6 +293,8 @@ export default function MBTISection() {
             ))}
           </div>
         </div>
+
+        <RelatedVideosBlock data={relatedVideosData.mbti} />
       </div>
 
       {/* ====================================================================

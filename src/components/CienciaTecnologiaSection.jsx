@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import RelatedVideosBlock from './RelatedVideosBlock';
+import { relatedVideosData } from '../data/relatedVideosData';
 
 export default function CienciaTecnologiaSection() {
   return (
@@ -92,6 +94,8 @@ export default function CienciaTecnologiaSection() {
           </i>
         </Link>
       </div>
+
+      <RelatedVideosBlock data={relatedVideosData.cienciaTecnologia} />
     </section>
   );
 }

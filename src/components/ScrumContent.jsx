@@ -7,6 +7,8 @@ import {
   scrumProjectApplication,
 } from '../data/scrumData';
 import KanbanBoard from './KanbanBoard';
+import RelatedVideosBlock from './RelatedVideosBlock';
+import { relatedVideosData } from '../data/relatedVideosData';
 
 export default function ScrumContent() {
   return (
@@ -263,6 +265,8 @@ export default function ScrumContent() {
           <span className="closing-sparkle">✦</span>
         </div>
       </div>
+
+      <RelatedVideosBlock data={relatedVideosData.scrum} />
     </div>
   );
 }

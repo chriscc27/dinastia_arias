@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { positions } from '../data/positionsData';
+import RelatedVideosBlock from './RelatedVideosBlock';
+import { relatedVideosData } from '../data/relatedVideosData';
 
 export default function OrgChartSection() {
   const [activeArea, setActiveArea] = useState(null);
@@ -64,6 +66,31 @@ export default function OrgChartSection() {
       <p className="section-desc-lead">
         Estructura modular y coordinada para dar soporte y cobertura integral a todas las iniciativas del ecosistema.
       </p>
+
+      {/* Fundamentación Teórica del Diseño Organizacional y Organigrama */}
+      <div className="theory-inline-summary-grid" style={{ marginBottom: '2.5rem' }}>
+        <div className="theory-inline-card">
+          <span className="theory-inline-tag">TEORÍA DEL ORGANIGRAMA</span>
+          <h4>¿Qué es un Organigrama?</h4>
+          <p>
+            Es la representación gráfica y esquemática de la estructura formal de una organización. Muestra de forma visual los niveles jerárquicos, las líneas de autoridad, los canales de comunicación y la articulación entre unidades.
+          </p>
+        </div>
+        <div className="theory-inline-card">
+          <span className="theory-inline-tag">DEPARTAMENTALIZACIÓN FUNCIONAL</span>
+          <h4>División Especializada del Trabajo</h4>
+          <p>
+            Según la teoría clásica y neoclásica de administración (Mintzberg), agrupar especialistas según su dominio técnico (Automatización, Funcional, Rendimiento e Integración) maximiza la precisión operativa y evita cuellos de botella.
+          </p>
+        </div>
+        <div className="theory-inline-card">
+          <span className="theory-inline-tag">UNIDAD DE MANDO & GOBERNANZA</span>
+          <h4>Coordinación y Trazabilidad</h4>
+          <p>
+            Una Jefatura de Calidad (QA Lead) centraliza los criterios de aceptación y gobierna transversalmente las 4 subáreas, asegurando trazabilidad de responsabilidades (Manual de Funciones MOF) en las 7 verticales de AITECH.
+          </p>
+        </div>
+      </div>
 
       {/* Organigrama Interactivo con Conectores sin Fisuras */}
       <div className="org-interactive-wrapper">
@@ -181,6 +208,8 @@ export default function OrgChartSection() {
           );
         })}
       </div>
+
+      <RelatedVideosBlock data={relatedVideosData.organizacion} />
     </section>
   );
 }
