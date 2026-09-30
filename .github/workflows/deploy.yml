@@ -12,10 +12,10 @@ permissions:
   pages: write
   id-token: write
 
-# Permite un despliegue a la vez para evitar condiciones de carrera
+# Permite un despliegue a la vez y cancela ejecuciones previas en curso para evitar colisiones 500 en GitHub Pages
 concurrency:
   group: 'pages'
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
