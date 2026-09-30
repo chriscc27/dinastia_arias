@@ -1130,6 +1130,125 @@ section.light-section {
   letter-spacing: 0.5px;
 }
 
+.team-card-bio.is-expanded {
+  border-color: var(--color-lime);
+  box-shadow: 0 16px 36px rgba(167, 226, 110, 0.18);
+}
+
+.team-mbti-trigger {
+  width: 100%;
+  margin-top: 1.25rem;
+  padding: 0.7rem 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 1px solid rgba(34, 47, 48, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--color-charcoal);
+  font: 600 0.7rem var(--font-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.team-mbti-trigger:hover,
+.team-mbti-trigger:focus-visible {
+  background: var(--color-lime);
+  border-color: var(--color-lime);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.team-mbti-trigger-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-charcoal);
+  color: var(--color-lime);
+  font: 700 1rem var(--font-sans);
+  line-height: 1;
+}
+
+.team-mbti-summary {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(34, 47, 48, 0.12);
+  text-align: left;
+  animation: team-summary-reveal 0.3s ease both;
+}
+
+.team-mbti-summary-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.7rem;
+}
+
+.team-mbti-type {
+  padding: 0.28rem 0.5rem;
+  border-radius: 5px;
+  background: var(--color-charcoal);
+  color: var(--color-lime);
+  font: 700 0.78rem var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+.team-mbti-archetype {
+  color: var(--color-charcoal);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.team-mbti-letters {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: rgba(34, 47, 48, 0.58);
+  font: 0.68rem/1.45 var(--font-mono);
+}
+
+.team-mbti-summary p {
+  margin: 0;
+  color: rgba(34, 47, 48, 0.72);
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.team-mbti-contribution {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 0.9rem;
+  padding: 0.7rem 0.8rem;
+  border-left: 3px solid var(--color-lime);
+  background: rgba(167, 226, 110, 0.13);
+}
+
+.team-mbti-contribution span {
+  color: rgba(34, 47, 48, 0.6);
+  font: 700 0.62rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.team-mbti-contribution strong {
+  color: var(--color-charcoal);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+@keyframes team-summary-reveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Organigrama Interactivo Moderno con Conectores Perfectos */
 .org-interactive-wrapper {
   display: flex;
