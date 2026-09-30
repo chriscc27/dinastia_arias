@@ -1,44 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   scrumTheory,
   scrumRoles,
   scrumEvents,
   scrumArtifacts,
-  initialKanbanTasks,
   scrumProjectApplication,
 } from '../data/scrumData';
+import KanbanBoard from './KanbanBoard';
 
 export default function ScrumContent() {
-  const [tasks, setTasks] = useState(initialKanbanTasks);
-  const [filterVertical, setFilterVertical] = useState('Todas');
-
-  const columns = [
-    { id: 'todo', title: 'Por Hacer (Backlog)', badgeClass: 'badge-todo' },
-    { id: 'in-progress', title: 'En Progreso', badgeClass: 'badge-progress' },
-    { id: 'qa-review', title: 'Revisión QA', badgeClass: 'badge-review' },
-    { id: 'done', title: 'Terminado (DoD)', badgeClass: 'badge-done' },
-  ];
-
-  const verticals = ['Todas', 'Cloud', 'Calidad', 'Hardware', 'Seguridad', 'Software', 'Big Data', 'Redes'];
-
-  const moveTaskNext = (taskId) => {
-    const statusOrder = ['todo', 'in-progress', 'qa-review', 'done'];
-    setTasks((prev) =>
-      prev.map((task) => {
-        if (task.id === taskId) {
-          const currentIndex = statusOrder.indexOf(task.status);
-          const nextIndex = (currentIndex + 1) % statusOrder.length;
-          return { ...task, status: statusOrder[nextIndex] };
-        }
-        return task;
-      })
-    );
-  };
-
-  const filteredTasks = filterVertical === 'Todas'
-    ? tasks
-    : tasks.filter((t) => t.vertical === filterVertical);
-
   return (
     <div className="scrum-content-container">
       {/* Badge de Sección */}
@@ -261,84 +231,7 @@ export default function ScrumContent() {
         </div>
       </div>
 
-      {/* ====================================================================
-          4. TABLERO KANBAN INTERACTIVO DE CALIDAD
-          ==================================================================== */}
-      <div className="scrum-subheading-group" style={{ marginTop: '5.5rem' }}>
-        <div className="section-badge" style={{ marginBottom: '1rem' }}>
-          <span className="badge-dot" />
-          <span>VISIBILIDAD OPERATIVA</span>
-        </div>
-        <h3 className="mbti-subheading">Tablero Kanban de Aseguramiento de Calidad</h3>
-        <p className="mbti-sublead">
-          Flujo de trabajo visual en tiempo real para supervisar los entregables de calidad en cada una de las 7 verticales tecnológicas de AITECH. Haz clic en cualquier tarjeta para avanzar su estado en el flujo.
-        </p>
-      </div>
-
-      {/* Filtros de vertical */}
-      <div className="kanban-filters-row">
-        <span className="filters-label">Filtrar por Vertical:</span>
-        <div className="filters-pills-list">
-          {verticals.map((v) => (
-            <button
-              key={v}
-              type="button"
-              className={`kanban-filter-btn ${filterVertical === v ? 'active' : ''}`}
-              onClick={() => setFilterVertical(v)}
-            >
-              {v}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Tablero Kanban */}
-      <div className="kanban-board-wrapper">
-        {columns.map((col) => {
-          const colTasks = filteredTasks.filter((t) => t.status === col.id);
-          return (
-            <div key={col.id} className="kanban-column">
-              <div className="kanban-col-header">
-                <span className={`col-status-badge ${col.badgeClass}`} />
-                <h5 className="col-title">{col.title}</h5>
-                <span className="col-count-pill">{colTasks.length}</span>
-              </div>
-
-              <div className="kanban-tasks-list">
-                {colTasks.length === 0 ? (
-                  <div className="kanban-empty-slot">Sin tareas en este estado</div>
-                ) : (
-                  colTasks.map((task) => (
-                    <div
-                      key={task.id}
-                      className="kanban-task-card"
-                      onClick={() => moveTaskNext(task.id)}
-                      title="Haz clic para avanzar de columna"
-                    >
-                      <div className="task-card-meta">
-                        <span className={`task-priority-pill priority-${task.priority.toLowerCase()}`}>
-                          {task.priority}
-                        </span>
-                        <span className="task-vertical-tag">{task.vertical}</span>
-                      </div>
-
-                      <h6 className="task-title">{task.title}</h6>
-
-                      <div className="task-card-footer">
-                        <div className="task-assignee-box">
-                          <span className="task-avatar-circle">{task.assigneeInitials}</span>
-                          <span className="task-assignee-name">{task.assignee}</span>
-                        </div>
-                        <span className="task-mbti-sub">{task.mbti}</span>
-                      </div>
-                    </div>
-                  ))
-                )}
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <KanbanBoard />
 
       {/* ====================================================================
           5. APLICACIÓN AL PROYECTO AITECH CALIDAD

@@ -4,7 +4,6 @@ import HomePage from './pages/HomePage';
 import CienciaTecnologiaPage from './pages/CienciaTecnologiaPage';
 import GestionTecnologiasPage from './pages/GestionTecnologiasPage';
 import MisionVisionPage from './pages/MisionVisionPage';
-import KanbanBoardPage from './pages/KanbanBoardPage';
 
 export default function App() {
   return (
@@ -15,7 +14,6 @@ export default function App() {
         <Route path="/ciencia-tecnologia-innovacion" element={<CienciaTecnologiaPage />} />
         <Route path="/gestion-tecnologias" element={<GestionTecnologiasPage />} />
         <Route path="/mision-vision" element={<MisionVisionPage />} />
-        <Route path="/tablero-kanban" element={<KanbanBoardPage />} />
       </Routes>
     </>
   );
