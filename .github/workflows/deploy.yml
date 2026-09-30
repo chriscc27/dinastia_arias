@@ -1,0 +1,63 @@
+name: CI/CD - Despliegue Automático en GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Permisos oficiales requeridos para el despliegue nativo de GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite un despliegue a la vez y cancela ejecuciones previas en curso para evitar colisiones 500 en GitHub Pages
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Compilación (Build)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Compilar proyecto (Vite)
+        run: npm run build
+
+      - name: Soporte para SPA (copiar index.html a 404.html y crear .nojekyll)
+        run: |
+          cp dist/index.html dist/404.html
+          touch dist/.nojekyll
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir artefacto de compilación
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+  deploy:
+    name: Despliegue (Deploy)
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Desplegar a los servidores de GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
