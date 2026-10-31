@@ -12,8 +12,12 @@ WORKDIR /app
 COPY api/package.json ./
 COPY api/server.js ./
 COPY api/lib ./lib
+# Dataset incluido en la imagen para que funcione en Render/cloud sin volúmenes
+COPY data ./data
 
 ENV NODE_ENV=production
+ENV DATA_DIR=/app/data
+ENV WEKA_CP=/opt/weka/lib/*
 EXPOSE 8787
 HEALTHCHECK --interval=30s --timeout=5s CMD curl -fs http://localhost:8787/api/health || exit 1
 CMD ["node", "server.js"]

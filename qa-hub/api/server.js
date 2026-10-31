@@ -10,7 +10,7 @@ import path from 'node:path';
 import { loadDataset } from './lib/dataset.js';
 import { computeKpis } from './lib/kpis.js';
 import { EXPERIMENT_IDS, runAll, runExperiment } from './lib/weka.js';
-import { createZabbixClient, zabbixSummary } from './lib/zabbix.js';
+import { createZabbixClient, zabbixSummary, mockZabbixSummary } from './lib/zabbix.js';
 
 const PORT = Number(process.env.PORT || 8787);
 const DATA_DIR = process.env.DATA_DIR || path.resolve('..', 'data');
@@ -44,11 +44,18 @@ function aplanarKpis(resumen) {
 }
 
 async function zabbixCacheado() {
-  if (!zabbix) throw new Error('ZABBIX_URL no configurado');
   if (Date.now() - cacheZabbix.t < 15000) return cacheZabbix.data;
-  const data = await zabbixSummary(zabbix);
-  cacheZabbix = { t: Date.now(), data };
-  return data;
+  try {
+    if (!zabbix) throw new Error('ZABBIX_URL no configurado');
+    const data = await zabbixSummary(zabbix);
+    cacheZabbix = { t: Date.now(), data };
+    return data;
+  } catch {
+    // Sin Zabbix o Zabbix caído: responder con datos calculados del dataset
+    const data = await mockZabbixSummary(computeKpis(loadDataset(DATA_DIR)));
+    cacheZabbix = { t: Date.now(), data };
+    return data;
+  }
 }
 
 const rutas = {
