@@ -198,4 +198,154 @@ export const relatedVideosData = {
       },
     ],
   },
+
+  tableau: {
+    badge: 'MATERIAL AUDIOVISUAL DE APOYO · VISUALIZACIÓN',
+    title: 'Videos Relacionados: Tableau y Tableros de Indicadores',
+    subtitle:
+      'Desde qué es Tableau hasta construir un dashboard paso a paso: los mismos pasos que seguimos con el dataset de herramientas del Área de Calidad.',
+    videos: [
+      {
+        id: '91ljNshh14c',
+        title: '¿Qué es Tableau?',
+        channel: 'A2 Capacitación: Excel',
+        tag: 'FUNDAMENTO',
+        description: 'Introducción breve a Tableau como herramienta de inteligencia de negocios: conexión a datos, arrastrar campos y generar vistas.',
+      },
+      {
+        id: 'LEX2_5pXcE8',
+        title: 'Crea Dashboards en Tableau en 10 minutos',
+        channel: 'Jose Alejandro De Souza',
+        tag: 'DASHBOARD',
+        description: 'Construcción de hojas, indicadores (BANs) y su composición en un tablero interactivo con filtros, igual que el tablero de calidad.',
+      },
+      {
+        id: 'cYw8OvkwVVI',
+        title: 'Aprende Tableau desde cero: Tutorial para principiantes',
+        channel: 'Jose Alejandro De Souza',
+        tag: 'CURSO COMPLETO',
+        description: 'Dimensiones y medidas, campos calculados, filtros y publicación: la base para replicar el libro de trabajo con el CSV del dataset.',
+      },
+    ],
+  },
+
+  weka: {
+    badge: 'MATERIAL AUDIOVISUAL DE APOYO · MINERÍA DE DATOS',
+    title: 'Videos Relacionados: Patrones con Weka',
+    subtitle:
+      'Los tres algoritmos que aplicamos al dataset: árboles de decisión J48, agrupamiento K-Means y reglas de asociación Apriori.',
+    videos: [
+      {
+        id: '8sRTmk44n9I',
+        title: 'Árboles J48 en Weka',
+        channel: 'Alba Soraya Aguilar Jiménez',
+        tag: 'CLASIFICACIÓN',
+        description: 'Cómo entrenar y leer un árbol J48 (C4.5) en el Explorer de Weka: hojas, poda, matriz de confusión y exactitud.',
+      },
+      {
+        id: 'eyzm9qRZO6E',
+        title: 'Algoritmos de agrupamiento (clustering) en Weka',
+        channel: 'Jorge Chiquín Valderrama',
+        tag: 'CLUSTERING',
+        description: 'SimpleKMeans y otros agrupadores en Weka: elección de k, centroides e interpretación de cada grupo.',
+      },
+      {
+        id: 'FtBSgG_Z96A',
+        title: 'Reglas de Asociación en WEKA | Minería de Datos',
+        channel: 'Jose Castillo',
+        tag: 'ASOCIACIÓN',
+        description: 'Algoritmo Apriori en Weka: soporte, confianza y lift para descubrir reglas del tipo «si A entonces B».',
+      },
+    ],
+  },
+
+  monitoreo: {
+    badge: 'MATERIAL AUDIOVISUAL DE APOYO · OBSERVABILIDAD',
+    title: 'Videos Relacionados: Monitoreo con Zabbix',
+    subtitle:
+      'Arquitectura de Zabbix, recolección de métricas y construcción de dashboards: lo que corre en el servidor QA Hub.',
+    videos: [
+      {
+        id: 'rGYnRBnKmLI',
+        title: '¿Qué es Zabbix? ¿Cómo funciona? ¿Para qué es?',
+        channel: 'Jazim Corp',
+        tag: 'FUNDAMENTO',
+        description: 'Explicación breve de la arquitectura servidor–agente–base de datos–frontend y de para qué se usa Zabbix en una organización.',
+      },
+      {
+        id: 'bh6JxWJOvq0',
+        title: 'Zabbix desde cero: monitoreo de servidores y recolección de métricas',
+        channel: 'ProfeSantiago',
+        tag: 'INSTALACIÓN',
+        description: 'Instalación, alta de hosts, ítems y triggers: el mismo flujo que automatiza nuestro script de configuración por API.',
+      },
+      {
+        id: 'Lm7xg_5hOBQ',
+        title: 'Cómo crear un Dashboard en Zabbix | Guía completa de widgets',
+        channel: 'Cursos y Tips - IT',
+        tag: 'DASHBOARDS',
+        description: 'Widgets de problemas, gráficos y valores: cómo presentar el estado del servicio a quien toma decisiones.',
+      },
+    ],
+  },
+
+  presupuesto: {
+    badge: 'MATERIAL AUDIOVISUAL DE APOYO · FINANZAS DE CALIDAD',
+    title: 'Videos Relacionados: Presupuesto y Costos de Calidad',
+    subtitle:
+      'Cómo se arma un presupuesto empresarial y cómo se clasifican los costos de calidad (prevención, evaluación y fallas).',
+    videos: [
+      {
+        id: 'N6ghrJK-9GA',
+        title: 'Clase completa de Costos de Calidad: Prevención, Evaluación, Fallas Internas y Externas',
+        channel: 'Universidad ISO',
+        tag: 'COSTO DE CALIDAD',
+        description: 'El modelo PAF de Feigenbaum y Juran con ejemplos: la base para clasificar cada línea de nuestro presupuesto.',
+      },
+      {
+        id: '5RN88uStFEM',
+        title: 'Cómo hacer un presupuesto empresarial paso a paso',
+        channel: 'HubSpot Español',
+        tag: 'PRESUPUESTO',
+        description: 'Estructura de un presupuesto: ingresos, costos fijos y variables, imprevistos y seguimiento mensual.',
+      },
+      {
+        id: 'T3jCJODvdjE',
+        title: 'Qué es un presupuesto y cómo hacer uno',
+        channel: 'Contador Contado',
+        tag: 'FUNDAMENTO',
+        description: 'Concepto, tipos de presupuesto (operativo, de capital, maestro) y errores frecuentes al elaborarlo.',
+      },
+    ],
+  },
+
+  soporteExterno: {
+    badge: 'MATERIAL AUDIOVISUAL DE APOYO · PROVEEDORES',
+    title: 'Videos Relacionados: Soporte Externo, Contratos y SLA',
+    subtitle:
+      'Acuerdos de nivel de servicio, gestión de proveedores según ITIL 4 y criterios para decidir qué tercerizar.',
+    videos: [
+      {
+        id: 'IUHzFUPjHi8',
+        title: '¿Qué son los Acuerdos de Niveles de Servicio (SLA)?',
+        channel: 'ManageEngine LATAM',
+        tag: 'SLA',
+        description: 'Qué contiene un SLA, cómo se miden los tiempos de respuesta y resolución y qué pasa cuando se incumplen.',
+      },
+      {
+        id: '2oIX1vezIY4',
+        title: 'Gestión de Servicios con ITIL 4: Socios y proveedores',
+        channel: 'Formación FP',
+        tag: 'ITIL 4',
+        description: 'La dimensión «socios y proveedores» de ITIL 4 y la práctica de gestión de proveedores aplicada a servicios de TI.',
+      },
+      {
+        id: 'HUUhT-c2XBg',
+        title: '¿Qué es la subcontratación u outsourcing? ¿Cuándo conviene tercerizar?',
+        channel: 'Clienty',
+        tag: 'OUTSOURCING',
+        description: 'Ventajas, riesgos y criterios para decidir si un servicio se hace en casa o se contrata a un tercero.',
+      },
+    ],
+  },
 };

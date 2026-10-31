@@ -36,6 +36,10 @@ jobs:
 
       - name: Compilar proyecto (Vite)
         run: npm run build
+        env:
+          # Variables del repositorio (Settings → Secrets and variables → Actions → Variables).
+          # Vacía = la página usa las capturas guardadas del QA Hub.
+          VITE_QA_HUB_URL: ${{ vars.VITE_QA_HUB_URL }}
 
       - name: Soporte para SPA (copiar index.html a 404.html y crear .nojekyll)
         run: |

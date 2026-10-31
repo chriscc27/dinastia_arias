@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# QA Hub: dependencias de Weka (se descargan con qa-hub/weka/download-weka.sh), secretos e índice local
+qa-hub/weka/lib/
+qa-hub/.env
+.codegraph/
+
+# Extracción de Tableau (se regenera con qa-hub/scripts/build_tableau_workbook.py)
+qa-hub/tableau/*.hyper
+~*.twbr
+*.twbrevision

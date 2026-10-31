@@ -1,0 +1,228 @@
+{
+  "zabbix_version": "7.0.32",
+  "generado": "2026-10-31T21:43:30.466Z",
+  "hosts": [
+    {
+      "nombre": "QA Hub · Servidor (Zabbix + API + Weka)",
+      "host": "Zabbix server",
+      "activo": true,
+      "disponibilidad": "Disponible"
+    },
+    {
+      "nombre": "AITECH · KPIs del Área de Calidad",
+      "host": "aitech-qa-kpis",
+      "activo": true,
+      "disponibilidad": "Sin agente (HTTP)"
+    }
+  ],
+  "problemas": [
+    {
+      "id": "25227",
+      "descripcion": "Herramientas críticas en producción con revisión No conforme",
+      "severidad": "Desastre",
+      "prioridad": 5,
+      "host": "AITECH · KPIs del Área de Calidad",
+      "desde": "2026-10-31T21:25:40.000Z",
+      "comentario": "IEC 62304 / ISO 13485 §7.4: una herramienta crítica No conforme no debe seguir validando software médico. Suspender o remediar."
+    },
+    {
+      "id": "25228",
+      "descripcion": "Herramientas críticas nunca revisadas",
+      "severidad": "Alta",
+      "prioridad": 4,
+      "host": "AITECH · KPIs del Área de Calidad",
+      "desde": "2026-10-31T21:25:40.000Z",
+      "comentario": "Toda herramienta de criticidad Crítica requiere validación antes de su uso (herramienta SOUP)."
+    },
+    {
+      "id": "25229",
+      "descripcion": "Más del 50% del inventario sin revisión vigente",
+      "severidad": "Alta",
+      "prioridad": 4,
+      "host": "AITECH · KPIs del Área de Calidad",
+      "desde": "2026-10-31T21:25:40.000Z",
+      "comentario": "Política interna: revisión anual de cada herramienta del inventario."
+    },
+    {
+      "id": "25230",
+      "descripcion": "Tasa de conformidad por debajo de la meta del 75%",
+      "severidad": "Media",
+      "prioridad": 3,
+      "host": "AITECH · KPIs del Área de Calidad",
+      "desde": "2026-10-31T21:25:40.000Z",
+      "comentario": "Meta del plan de calidad: al menos 3 de cada 4 revisiones conformes."
+    },
+    {
+      "id": "25231",
+      "descripcion": "Inventario con más del 10% de categorías inconsistentes",
+      "severidad": "Advertencia",
+      "prioridad": 2,
+      "host": "AITECH · KPIs del Área de Calidad",
+      "desde": "2026-10-31T21:25:40.000Z",
+      "comentario": "Gobierno de datos: la categoría declarada no coincide con la naturaleza de la herramienta."
+    }
+  ],
+  "kpis": [
+    {
+      "clave": "qa.kpi.criticas_no_conformes_en_uso",
+      "nombre": "Herramientas CRÍTICAS en uso No conformes",
+      "valor": 23,
+      "unidad": "",
+      "actualizado": "2026-10-31T21:42:40.000Z"
+    },
+    {
+      "clave": "qa.kpi.criticas_sin_revision",
+      "nombre": "Herramientas CRÍTICAS nunca revisadas",
+      "valor": 60,
+      "unidad": "",
+      "actualizado": "2026-10-31T21:42:40.000Z"
+    },
+    {
+      "clave": "qa.kpi.en_uso_no_conforme",
+      "nombre": "Herramientas en uso con revisión No conforme",
+      "valor": 68,
+      "unidad": "",
+      "actualizado": "2026-10-31T21:42:40.000Z"
+    },
+    {
+      "clave": "qa.kpi.sin_revision_vigente_pct",
+      "nombre": "Herramientas sin revisión vigente",
+      "valor": 76.8,
+      "unidad": "%",
+      "actualizado": "2026-10-31T21:42:40.000Z"
+    },
+    {
+      "clave": "qa.kpi.categoria_inconsistente_pct",
+      "nombre": "Registros con categoría inconsistente",
+      "valor": 72.5,
+      "unidad": "%",
+      "actualizado": "2026-10-31T21:42:40.000Z"
+    },
+    {
+      "clave": "qa.kpi.tasa_conformidad",
+      "nombre": "Tasa de conformidad de revisiones",
+      "valor": 68.3,
+      "unidad": "%",
+      "actualizado": "2026-10-31T21:42:40.000Z"
+    },
+    {
+      "clave": "qa.kpi.total_herramientas",
+      "nombre": "Total de herramientas en inventario",
+      "valor": 1200,
+      "unidad": "",
+      "actualizado": "2026-10-31T21:42:40.000Z"
+    }
+  ],
+  "servidor": [
+    {
+      "clave": "agent.ping",
+      "nombre": "Zabbix agent ping",
+      "valor": 1,
+      "unidad": ""
+    },
+    {
+      "clave": "system.cpu.util",
+      "nombre": "CPU utilization",
+      "valor": 8.465159999999997,
+      "unidad": "%"
+    },
+    {
+      "clave": "system.uptime",
+      "nombre": "System uptime",
+      "valor": 18294,
+      "unidad": "uptime"
+    }
+  ],
+  "escenarios_web": [
+    {
+      "nombre": "Sitio web AITECH Calidad",
+      "url": "https://chriscc27.github.io/dinastia_arias/",
+      "ok": true,
+      "tiempo_respuesta_ms": 88
+    },
+    {
+      "nombre": "QA Hub API",
+      "url": "http://qa-hub-api:8787/api/health",
+      "ok": true,
+      "tiempo_respuesta_ms": 48
+    }
+  ],
+  "historial_cpu": [
+    {
+      "t": 1793481924000,
+      "v": 11.45
+    },
+    {
+      "t": 1793481984000,
+      "v": 9.35
+    },
+    {
+      "t": 1793482044000,
+      "v": 15.04
+    },
+    {
+      "t": 1793482104000,
+      "v": 7.63
+    },
+    {
+      "t": 1793482164000,
+      "v": 7.17
+    },
+    {
+      "t": 1793482224000,
+      "v": 7.19
+    },
+    {
+      "t": 1793482284000,
+      "v": 7.28
+    },
+    {
+      "t": 1793482344000,
+      "v": 7.41
+    },
+    {
+      "t": 1793482404000,
+      "v": 7.16
+    },
+    {
+      "t": 1793482464000,
+      "v": 7.49
+    },
+    {
+      "t": 1793482524000,
+      "v": 7.38
+    },
+    {
+      "t": 1793482584000,
+      "v": 7.27
+    },
+    {
+      "t": 1793482644000,
+      "v": 7.51
+    },
+    {
+      "t": 1793482704000,
+      "v": 7.3
+    },
+    {
+      "t": 1793482764000,
+      "v": 7.33
+    },
+    {
+      "t": 1793482824000,
+      "v": 8.54
+    },
+    {
+      "t": 1793482884000,
+      "v": 9.23
+    },
+    {
+      "t": 1793482944000,
+      "v": 8.97
+    },
+    {
+      "t": 1793483004000,
+      "v": 8.47
+    }
+  ]
+}

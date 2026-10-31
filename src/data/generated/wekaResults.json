@@ -1,0 +1,571 @@
+{
+  "clasificacion-j48": {
+    "id": "clasificacion-j48",
+    "titulo": "Clasificación: ¿se puede predecir el resultado de una revisión?",
+    "algoritmo": "weka.classifiers.trees.J48 -C 0.25 -M 2 (vs. ZeroR y NaiveBayes), validación cruzada 10 pliegues",
+    "ejecutado": "2026-10-31T21:27:05.669Z",
+    "duracion_ms": 1167,
+    "modelos": [
+      {
+        "nombre": "ZeroR (línea base)",
+        "exactitud": 68.335,
+        "correctas": 669,
+        "instancias": 979,
+        "kappa": 0,
+        "por_clase": [
+          {
+            "clase": "Conforme",
+            "tp_rate": 1,
+            "precision": 0.683,
+            "recall": 1,
+            "f_measure": 0.812,
+            "roc": 0.499
+          },
+          {
+            "clase": "Con observaciones",
+            "tp_rate": 0,
+            "precision": null,
+            "recall": 0,
+            "f_measure": null,
+            "roc": 0.497
+          },
+          {
+            "clase": "No conforme",
+            "tp_rate": 0,
+            "precision": null,
+            "recall": 0,
+            "f_measure": null,
+            "roc": 0.494
+          }
+        ],
+        "matriz_confusion": [
+          {
+            "clase": "Conforme",
+            "valores": [
+              669,
+              0,
+              0
+            ]
+          },
+          {
+            "clase": "Con observaciones",
+            "valores": [
+              219,
+              0,
+              0
+            ]
+          },
+          {
+            "clase": "No conforme",
+            "valores": [
+              91,
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "J48 (árbol C4.5)",
+        "exactitud": 68.335,
+        "correctas": 669,
+        "instancias": 979,
+        "kappa": 0,
+        "por_clase": [
+          {
+            "clase": "Conforme",
+            "tp_rate": 1,
+            "precision": 0.683,
+            "recall": 1,
+            "f_measure": 0.812,
+            "roc": 0.499
+          },
+          {
+            "clase": "Con observaciones",
+            "tp_rate": 0,
+            "precision": null,
+            "recall": 0,
+            "f_measure": null,
+            "roc": 0.497
+          },
+          {
+            "clase": "No conforme",
+            "tp_rate": 0,
+            "precision": null,
+            "recall": 0,
+            "f_measure": null,
+            "roc": 0.494
+          }
+        ],
+        "matriz_confusion": [
+          {
+            "clase": "Conforme",
+            "valores": [
+              669,
+              0,
+              0
+            ]
+          },
+          {
+            "clase": "Con observaciones",
+            "valores": [
+              219,
+              0,
+              0
+            ]
+          },
+          {
+            "clase": "No conforme",
+            "valores": [
+              91,
+              0,
+              0
+            ]
+          }
+        ],
+        "arbol": ": Conforme (979.0/310.0)",
+        "hojas": 1,
+        "tamano": 1
+      },
+      {
+        "nombre": "Naive Bayes",
+        "exactitud": 68.1307,
+        "correctas": 667,
+        "instancias": 979,
+        "kappa": -0.0001,
+        "por_clase": [
+          {
+            "clase": "Conforme",
+            "tp_rate": 0.997,
+            "precision": 0.684,
+            "recall": 0.997,
+            "f_measure": 0.811,
+            "roc": 0.489
+          }
+        ],
+        "matriz_confusion": [
+          {
+            "clase": "Conforme",
+            "valores": [
+              667,
+              2,
+              0
+            ]
+          },
+          {
+            "clase": "Con observaciones",
+            "valores": [
+              218,
+              0,
+              1
+            ]
+          },
+          {
+            "clase": "No conforme",
+            "valores": [
+              90,
+              1,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "salida": "WARNING: core mtj jar files are not available as resources to this classloader (jdk.internal.loader.ClassLoaders$AppClassLoader@30946e09)\n\nOptions: -C 0.25 -M 2 \n\n=== Classifier model (full training set) ===\n\nJ48 pruned tree\n------------------\n: Conforme (979.0/310.0)\n\nNumber of Leaves  : \t1\n\nSize of the tree : \t1\n\n\nTime taken to build model: 0.3 seconds\n\nTime taken to test model on training data: 0.01 seconds\n\n=== Stratified cross-validation ===\n\nCorrectly Classified Instances         669               68.335  %\nIncorrectly Classified Instances       310               31.665  %\nKappa statistic                          0     \nMean absolute error                      0.3162\nRoot mean squared error                  0.3976\nRelative absolute error                 99.8626 %\nRoot relative squared error             99.9998 %\nTotal Number of Instances              979     \n\n\n=== Detailed Accuracy By Class ===\n\n                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class\n                 1.000    1.000    0.683      1.000    0.812      ?        0.499     0.683     Conforme\n                 0.000    0.000    ?          0.000    ?          ?        0.497     0.223     Con observaciones\n                 0.000    0.000    ?          0.000    ?          ?        0.494     0.092     No conforme\nWeighted Avg.    0.683    0.683    ?          0.683    ?          ?        0.498     0.525     \n\n\n=== Confusion Matrix ===\n\n   a   b   c   <-- classified as\n 669   0   0 |   a = Conforme\n 219   0   0 |   b = Con observaciones\n  91   0   0 |   c = No conforme\n\n"
+  },
+  "j48-no-conformes": {
+    "id": "j48-no-conformes",
+    "titulo": "Árbol J48 balanceado: ¿qué herramientas tienden a quedar No conformes?",
+    "algoritmo": "FilteredClassifier( ClassBalancer + J48 -C 0.25 -M 60 ), clase binaria No conforme vs. Sin hallazgo grave",
+    "ejecutado": "2026-10-31T21:27:06.717Z",
+    "duracion_ms": 1046,
+    "exactitud": 59.0398,
+    "correctas": 578,
+    "instancias": 979,
+    "kappa": 0.0261,
+    "por_clase": [
+      {
+        "clase": "No conforme",
+        "tp_rate": 0.462,
+        "precision": 0.107,
+        "recall": 0.462,
+        "f_measure": 0.173,
+        "roc": 0.512
+      },
+      {
+        "clase": "Sin hallazgo grave",
+        "tp_rate": 0.604,
+        "precision": 0.916,
+        "recall": 0.604,
+        "f_measure": 0.728,
+        "roc": 0.511
+      }
+    ],
+    "matriz_confusion": [
+      {
+        "clase": "No conforme",
+        "valores": [
+          42,
+          49
+        ]
+      },
+      {
+        "clase": "Sin hallazgo grave",
+        "valores": [
+          352,
+          536
+        ]
+      }
+    ],
+    "arbol": "herramienta_base = Allure Reporting Service: Sin hallazgo grave (70.31/32.27)\nherramienta_base = Apache JMeter Cluster Pruebas Carga: Sin hallazgo grave (70.86/32.27)\nherramienta_base = Cypress E2E Testing Suite: Sin hallazgo grave (58.87/26.9)\nherramienta_base = Gatling Stress Test Gateway: Sin hallazgo grave (62.73/26.9)\nherramienta_base = Jira Software QA Defect Tracking: No conforme (80.67/21.5)\nherramienta_base = Locust Distributed Load Server: No conforme (78.18/29.77)\nherramienta_base = OWASP ZAP Dynamic QA Suite: Sin hallazgo grave (50.73/21.52)\nherramienta_base = Playwright Regression Suite: Sin hallazgo grave (58.87/26.9)\nherramienta_base = Postman Pro Automation API: No conforme (97.21/38.04)\nherramienta_base = Selenium Grid Hub Clínico: No conforme (56.53/24.25)\nherramienta_base = Snyk Open Source Security QA: No conforme (76.11/33.07)\nherramienta_base = SonarQube Enterprise Code Scanner: Sin hallazgo grave (50.87/16.14)\nherramienta_base = TestRail Test Management: Sin hallazgo grave (63.28/26.9)\nherramienta_base = Tricentis Tosca Automation: No conforme (60.39/28.11)\nherramienta_base = k6 Performance Runner: Sin hallazgo grave (43.41/5.38)",
+    "hojas": 15,
+    "tamano": 16,
+    "ramas": [
+      {
+        "herramienta": "Allure Reporting Service",
+        "prediccion": "Sin hallazgo grave",
+        "peso": 70.31,
+        "errores": 32.27
+      },
+      {
+        "herramienta": "Apache JMeter Cluster Pruebas Carga",
+        "prediccion": "Sin hallazgo grave",
+        "peso": 70.86,
+        "errores": 32.27
+      },
+      {
+        "herramienta": "Cypress E2E Testing Suite",
+        "prediccion": "Sin hallazgo grave",
+        "peso": 58.87,
+        "errores": 26.9
+      },
+      {
+        "herramienta": "Gatling Stress Test Gateway",
+        "prediccion": "Sin hallazgo grave",
+        "peso": 62.73,
+        "errores": 26.9
+      },
+      {
+        "herramienta": "Jira Software QA Defect Tracking",
+        "prediccion": "No conforme",
+        "peso": 80.67,
+        "errores": 21.5
+      },
+      {
+        "herramienta": "Locust Distributed Load Server",
+        "prediccion": "No conforme",
+        "peso": 78.18,
+        "errores": 29.77
+      },
+      {
+        "herramienta": "OWASP ZAP Dynamic QA Suite",
+        "prediccion": "Sin hallazgo grave",
+        "peso": 50.73,
+        "errores": 21.52
+      },
+      {
+        "herramienta": "Playwright Regression Suite",
+        "prediccion": "Sin hallazgo grave",
+        "peso": 58.87,
+        "errores": 26.9
+      },
+      {
+        "herramienta": "Postman Pro Automation API",
+        "prediccion": "No conforme",
+        "peso": 97.21,
+        "errores": 38.04
+      },
+      {
+        "herramienta": "Selenium Grid Hub Clínico",
+        "prediccion": "No conforme",
+        "peso": 56.53,
+        "errores": 24.25
+      },
+      {
+        "herramienta": "Snyk Open Source Security QA",
+        "prediccion": "No conforme",
+        "peso": 76.11,
+        "errores": 33.07
+      },
+      {
+        "herramienta": "SonarQube Enterprise Code Scanner",
+        "prediccion": "Sin hallazgo grave",
+        "peso": 50.87,
+        "errores": 16.14
+      },
+      {
+        "herramienta": "TestRail Test Management",
+        "prediccion": "Sin hallazgo grave",
+        "peso": 63.28,
+        "errores": 26.9
+      },
+      {
+        "herramienta": "Tricentis Tosca Automation",
+        "prediccion": "No conforme",
+        "peso": 60.39,
+        "errores": 28.11
+      },
+      {
+        "herramienta": "k6 Performance Runner",
+        "prediccion": "Sin hallazgo grave",
+        "peso": 43.41,
+        "errores": 5.38
+      }
+    ],
+    "salida": "J48 pruned tree\n------------------\n\nherramienta_base = Allure Reporting Service: Sin hallazgo grave (70.31/32.27)\nherramienta_base = Apache JMeter Cluster Pruebas Carga: Sin hallazgo grave (70.86/32.27)\nherramienta_base = Cypress E2E Testing Suite: Sin hallazgo grave (58.87/26.9)\nherramienta_base = Gatling Stress Test Gateway: Sin hallazgo grave (62.73/26.9)\nherramienta_base = Jira Software QA Defect Tracking: No conforme (80.67/21.5)\nherramienta_base = Locust Distributed Load Server: No conforme (78.18/29.77)\nherramienta_base = OWASP ZAP Dynamic QA Suite: Sin hallazgo grave (50.73/21.52)\nherramienta_base = Playwright Regression Suite: Sin hallazgo grave (58.87/26.9)\nherramienta_base = Postman Pro Automation API: No conforme (97.21/38.04)\nherramienta_base = Selenium Grid Hub Clínico: No conforme (56.53/24.25)\nherramienta_base = Snyk Open Source Security QA: No conforme (76.11/33.07)\nherramienta_base = SonarQube Enterprise Code Scanner: Sin hallazgo grave (50.87/16.14)\nherramienta_base = TestRail Test Management: Sin hallazgo grave (63.28/26.9)\nherramienta_base = Tricentis Tosca Automation: No conforme (60.39/28.11)\nherramienta_base = k6 Performance Runner: Sin hallazgo grave (43.41/5.38)\n\nNumber of Leaves  : \t15\n\nSize of the tree : \t16\n\n\nTime taken to build model: 0.05 seconds\n\nTime taken to test model on training data: 0.02 seconds\n\n=== Error on training data ===\n\nCorrectly Classified Instances         622               63.5342 %\nIncorrectly Classified Instances       357               36.4658 %\nKappa statistic                          0.086 \nMean absolute error                      0.466 \nRoot mean squared error                  0.4851\nRelative absolute error                275.2755 %\nRoot relative squared error            167.0645 %\nTotal Number of Instances              979     \n\n\n=== Detailed Accuracy By Class ===\n\n                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class\n                 0.560    0.357    0.139      0.560    0.222      0.122    0.638     0.145     No conforme\n                 0.643    0.440    0.935      0.643    0.762      0.122    0.638     0.940     Sin hallazgo grave\nWeighted Avg.    0.635    0.432    0.861      0.635    0.712      0.122    0.638     0.866     \n\n\n=== Confusion Matrix ===\n\n   a   b   <-- classified as\n  51  40 |   a = No conforme\n 317 571 |   b = Sin hallazgo grave\n\nTime taken to perform cross-validation: 0.13 seconds\n\n\n=== Stratified cross-validation ===\n\nCorrectly Classified Instances         578               59.0398 %\nIncorrectly Classified Instances       401               40.9602 %\nKappa statistic                          0.0261\nMean absolute error                      0.4764\nRoot mean squared error                  0.4983\nRelative absolute error                281.2677 %\nRoot relative squared error            171.6237 %\nTotal Number of Instances              979     \n\n\n=== Detailed Accuracy By Class ===\n\n                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class\n                 0.462    0.396    0.107      0.462    0.173      0.039    0.512     0.105     No conforme\n                 0.604    0.538    0.916      0.604    0.728      0.039    0.511     0.908     Sin hallazgo grave\nWeighted Avg.    0.590    0.525    0.841      0.590    0.676      0.039    0.511     0.834     \n\n\n=== Confusion Matrix ===\n\n   a   b   <-- classified as\n  42  49 |   a = No conforme\n 352 536 |   b = Sin hallazgo grave\n\n"
+  },
+  "ranking-atributos": {
+    "id": "ranking-atributos",
+    "titulo": "Ranking de atributos por ganancia de información",
+    "algoritmo": "weka.attributeSelection.InfoGainAttributeEval + Ranker, clase resultado_revision (solo revisadas)",
+    "ejecutado": "2026-10-31T21:27:07.774Z",
+    "duracion_ms": 1052,
+    "ranking": [
+      {
+        "atributo": "herramienta_base",
+        "ganancia": 0.029112
+      },
+      {
+        "atributo": "estado_gestion",
+        "ganancia": 0.00735
+      },
+      {
+        "atributo": "rol_responsable",
+        "ganancia": 0.00728
+      },
+      {
+        "atributo": "categoria_consistente",
+        "ganancia": 0.004894
+      },
+      {
+        "atributo": "categoria_herramienta",
+        "ganancia": 0.004074
+      },
+      {
+        "atributo": "criticidad",
+        "ganancia": 0.002914
+      },
+      {
+        "atributo": "revision_vigente",
+        "ganancia": 0.000379
+      },
+      {
+        "atributo": "anio_creacion",
+        "ganancia": 0
+      },
+      {
+        "atributo": "nivel_criticidad",
+        "ganancia": 0
+      },
+      {
+        "atributo": "dias_creacion_a_revision",
+        "ganancia": 0
+      },
+      {
+        "atributo": "dias_desde_revision",
+        "ganancia": 0
+      }
+    ],
+    "salida": "=== Attribute Selection on all input data ===\n\nSearch Method:\n\tAttribute ranking.\n\nAttribute Evaluator (supervised, Class (nominal): 12 resultado_revision):\n\tInformation Gain Ranking Filter\n\nRanked attributes:\n 0.029112   1 herramienta_base\n 0.00735    6 estado_gestion\n 0.00728    4 rol_responsable\n 0.004894   3 categoria_consistente\n 0.004074   2 categoria_herramienta\n 0.002914   5 criticidad\n 0.000379   7 revision_vigente\n 0          9 anio_creacion\n 0          8 nivel_criticidad\n 0         10 dias_creacion_a_revision\n 0         11 dias_desde_revision\n\nSelected attributes: 1,6,4,3,2,5,7,9,8,10,11 : 11\n\n"
+  },
+  "clustering-kmeans": {
+    "id": "clustering-kmeans",
+    "titulo": "Agrupamiento: perfiles de herramientas con SimpleKMeans",
+    "algoritmo": "weka.clusterers.SimpleKMeans -N 4 -S 10 -I 500 (distancia euclidiana, atributos normalizados)",
+    "ejecutado": "2026-10-31T21:27:08.283Z",
+    "duracion_ms": 508,
+    "iteraciones": 22,
+    "sse": 1167.2573892639914,
+    "atributos": [
+      {
+        "atributo": "criticidad",
+        "global": "Alta",
+        "clusters": [
+          "Alta",
+          "Crítica",
+          "Alta",
+          "Alta"
+        ]
+      },
+      {
+        "atributo": "estado_gestion",
+        "global": "En uso",
+        "clusters": [
+          "En revisión",
+          "En uso",
+          "En uso",
+          "En uso"
+        ]
+      },
+      {
+        "atributo": "nivel_criticidad",
+        "global": "2.8442",
+        "clusters": [
+          "2.9231",
+          "4",
+          "2.389",
+          "2.1786"
+        ]
+      },
+      {
+        "atributo": "dias_creacion_a_revision",
+        "global": "121.0286",
+        "clusters": [
+          "115.8796",
+          "120.6024",
+          "125.5206",
+          "115.1382"
+        ]
+      },
+      {
+        "atributo": "dias_desde_revision",
+        "global": "586.7344",
+        "clusters": [
+          "585.8319",
+          "571.9936",
+          "577.0511",
+          "635.342"
+        ]
+      },
+      {
+        "atributo": "resultado_revision",
+        "global": "Conforme",
+        "clusters": [
+          "Con observaciones",
+          "Conforme",
+          "Conforme",
+          "Sin revisión"
+        ]
+      }
+    ],
+    "tamanos": [
+      {
+        "cluster": 0,
+        "instancias": 195,
+        "pct": 16
+      },
+      {
+        "cluster": 1,
+        "instancias": 300,
+        "pct": 25
+      },
+      {
+        "cluster": 2,
+        "instancias": 509,
+        "pct": 42
+      },
+      {
+        "cluster": 3,
+        "instancias": 196,
+        "pct": 16
+      }
+    ],
+    "salida": "kMeans\n======\n\nNumber of iterations: 22\nWithin cluster sum of squared errors: 1167.2573892639914\n\nInitial starting points (random):\n\nCluster 0: Alta,'En revisión',3,226,456,'Con observaciones'\nCluster 1: Crítica,'En uso',4,69,258,'Con observaciones'\nCluster 2: Alta,'En uso',3,15,254,Conforme\nCluster 3: Alta,'En uso',3,121.028601,586.734423,'Sin revisión'\n\nMissing values globally replaced with mean/mode\n\nFinal cluster centroids:\n                                                      Cluster#\nAttribute                          Full Data                 0                 1                 2                 3\n                                    (1200.0)           (195.0)           (300.0)           (509.0)           (196.0)\n====================================================================================================================\ncriticidad                              Alta              Alta           Crítica              Alta              Alta\nestado_gestion                        En uso       En revisión            En uso            En uso            En uso\nnivel_criticidad                      2.8442            2.9231                 4             2.389            2.1786\ndias_creacion_a_revision            121.0286          115.8796          120.6024          125.5206          115.1382\ndias_desde_revision                 586.7344          585.8319          571.9936          577.0511           635.342\nresultado_revision                  Conforme Con observaciones          Conforme          Conforme      Sin revisión\n\n\n\n\n=== Clustering stats for training data ===\n\nClustered Instances\n0       195 ( 16%)\n1       300 ( 25%)\n2       509 ( 42%)\n3       196 ( 16%)\n\n"
+  },
+  "asociacion-apriori": {
+    "id": "asociacion-apriori",
+    "titulo": "Reglas de asociación con Apriori",
+    "algoritmo": "weka.associations.Apriori -N 12 -C 0.6 -M 0.1 sobre rol, criticidad, estado, vigencia y resultado (revisadas)",
+    "ejecutado": "2026-10-31T21:27:08.837Z",
+    "duracion_ms": 553,
+    "reglas": [
+      {
+        "antecedente": "criticidad=Alta",
+        "soporte_antecedente": 413,
+        "consecuente": "revision_vigente=No",
+        "soporte_regla": 301,
+        "confianza": 0.73,
+        "lift": 1.02
+      },
+      {
+        "antecedente": "estado_gestion=En uso",
+        "soporte_antecedente": 692,
+        "consecuente": "revision_vigente=No",
+        "soporte_regla": 500,
+        "confianza": 0.72,
+        "lift": 1.01
+      },
+      {
+        "antecedente": "estado_gestion=En uso resultado_revision=Conforme",
+        "soporte_antecedente": 470,
+        "consecuente": "revision_vigente=No",
+        "soporte_regla": 339,
+        "confianza": 0.72,
+        "lift": 1.01
+      },
+      {
+        "antecedente": "revision_vigente=No",
+        "soporte_antecedente": 701,
+        "consecuente": "estado_gestion=En uso",
+        "soporte_regla": 500,
+        "confianza": 0.71,
+        "lift": 1.01
+      },
+      {
+        "antecedente": "revision_vigente=No resultado_revision=Conforme",
+        "soporte_antecedente": 476,
+        "consecuente": "estado_gestion=En uso",
+        "soporte_regla": 339,
+        "confianza": 0.71,
+        "lift": 1.01
+      },
+      {
+        "antecedente": "resultado_revision=Conforme",
+        "soporte_antecedente": 669,
+        "consecuente": "revision_vigente=No",
+        "soporte_regla": 476,
+        "confianza": 0.71,
+        "lift": 0.99
+      },
+      {
+        "antecedente": "resultado_revision=Conforme",
+        "soporte_antecedente": 669,
+        "consecuente": "estado_gestion=En uso",
+        "soporte_regla": 470,
+        "confianza": 0.7,
+        "lift": 0.99
+      },
+      {
+        "antecedente": "criticidad=Alta",
+        "soporte_antecedente": 413,
+        "consecuente": "estado_gestion=En uso",
+        "soporte_regla": 289,
+        "confianza": 0.7,
+        "lift": 0.99
+      },
+      {
+        "antecedente": "estado_gestion=En uso",
+        "soporte_antecedente": 692,
+        "consecuente": "resultado_revision=Conforme",
+        "soporte_regla": 470,
+        "confianza": 0.68,
+        "lift": 0.99
+      },
+      {
+        "antecedente": "revision_vigente=No",
+        "soporte_antecedente": 701,
+        "consecuente": "resultado_revision=Conforme",
+        "soporte_regla": 476,
+        "confianza": 0.68,
+        "lift": 0.99
+      },
+      {
+        "antecedente": "estado_gestion=En uso revision_vigente=No",
+        "soporte_antecedente": 500,
+        "consecuente": "resultado_revision=Conforme",
+        "soporte_regla": 339,
+        "confianza": 0.68,
+        "lift": 0.99
+      },
+      {
+        "antecedente": "criticidad=Alta",
+        "soporte_antecedente": 413,
+        "consecuente": "resultado_revision=Conforme",
+        "soporte_regla": 279,
+        "confianza": 0.68,
+        "lift": 0.99
+      }
+    ],
+    "salida": "Apriori\n=======\n\nMinimum support: 0.25 (245 instances)\nMinimum metric <confidence>: 0.6\nNumber of cycles performed: 15\n\nGenerated sets of large itemsets:\n\nSize of set of large itemsets L(1): 6\n\nSize of set of large itemsets L(2): 6\n\nSize of set of large itemsets L(3): 1\n\nBest rules found:\n\n 1. criticidad=Alta 413 ==> revision_vigente=No 301    <conf:(0.73)> lift:(1.02) lev:(0.01) [5] conv:(1.04)\n 2. estado_gestion=En uso 692 ==> revision_vigente=No 500    <conf:(0.72)> lift:(1.01) lev:(0) [4] conv:(1.02)\n 3. estado_gestion=En uso resultado_revision=Conforme 470 ==> revision_vigente=No 339    <conf:(0.72)> lift:(1.01) lev:(0) [2] conv:(1.01)\n 4. revision_vigente=No 701 ==> estado_gestion=En uso 500    <conf:(0.71)> lift:(1.01) lev:(0) [4] conv:(1.02)\n 5. revision_vigente=No resultado_revision=Conforme 476 ==> estado_gestion=En uso 339    <conf:(0.71)> lift:(1.01) lev:(0) [2] conv:(1.01)\n 6. resultado_revision=Conforme 669 ==> revision_vigente=No 476    <conf:(0.71)> lift:(0.99) lev:(-0) [-3] conv:(0.98)\n 7. resultado_revision=Conforme 669 ==> estado_gestion=En uso 470    <conf:(0.7)> lift:(0.99) lev:(-0) [-2] conv:(0.98)\n 8. criticidad=Alta 413 ==> estado_gestion=En uso 289    <conf:(0.7)> lift:(0.99) lev:(-0) [-2] conv:(0.97)\n 9. estado_gestion=En uso 692 ==> resultado_revision=Conforme 470    <conf:(0.68)> lift:(0.99) lev:(-0) [-2] conv:(0.98)\n10. revision_vigente=No 701 ==> resultado_revision=Conforme 476    <conf:(0.68)> lift:(0.99) lev:(-0) [-3] conv:(0.98)\n11. estado_gestion=En uso revision_vigente=No 500 ==> resultado_revision=Conforme 339    <conf:(0.68)> lift:(0.99) lev:(-0) [-2] conv:(0.98)\n12. criticidad=Alta 413 ==> resultado_revision=Conforme 279    <conf:(0.68)> lift:(0.99) lev:(-0) [-3] conv:(0.97)\n\n=== Evaluation ===\n\nElapsed time: 0.037s\n\n"
+  }
+}

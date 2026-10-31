@@ -1,0 +1,105 @@
+# QA Hub – AITECH | Área de Calidad
+# Servidor que conecta la página web con Zabbix (monitoreo), Weka (patrones) y el dataset (KPIs para Tableau).
+#
+#   docker compose up -d                      -> levanta todo
+#   docker compose --profile tunnel up -d     -> además publica la API en internet con Cloudflare Tunnel
+#
+# Servicios:
+#   zabbix-db       PostgreSQL con la base de datos de Zabbix
+#   zabbix-server   Motor de Zabbix 7.0 LTS (recolecta ítems, evalúa triggers, genera problemas)
+#   zabbix-web      Frontend de Zabbix            -> http://localhost:8080  (Admin / zabbix)
+#   zabbix-agent    Agente 2 que mide CPU/RAM/disco del propio servidor QA Hub
+#   qa-hub-api      API Node + Java/Weka            -> http://localhost:8787/api/health
+#   zabbix-setup    Configura Zabbix una sola vez (host, ítems, triggers, web scenarios) vía API
+#   tunnel          (opcional) Cloudflare Tunnel: expone qa-hub-api con una URL https pública
+
+services:
+  zabbix-db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: zabbix
+      POSTGRES_PASSWORD: ${ZBX_DB_PASSWORD:-zabbix_qa}
+      POSTGRES_DB: zabbix
+    volumes:
+      - zabbix-db:/var/lib/postgresql/data
+
+  zabbix-server:
+    image: zabbix/zabbix-server-pgsql:alpine-7.0-latest
+    restart: unless-stopped
+    depends_on: [zabbix-db]
+    environment:
+      DB_SERVER_HOST: zabbix-db
+      POSTGRES_USER: zabbix
+      POSTGRES_PASSWORD: ${ZBX_DB_PASSWORD:-zabbix_qa}
+      POSTGRES_DB: zabbix
+    ports:
+      - '10051:10051'
+
+  zabbix-web:
+    image: zabbix/zabbix-web-nginx-pgsql:alpine-7.0-latest
+    restart: unless-stopped
+    depends_on: [zabbix-server]
+    environment:
+      ZBX_SERVER_HOST: zabbix-server
+      DB_SERVER_HOST: zabbix-db
+      POSTGRES_USER: zabbix
+      POSTGRES_PASSWORD: ${ZBX_DB_PASSWORD:-zabbix_qa}
+      POSTGRES_DB: zabbix
+      PHP_TZ: America/La_Paz
+    ports:
+      - '8080:8080'
+
+  zabbix-agent:
+    image: zabbix/zabbix-agent2:alpine-7.0-latest
+    restart: unless-stopped
+    hostname: qa-hub
+    environment:
+      ZBX_HOSTNAME: qa-hub
+      ZBX_SERVER_HOST: zabbix-server
+
+  qa-hub-api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    restart: unless-stopped
+    depends_on: [zabbix-web]
+    environment:
+      PORT: 8787
+      DATA_DIR: /app/data
+      WEKA_CP: /opt/weka/lib/*
+      ZABBIX_URL: http://zabbix-web:8080/api_jsonrpc.php
+      ZABBIX_USER: ${ZABBIX_USER:-Admin}
+      ZABBIX_PASSWORD: ${ZABBIX_PASSWORD:-zabbix}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:6767,https://chriscc27.github.io}
+    volumes:
+      - ./data:/app/data
+    ports:
+      - '8787:8787'
+
+  zabbix-setup:
+    image: node:20-alpine
+    depends_on: [zabbix-web, qa-hub-api]
+    restart: 'no'
+    working_dir: /setup
+    environment:
+      ZABBIX_URL: http://zabbix-web:8080/api_jsonrpc.php
+      ZABBIX_USER: ${ZABBIX_USER:-Admin}
+      ZABBIX_PASSWORD: ${ZABBIX_PASSWORD:-zabbix}
+      QA_HUB_INTERNAL_URL: http://qa-hub-api:8787
+      PUBLIC_SITE_URL: ${PUBLIC_SITE_URL:-https://chriscc27.github.io/dinastia_arias/}
+    volumes:
+      - ./zabbix:/setup:ro
+    command: ['node', 'bootstrap.mjs']
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    profiles: [tunnel]
+    restart: unless-stopped
+    depends_on: [qa-hub-api]
+    # Sin cuenta: "quick tunnel" con URL aleatoria *.trycloudflare.com (se ve en `docker compose logs tunnel`).
+    # Con cuenta y dominio: reemplazar por `tunnel run --token ${CLOUDFLARE_TUNNEL_TOKEN}` para una URL fija.
+    command: tunnel --no-autoupdate --url http://qa-hub-api:8787
+
+volumes:
+  zabbix-db:

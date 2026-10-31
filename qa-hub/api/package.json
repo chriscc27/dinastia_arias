@@ -1,0 +1,13 @@
+{
+  "name": "aitech-qa-hub-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API que conecta la página del Área de Calidad con Zabbix, Weka y el dataset de herramientas",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

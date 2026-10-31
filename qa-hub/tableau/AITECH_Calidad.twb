@@ -1,0 +1,1474 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<workbook xmlns:user="http://www.tableausoftware.com/xml/user" original-version="18.1" source-build="2025.1.0 (20251.25.0213.1408)" source-platform="win" version="18.1">
+  <document-format-change-manifest />
+  <preferences />
+  <datasources>
+    <datasource caption="dataset_calidad" inline="true" name="federated.aitechcalidad" version="18.1">
+      <connection class="federated">
+        <named-connections>
+          <named-connection caption="dataset_calidad" name="textscan.aitechcsv">
+            <connection class="textscan" directory="C:\Users\CHRIS\Documents\KEVIN\UNIVERSIDAD TAREAS\OCTAVO SEMESTRE\gerencia de TICS\dinastia_arias\qa-hub\data" filename="dataset_calidad.csv" password="" server="" />
+          </named-connection>
+        </named-connections>
+        <relation connection="textscan.aitechcsv" name="dataset_calidad.csv" table="[dataset_calidad#csv]" type="table">
+          <columns character-set="UTF-8" header="yes" locale="es_ES" separator=",">
+            <column datatype="integer" name="id_herramienta" ordinal="0" />
+            <column datatype="string" name="nombre_herramienta" ordinal="1" />
+            <column datatype="string" name="herramienta_base" ordinal="2" />
+            <column datatype="string" name="categoria_herramienta" ordinal="3" />
+            <column datatype="string" name="categoria_esperada" ordinal="4" />
+            <column datatype="string" name="categoria_consistente" ordinal="5" />
+            <column datatype="string" name="responsable" ordinal="6" />
+            <column datatype="string" name="rol_responsable" ordinal="7" />
+            <column datatype="string" name="criticidad" ordinal="8" />
+            <column datatype="integer" name="nivel_criticidad" ordinal="9" />
+            <column datatype="string" name="estado_gestion" ordinal="10" />
+            <column datatype="string" name="fecha_ultima_revision" ordinal="11" />
+            <column datatype="string" name="resultado_revision" ordinal="12" />
+            <column datatype="string" name="revisada" ordinal="13" />
+            <column datatype="integer" name="dias_desde_revision" ordinal="14" />
+            <column datatype="string" name="revision_vigente" ordinal="15" />
+            <column datatype="integer" name="dias_creacion_a_revision" ordinal="16" />
+            <column datatype="string" name="fecha_creacion" ordinal="17" />
+            <column datatype="string" name="fecha_modificacion" ordinal="18" />
+            <column datatype="integer" name="anio_creacion" ordinal="19" />
+            <column datatype="string" name="trimestre_revision" ordinal="20" />
+            <column datatype="string" name="riesgo_operativo" ordinal="21" />
+          </columns>
+        </relation>
+      </connection>
+      <aliases enabled="yes" />
+      <column caption="Herramientas" datatype="integer" name="[id_herramienta]" role="measure" type="quantitative" />
+      <column caption="Herramienta (instancia)" datatype="string" name="[nombre_herramienta]" role="dimension" type="nominal" />
+      <column caption="Herramienta" datatype="string" name="[herramienta_base]" role="dimension" type="nominal" />
+      <column caption="Categoría registrada" datatype="string" name="[categoria_herramienta]" role="dimension" type="nominal" />
+      <column caption="Responsable" datatype="string" name="[responsable]" role="dimension" type="nominal" />
+      <column caption="Rol responsable" datatype="string" name="[rol_responsable]" role="dimension" type="nominal" />
+      <column caption="Criticidad" datatype="string" name="[criticidad]" role="dimension" type="nominal" />
+      <column caption="Estado de gestión" datatype="string" name="[estado_gestion]" role="dimension" type="nominal" />
+      <column caption="Última revisión" datatype="string" name="[fecha_ultima_revision]" role="dimension" type="nominal" />
+      <column caption="Resultado de revisión" datatype="string" name="[resultado_revision]" role="dimension" type="nominal" />
+      <column caption="Revisión vigente" datatype="string" name="[revision_vigente]" role="dimension" type="nominal" />
+      <column caption="Días desde la revisión" datatype="integer" name="[dias_desde_revision]" role="measure" type="quantitative" />
+      <column caption="Trimestre de revisión" datatype="string" name="[trimestre_revision]" role="dimension" type="nominal" />
+      <column caption="Es revisada" datatype="integer" name="[Calculation_1]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="IIF([revisada] = 'Sí', 1, 0)" />
+      </column>
+      <column caption="Es conforme" datatype="integer" name="[Calculation_2]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="IIF([resultado_revision] = 'Conforme', 1, 0)" />
+      </column>
+      <column caption="Es no conforme" datatype="integer" name="[Calculation_3]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="IIF([resultado_revision] = 'No conforme', 1, 0)" />
+      </column>
+      <column caption="Sin revisión vigente" datatype="integer" name="[Calculation_4]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="IIF([revision_vigente] = 'No', 1, 0)" />
+      </column>
+      <column caption="Tasa de conformidad" datatype="real" name="[Calculation_5]" role="measure" type="quantitative" default-format="p0.0%">
+        <calculation class="tableau" formula="SUM([Calculation_2]) / SUM([Calculation_1])" />
+      </column>
+      <column caption="% sin revisión vigente" datatype="real" name="[Calculation_6]" role="measure" type="quantitative" default-format="p0.0%">
+        <calculation class="tableau" formula="SUM([Calculation_4]) / COUNT([id_herramienta])" />
+      </column>
+      <column caption="Riesgo crítico" datatype="boolean" name="[Calculation_7]" role="dimension" type="nominal">
+        <calculation class="tableau" formula="[estado_gestion] = 'En uso' AND [resultado_revision] = 'No conforme' AND [criticidad] = 'Crítica'" />
+      </column>
+      <column caption="Tasa NC" datatype="real" name="[Calculation_8]" role="measure" type="quantitative" default-format="p0.0%">
+        <calculation class="tableau" formula="SUM([Calculation_3]) / SUM([Calculation_1])" />
+      </column>
+      <column caption="Promedio NC del área (LOD)" datatype="real" name="[Calculation_9]" role="measure" type="quantitative" default-format="p0.0%">
+        <calculation class="tableau" formula="{ FIXED : SUM([Calculation_3]) / SUM([Calculation_1]) }" />
+      </column>
+      <column caption="Posición vs promedio" datatype="string" name="[Calculation_10]" role="dimension" type="nominal">
+        <calculation class="tableau" formula="IIF([Calculation_8] &gt; MIN([Calculation_9]), 'Sobre el promedio', 'En o bajo el promedio')" />
+      </column>
+      <column caption="Es riesgo crítico" datatype="integer" name="[Calculation_11]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="IIF([Calculation_7], 1, 0)" />
+      </column>
+      <column caption="Crítica nunca revisada" datatype="integer" name="[Calculation_12]" role="measure" type="quantitative">
+        <calculation class="tableau" formula="IIF([criticidad] = 'Crítica' AND [revisada] = 'No', 1, 0)" />
+      </column>
+      <column caption="% categoría correcta" datatype="real" name="[Calculation_13]" role="measure" type="quantitative" default-format="p0.0%">
+        <calculation class="tableau" formula="SUM(IIF([categoria_consistente] = 'Sí', 1, 0)) / COUNT([id_herramienta])" />
+      </column>
+      <column-instance column="[resultado_revision]" derivation="None" name="[none:resultado_revision:nk]" pivot="key" type="nominal" />
+      <column-instance column="[Calculation_10]" derivation="User" name="[usr:Calculation_10:nk]" pivot="key" type="nominal" />
+      <column-instance column="[revision_vigente]" derivation="None" name="[none:revision_vigente:nk]" pivot="key" type="nominal" />
+      <extract count="-1" enabled="true" units="records">
+        <connection access_mode="readonly" author-locale="es_ES" class="hyper" dbname="C:/Users/CHRIS/Documents/KEVIN/UNIVERSIDAD TAREAS/OCTAVO SEMESTRE/gerencia de TICS/dinastia_arias/qa-hub/tableau/dataset_calidad.hyper" default-settings="hyper" schema="Extract" sslmode="" tablename="Extract" update-time="10/31/2026 6:00:00 PM" username="tableau">
+          <relation name="Extract" table="[Extract].[Extract]" type="table" />
+        </connection>
+      </extract>
+      <layout dim-ordering="alphabetic" dim-percentage="0.5" measure-ordering="alphabetic" measure-percentage="0.4" show-structure="true" />
+      <style>
+        <style-rule element="mark">
+          <encoding attr="color" field="[none:resultado_revision:nk]" type="palette">
+            <map to="#0ca30c">
+              <bucket>"Conforme"</bucket>
+            </map>
+            <map to="#fab219">
+              <bucket>"Con observaciones"</bucket>
+            </map>
+            <map to="#d03b3b">
+              <bucket>"No conforme"</bucket>
+            </map>
+            <map to="#bdbcb4">
+              <bucket>"Sin revisión"</bucket>
+            </map>
+          </encoding>
+          <encoding attr="color" field="[usr:Calculation_10:nk]" type="palette">
+            <map to="#d03b3b">
+              <bucket>"Sobre el promedio"</bucket>
+            </map>
+            <map to="#445e5f">
+              <bucket>"En o bajo el promedio"</bucket>
+            </map>
+          </encoding>
+          <encoding attr="color" field="[none:revision_vigente:nk]" type="palette">
+            <map to="#0ca30c">
+              <bucket>"Sí"</bucket>
+            </map>
+            <map to="#d03b3b">
+              <bucket>"No"</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name="KPI Total">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold="true" fontsize="13">Herramientas en inventario</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="dataset_calidad" name="federated.aitechcalidad" />
+          </datasources>
+          <datasource-dependencies datasource="federated.aitechcalidad">
+            <column caption="Herramientas" datatype="integer" name="[id_herramienta]" role="measure" type="quantitative" />
+            <column-instance column="[id_herramienta]" derivation="Count" name="[cnt:id_herramienta:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="cell">
+            <format attr="font-size" value="30" />
+            <format attr="font-weight" value="bold" />
+            <format attr="color" value="#222f30" />
+            <format attr="text-align" value="center" />
+            <format attr="vertical-align" value="center" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.aitechcalidad].[cnt:id_herramienta:qk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark" />
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name="KPI Conformidad">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold="true" fontsize="13">Tasa de conformidad (meta 75 %)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="dataset_calidad" name="federated.aitechcalidad" />
+          </datasources>
+          <datasource-dependencies datasource="federated.aitechcalidad">
+            <column caption="Es revisada" datatype="integer" name="[Calculation_1]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="IIF([revisada] = 'Sí', 1, 0)" />
+            </column>
+            <column caption="Es conforme" datatype="integer" name="[Calculation_2]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="IIF([resultado_revision] = 'Conforme', 1, 0)" />
+            </column>
+            <column caption="Tasa de conformidad" datatype="real" name="[Calculation_5]" role="measure" type="quantitative" default-format="p0.0%">
+              <calculation class="tableau" formula="SUM([Calculation_2]) / SUM([Calculation_1])" />
+            </column>
+            <column caption="Resultado de revisión" datatype="string" name="[resultado_revision]" role="dimension" type="nominal" />
+            <column datatype="string" name="[revisada]" role="dimension" type="nominal" />
+            <column-instance column="[Calculation_5]" derivation="User" name="[usr:Calculation_5:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="cell">
+            <format attr="font-size" value="30" />
+            <format attr="font-weight" value="bold" />
+            <format attr="color" value="#222f30" />
+            <format attr="text-align" value="center" />
+            <format attr="vertical-align" value="center" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.aitechcalidad].[usr:Calculation_5:qk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark" />
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name="KPI Sin vigente">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold="true" fontsize="13">% sin revisión vigente</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="dataset_calidad" name="federated.aitechcalidad" />
+          </datasources>
+          <datasource-dependencies datasource="federated.aitechcalidad">
+            <column caption="Sin revisión vigente" datatype="integer" name="[Calculation_4]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="IIF([revision_vigente] = 'No', 1, 0)" />
+            </column>
+            <column caption="% sin revisión vigente" datatype="real" name="[Calculation_6]" role="measure" type="quantitative" default-format="p0.0%">
+              <calculation class="tableau" formula="SUM([Calculation_4]) / COUNT([id_herramienta])" />
+            </column>
+            <column caption="Herramientas" datatype="integer" name="[id_herramienta]" role="measure" type="quantitative" />
+            <column caption="Revisión vigente" datatype="string" name="[revision_vigente]" role="dimension" type="nominal" />
+            <column-instance column="[Calculation_6]" derivation="User" name="[usr:Calculation_6:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="cell">
+            <format attr="font-size" value="30" />
+            <format attr="font-weight" value="bold" />
+            <format attr="color" value="#222f30" />
+            <format attr="text-align" value="center" />
+            <format attr="vertical-align" value="center" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.aitechcalidad].[usr:Calculation_6:qk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark" />
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name="KPI Críticas NC">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold="true" fontsize="13">Críticas en uso y No conformes</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="dataset_calidad" name="federated.aitechcalidad" />
+          </datasources>
+          <datasource-dependencies datasource="federated.aitechcalidad">
+            <column caption="Es riesgo crítico" datatype="integer" name="[Calculation_11]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="IIF([Calculation_7], 1, 0)" />
+            </column>
+            <column caption="Riesgo crítico" datatype="boolean" name="[Calculation_7]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[estado_gestion] = 'En uso' AND [resultado_revision] = 'No conforme' AND [criticidad] = 'Crítica'" />
+            </column>
+            <column caption="Criticidad" datatype="string" name="[criticidad]" role="dimension" type="nominal" />
+            <column caption="Estado de gestión" datatype="string" name="[estado_gestion]" role="dimension" type="nominal" />
+            <column caption="Resultado de revisión" datatype="string" name="[resultado_revision]" role="dimension" type="nominal" />
+            <column-instance column="[Calculation_11]" derivation="Sum" name="[sum:Calculation_11:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="cell">
+            <format attr="font-size" value="30" />
+            <format attr="font-weight" value="bold" />
+            <format attr="color" value="#222f30" />
+            <format attr="text-align" value="center" />
+            <format attr="vertical-align" value="center" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.aitechcalidad].[sum:Calculation_11:qk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark" />
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name="KPI Críticas sin revisión">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold="true" fontsize="13">Críticas nunca revisadas</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="dataset_calidad" name="federated.aitechcalidad" />
+          </datasources>
+          <datasource-dependencies datasource="federated.aitechcalidad">
+            <column caption="Crítica nunca revisada" datatype="integer" name="[Calculation_12]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="IIF([criticidad] = 'Crítica' AND [revisada] = 'No', 1, 0)" />
+            </column>
+            <column caption="Criticidad" datatype="string" name="[criticidad]" role="dimension" type="nominal" />
+            <column datatype="string" name="[revisada]" role="dimension" type="nominal" />
+            <column-instance column="[Calculation_12]" derivation="Sum" name="[sum:Calculation_12:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="cell">
+            <format attr="font-size" value="30" />
+            <format attr="font-weight" value="bold" />
+            <format attr="color" value="#222f30" />
+            <format attr="text-align" value="center" />
+            <format attr="vertical-align" value="center" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.aitechcalidad].[sum:Calculation_12:qk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark" />
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name="Resultado de revisión">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold="true" fontsize="13">Resultado de la última revisión (n.º de herramientas)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="dataset_calidad" name="federated.aitechcalidad" />
+          </datasources>
+          <datasource-dependencies datasource="federated.aitechcalidad">
+            <column caption="Herramientas" datatype="integer" name="[id_herramienta]" role="measure" type="quantitative" />
+            <column caption="Resultado de revisión" datatype="string" name="[resultado_revision]" role="dimension" type="nominal" />
+            <column-instance column="[resultado_revision]" derivation="None" name="[none:resultado_revision:nk]" pivot="key" type="nominal" />
+            <column-instance column="[id_herramienta]" derivation="Count" name="[cnt:id_herramienta:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <sort class="computed" column="[federated.aitechcalidad].[none:resultado_revision:nk]" direction="DESC" using="[federated.aitechcalidad].[cnt:id_herramienta:qk]" />
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <color column="[federated.aitechcalidad].[none:resultado_revision:nk]" />
+              <text column="[federated.aitechcalidad].[cnt:id_herramienta:qk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="true" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.aitechcalidad].[none:resultado_revision:nk]</rows>
+        <cols>[federated.aitechcalidad].[cnt:id_herramienta:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="NC por herramienta">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold="true" fontsize="13">Tasa de No conformidad por herramienta (promedio del área: 9,3 %)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="dataset_calidad" name="federated.aitechcalidad" />
+          </datasources>
+          <datasource-dependencies datasource="federated.aitechcalidad">
+            <column caption="Es revisada" datatype="integer" name="[Calculation_1]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="IIF([revisada] = 'Sí', 1, 0)" />
+            </column>
+            <column caption="Posición vs promedio" datatype="string" name="[Calculation_10]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="IIF([Calculation_8] &gt; MIN([Calculation_9]), 'Sobre el promedio', 'En o bajo el promedio')" />
+            </column>
+            <column caption="Es no conforme" datatype="integer" name="[Calculation_3]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="IIF([resultado_revision] = 'No conforme', 1, 0)" />
+            </column>
+            <column caption="Tasa NC" datatype="real" name="[Calculation_8]" role="measure" type="quantitative" default-format="p0.0%">
+              <calculation class="tableau" formula="SUM([Calculation_3]) / SUM([Calculation_1])" />
+            </column>
+            <column caption="Promedio NC del área (LOD)" datatype="real" name="[Calculation_9]" role="measure" type="quantitative" default-format="p0.0%">
+              <calculation class="tableau" formula="{ FIXED : SUM([Calculation_3]) / SUM([Calculation_1]) }" />
+            </column>
+            <column caption="Herramienta" datatype="string" name="[herramienta_base]" role="dimension" type="nominal" />
+            <column caption="Resultado de revisión" datatype="string" name="[resultado_revision]" role="dimension" type="nominal" />
+            <column datatype="string" name="[revisada]" role="dimension" type="nominal" />
+            <column-instance column="[herramienta_base]" derivation="None" name="[none:herramienta_base:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_8]" derivation="User" name="[usr:Calculation_8:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_10]" derivation="User" name="[usr:Calculation_10:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <sort class="computed" column="[federated.aitechcalidad].[none:herramienta_base:nk]" direction="DESC" using="[federated.aitechcalidad].[usr:Calculation_8:qk]" />
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <color column="[federated.aitechcalidad].[usr:Calculation_10:nk]" />
+              <text column="[federated.aitechcalidad].[usr:Calculation_8:qk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="true" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.aitechcalidad].[none:herramienta_base:nk]</rows>
+        <cols>[federated.aitechcalidad].[usr:Calculation_8:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="NC por responsable">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold="true" fontsize="13">Tasa de No conformidad por rol responsable</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="dataset_calidad" name="federated.aitechcalidad" />
+          </datasources>
+          <datasource-dependencies datasource="federated.aitechcalidad">
+            <column caption="Es revisada" datatype="integer" name="[Calculation_1]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="IIF([revisada] = 'Sí', 1, 0)" />
+            </column>
+            <column caption="Es no conforme" datatype="integer" name="[Calculation_3]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="IIF([resultado_revision] = 'No conforme', 1, 0)" />
+            </column>
+            <column caption="Tasa NC" datatype="real" name="[Calculation_8]" role="measure" type="quantitative" default-format="p0.0%">
+              <calculation class="tableau" formula="SUM([Calculation_3]) / SUM([Calculation_1])" />
+            </column>
+            <column caption="Resultado de revisión" datatype="string" name="[resultado_revision]" role="dimension" type="nominal" />
+            <column datatype="string" name="[revisada]" role="dimension" type="nominal" />
+            <column caption="Rol responsable" datatype="string" name="[rol_responsable]" role="dimension" type="nominal" />
+            <column-instance column="[rol_responsable]" derivation="None" name="[none:rol_responsable:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_8]" derivation="User" name="[usr:Calculation_8:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <sort class="computed" column="[federated.aitechcalidad].[none:rol_responsable:nk]" direction="DESC" using="[federated.aitechcalidad].[usr:Calculation_8:qk]" />
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <text column="[federated.aitechcalidad].[usr:Calculation_8:qk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="true" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.aitechcalidad].[none:rol_responsable:nk]</rows>
+        <cols>[federated.aitechcalidad].[usr:Calculation_8:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Mapa de vigencia">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold="true" fontsize="13">% sin revisión vigente: criticidad × estado de gestión</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="dataset_calidad" name="federated.aitechcalidad" />
+          </datasources>
+          <datasource-dependencies datasource="federated.aitechcalidad">
+            <column caption="Sin revisión vigente" datatype="integer" name="[Calculation_4]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="IIF([revision_vigente] = 'No', 1, 0)" />
+            </column>
+            <column caption="% sin revisión vigente" datatype="real" name="[Calculation_6]" role="measure" type="quantitative" default-format="p0.0%">
+              <calculation class="tableau" formula="SUM([Calculation_4]) / COUNT([id_herramienta])" />
+            </column>
+            <column caption="Criticidad" datatype="string" name="[criticidad]" role="dimension" type="nominal" />
+            <column caption="Estado de gestión" datatype="string" name="[estado_gestion]" role="dimension" type="nominal" />
+            <column caption="Herramientas" datatype="integer" name="[id_herramienta]" role="measure" type="quantitative" />
+            <column datatype="integer" name="[nivel_criticidad]" role="measure" type="quantitative" />
+            <column caption="Revisión vigente" datatype="string" name="[revision_vigente]" role="dimension" type="nominal" />
+            <column-instance column="[criticidad]" derivation="None" name="[none:criticidad:nk]" pivot="key" type="nominal" />
+            <column-instance column="[estado_gestion]" derivation="None" name="[none:estado_gestion:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_6]" derivation="User" name="[usr:Calculation_6:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[nivel_criticidad]" derivation="Min" name="[min:nivel_criticidad:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <sort class="computed" column="[federated.aitechcalidad].[none:criticidad:nk]" direction="DESC" using="[federated.aitechcalidad].[min:nivel_criticidad:qk]" />
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Square" />
+            <encodings>
+              <color column="[federated.aitechcalidad].[usr:Calculation_6:qk]" />
+              <text column="[federated.aitechcalidad].[usr:Calculation_6:qk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="true" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.aitechcalidad].[none:criticidad:nk]</rows>
+        <cols>[federated.aitechcalidad].[none:estado_gestion:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Vigencia por criticidad">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold="true" fontsize="13">Herramientas con revisión vigente (verde) y vencida o inexistente (rojo)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="dataset_calidad" name="federated.aitechcalidad" />
+          </datasources>
+          <datasource-dependencies datasource="federated.aitechcalidad">
+            <column caption="Criticidad" datatype="string" name="[criticidad]" role="dimension" type="nominal" />
+            <column caption="Herramientas" datatype="integer" name="[id_herramienta]" role="measure" type="quantitative" />
+            <column datatype="integer" name="[nivel_criticidad]" role="measure" type="quantitative" />
+            <column caption="Revisión vigente" datatype="string" name="[revision_vigente]" role="dimension" type="nominal" />
+            <column-instance column="[criticidad]" derivation="None" name="[none:criticidad:nk]" pivot="key" type="nominal" />
+            <column-instance column="[id_herramienta]" derivation="Count" name="[cnt:id_herramienta:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[revision_vigente]" derivation="None" name="[none:revision_vigente:nk]" pivot="key" type="nominal" />
+            <column-instance column="[nivel_criticidad]" derivation="Min" name="[min:nivel_criticidad:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <sort class="computed" column="[federated.aitechcalidad].[none:criticidad:nk]" direction="DESC" using="[federated.aitechcalidad].[min:nivel_criticidad:qk]" />
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <color column="[federated.aitechcalidad].[none:revision_vigente:nk]" />
+              <text column="[federated.aitechcalidad].[cnt:id_herramienta:qk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="true" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.aitechcalidad].[none:criticidad:nk]</rows>
+        <cols>[federated.aitechcalidad].[cnt:id_herramienta:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Revisiones por trimestre">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold="true" fontsize="13">Revisiones por trimestre (verde: conforme · amarillo: con observaciones · rojo: no conforme)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="dataset_calidad" name="federated.aitechcalidad" />
+          </datasources>
+          <datasource-dependencies datasource="federated.aitechcalidad">
+            <column caption="Herramientas" datatype="integer" name="[id_herramienta]" role="measure" type="quantitative" />
+            <column caption="Resultado de revisión" datatype="string" name="[resultado_revision]" role="dimension" type="nominal" />
+            <column caption="Trimestre de revisión" datatype="string" name="[trimestre_revision]" role="dimension" type="nominal" />
+            <column-instance column="[id_herramienta]" derivation="Count" name="[cnt:id_herramienta:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[trimestre_revision]" derivation="None" name="[none:trimestre_revision:nk]" pivot="key" type="nominal" />
+            <column-instance column="[resultado_revision]" derivation="None" name="[none:resultado_revision:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.aitechcalidad].[none:resultado_revision:nk]">
+            <groupfilter function="except" user:ui-domain="database" user:ui-enumeration="exclusive" user:ui-marker="enumerate">
+              <groupfilter function="level-members" level="[none:resultado_revision:nk]" />
+              <groupfilter function="member" level="[none:resultado_revision:nk]" member="&quot;Sin revisión&quot;" />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.aitechcalidad].[none:resultado_revision:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <color column="[federated.aitechcalidad].[none:resultado_revision:nk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark" />
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.aitechcalidad].[cnt:id_herramienta:qk]</rows>
+        <cols>[federated.aitechcalidad].[none:trimestre_revision:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Conformidad por trimestre">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold="true" fontsize="13">Tasa de conformidad por trimestre de revisión</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="dataset_calidad" name="federated.aitechcalidad" />
+          </datasources>
+          <datasource-dependencies datasource="federated.aitechcalidad">
+            <column caption="Es revisada" datatype="integer" name="[Calculation_1]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="IIF([revisada] = 'Sí', 1, 0)" />
+            </column>
+            <column caption="Es conforme" datatype="integer" name="[Calculation_2]" role="measure" type="quantitative">
+              <calculation class="tableau" formula="IIF([resultado_revision] = 'Conforme', 1, 0)" />
+            </column>
+            <column caption="Tasa de conformidad" datatype="real" name="[Calculation_5]" role="measure" type="quantitative" default-format="p0.0%">
+              <calculation class="tableau" formula="SUM([Calculation_2]) / SUM([Calculation_1])" />
+            </column>
+            <column caption="Resultado de revisión" datatype="string" name="[resultado_revision]" role="dimension" type="nominal" />
+            <column datatype="string" name="[revisada]" role="dimension" type="nominal" />
+            <column caption="Trimestre de revisión" datatype="string" name="[trimestre_revision]" role="dimension" type="nominal" />
+            <column-instance column="[Calculation_5]" derivation="User" name="[usr:Calculation_5:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[trimestre_revision]" derivation="None" name="[none:trimestre_revision:nk]" pivot="key" type="nominal" />
+            <column-instance column="[resultado_revision]" derivation="None" name="[none:resultado_revision:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.aitechcalidad].[none:resultado_revision:nk]">
+            <groupfilter function="except" user:ui-domain="database" user:ui-enumeration="exclusive" user:ui-marker="enumerate">
+              <groupfilter function="level-members" level="[none:resultado_revision:nk]" />
+              <groupfilter function="member" level="[none:resultado_revision:nk]" member="&quot;Sin revisión&quot;" />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.aitechcalidad].[none:resultado_revision:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Line" />
+            <encodings>
+              <text column="[federated.aitechcalidad].[usr:Calculation_5:qk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="true" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.aitechcalidad].[usr:Calculation_5:qk]</rows>
+        <cols>[federated.aitechcalidad].[none:trimestre_revision:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Tabla de riesgo crítico">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold="true" fontsize="13">Críticas en uso con revisión No conforme (acción inmediata)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="dataset_calidad" name="federated.aitechcalidad" />
+          </datasources>
+          <datasource-dependencies datasource="federated.aitechcalidad">
+            <column caption="Riesgo crítico" datatype="boolean" name="[Calculation_7]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[estado_gestion] = 'En uso' AND [resultado_revision] = 'No conforme' AND [criticidad] = 'Crítica'" />
+            </column>
+            <column caption="Criticidad" datatype="string" name="[criticidad]" role="dimension" type="nominal" />
+            <column caption="Días desde la revisión" datatype="integer" name="[dias_desde_revision]" role="measure" type="quantitative" />
+            <column caption="Estado de gestión" datatype="string" name="[estado_gestion]" role="dimension" type="nominal" />
+            <column caption="Última revisión" datatype="string" name="[fecha_ultima_revision]" role="dimension" type="nominal" />
+            <column caption="Herramienta (instancia)" datatype="string" name="[nombre_herramienta]" role="dimension" type="nominal" />
+            <column caption="Responsable" datatype="string" name="[responsable]" role="dimension" type="nominal" />
+            <column caption="Resultado de revisión" datatype="string" name="[resultado_revision]" role="dimension" type="nominal" />
+            <column-instance column="[nombre_herramienta]" derivation="None" name="[none:nombre_herramienta:nk]" pivot="key" type="nominal" />
+            <column-instance column="[responsable]" derivation="None" name="[none:responsable:nk]" pivot="key" type="nominal" />
+            <column-instance column="[fecha_ultima_revision]" derivation="None" name="[none:fecha_ultima_revision:nk]" pivot="key" type="nominal" />
+            <column-instance column="[dias_desde_revision]" derivation="Min" name="[min:dias_desde_revision:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[Calculation_7]" derivation="None" name="[none:Calculation_7:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[federated.aitechcalidad].[none:Calculation_7:nk]">
+            <groupfilter function="union" user:ui-domain="database" user:ui-enumeration="inclusive" user:ui-marker="enumerate">
+              <groupfilter function="member" level="[none:Calculation_7:nk]" member="true" />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.aitechcalidad].[none:Calculation_7:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[federated.aitechcalidad].[min:dias_desde_revision:qk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark" />
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.aitechcalidad].[none:nombre_herramienta:nk] / [federated.aitechcalidad].[none:responsable:nk] / [federated.aitechcalidad].[none:fecha_ultima_revision:nk]</rows>
+        <cols />
+      </table>
+    </worksheet>
+    <worksheet name="Categoría correcta">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold="true" fontsize="13">% de registros con la categoría correcta</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="dataset_calidad" name="federated.aitechcalidad" />
+          </datasources>
+          <datasource-dependencies datasource="federated.aitechcalidad">
+            <column caption="% categoría correcta" datatype="real" name="[Calculation_13]" role="measure" type="quantitative" default-format="p0.0%">
+              <calculation class="tableau" formula="SUM(IIF([categoria_consistente] = 'Sí', 1, 0)) / COUNT([id_herramienta])" />
+            </column>
+            <column datatype="string" name="[categoria_consistente]" role="dimension" type="nominal" />
+            <column caption="Categoría registrada" datatype="string" name="[categoria_herramienta]" role="dimension" type="nominal" />
+            <column caption="Herramientas" datatype="integer" name="[id_herramienta]" role="measure" type="quantitative" />
+            <column-instance column="[categoria_herramienta]" derivation="None" name="[none:categoria_herramienta:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Calculation_13]" derivation="User" name="[usr:Calculation_13:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <aggregation value="true" />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-allow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <text column="[federated.aitechcalidad].[usr:Calculation_13:qk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="true" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.aitechcalidad].[none:categoria_herramienta:nk]</rows>
+        <cols>[federated.aitechcalidad].[usr:Calculation_13:qk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name="1 Resumen ejecutivo">
+      <style />
+      <size maxheight="700" maxwidth="1320" minheight="700" minwidth="1320" />
+      <zones>
+        <zone h="100000" id="3" type-v2="layout-basic" w="100000" x="0" y="0">
+          <zone h="98000" id="4" param="vert" type-v2="layout-flow" w="98400" x="800" y="1000">
+            <zone h="7000" id="5" type-v2="text" w="98400" x="800" y="1000">
+              <formatted-text>
+                <run bold="true" fontcolor="#222f30" fontsize="18">Resumen ejecutivo de conformidad — AITECH | Área de Calidad</run>
+              </formatted-text>
+            </zone>
+            <zone h="27300" id="6" param="horz" type-v2="layout-flow" w="98400" x="800" y="8000">
+              <zone h="27300" id="7" name="KPI Total" w="19680" x="800" y="8000">
+                <zone-style>
+                  <format attr="border-color" value="#e1e0d9" />
+                  <format attr="border-style" value="solid" />
+                  <format attr="border-width" value="1" />
+                  <format attr="margin" value="4" />
+                </zone-style>
+              </zone>
+              <zone h="27300" id="8" name="KPI Conformidad" w="19680" x="20480" y="8000">
+                <zone-style>
+                  <format attr="border-color" value="#e1e0d9" />
+                  <format attr="border-style" value="solid" />
+                  <format attr="border-width" value="1" />
+                  <format attr="margin" value="4" />
+                </zone-style>
+              </zone>
+              <zone h="27300" id="9" name="KPI Sin vigente" w="19680" x="40160" y="8000">
+                <zone-style>
+                  <format attr="border-color" value="#e1e0d9" />
+                  <format attr="border-style" value="solid" />
+                  <format attr="border-width" value="1" />
+                  <format attr="margin" value="4" />
+                </zone-style>
+              </zone>
+              <zone h="27300" id="10" name="KPI Críticas NC" w="19680" x="59840" y="8000">
+                <zone-style>
+                  <format attr="border-color" value="#e1e0d9" />
+                  <format attr="border-style" value="solid" />
+                  <format attr="border-width" value="1" />
+                  <format attr="margin" value="4" />
+                </zone-style>
+              </zone>
+              <zone h="27300" id="11" name="KPI Críticas sin revisión" w="19680" x="79520" y="8000">
+                <zone-style>
+                  <format attr="border-color" value="#e1e0d9" />
+                  <format attr="border-style" value="solid" />
+                  <format attr="border-width" value="1" />
+                  <format attr="margin" value="4" />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone h="63700" id="12" param="horz" type-v2="layout-flow" w="98400" x="800" y="35300">
+              <zone h="63700" id="13" name="Resultado de revisión" w="98400" x="800" y="35300">
+                <zone-style>
+                  <format attr="border-color" value="#e1e0d9" />
+                  <format attr="border-style" value="solid" />
+                  <format attr="border-width" value="1" />
+                  <format attr="margin" value="4" />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+        </zone>
+      </zones>
+    </dashboard>
+    <dashboard name="2 No conformidad">
+      <style />
+      <size maxheight="700" maxwidth="1320" minheight="700" minwidth="1320" />
+      <zones>
+        <zone h="100000" id="3" type-v2="layout-basic" w="100000" x="0" y="0">
+          <zone h="98000" id="4" param="vert" type-v2="layout-flow" w="98400" x="800" y="1000">
+            <zone h="7000" id="5" type-v2="text" w="98400" x="800" y="1000">
+              <formatted-text>
+                <run bold="true" fontcolor="#222f30" fontsize="18">No conformidad por herramienta y responsable</run>
+              </formatted-text>
+            </zone>
+            <zone h="58240" id="6" param="horz" type-v2="layout-flow" w="98400" x="800" y="8000">
+              <zone h="58240" id="7" name="NC por herramienta" w="98400" x="800" y="8000">
+                <zone-style>
+                  <format attr="border-color" value="#e1e0d9" />
+                  <format attr="border-style" value="solid" />
+                  <format attr="border-width" value="1" />
+                  <format attr="margin" value="4" />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone h="32760" id="8" param="horz" type-v2="layout-flow" w="98400" x="800" y="66240">
+              <zone h="32760" id="9" name="NC por responsable" w="98400" x="800" y="66240">
+                <zone-style>
+                  <format attr="border-color" value="#e1e0d9" />
+                  <format attr="border-style" value="solid" />
+                  <format attr="border-width" value="1" />
+                  <format attr="margin" value="4" />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+        </zone>
+      </zones>
+    </dashboard>
+    <dashboard name="3 Vigencia">
+      <style />
+      <size maxheight="700" maxwidth="1320" minheight="700" minwidth="1320" />
+      <zones>
+        <zone h="100000" id="3" type-v2="layout-basic" w="100000" x="0" y="0">
+          <zone h="98000" id="4" param="vert" type-v2="layout-flow" w="98400" x="800" y="1000">
+            <zone h="7000" id="5" type-v2="text" w="98400" x="800" y="1000">
+              <formatted-text>
+                <run bold="true" fontcolor="#222f30" fontsize="18">Vigencia de revisiones según criticidad y estado</run>
+              </formatted-text>
+            </zone>
+            <zone h="54600" id="6" param="horz" type-v2="layout-flow" w="98400" x="800" y="8000">
+              <zone h="54600" id="7" name="Mapa de vigencia" w="98400" x="800" y="8000">
+                <zone-style>
+                  <format attr="border-color" value="#e1e0d9" />
+                  <format attr="border-style" value="solid" />
+                  <format attr="border-width" value="1" />
+                  <format attr="margin" value="4" />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone h="36400" id="8" param="horz" type-v2="layout-flow" w="98400" x="800" y="62600">
+              <zone h="36400" id="9" name="Vigencia por criticidad" w="98400" x="800" y="62600">
+                <zone-style>
+                  <format attr="border-color" value="#e1e0d9" />
+                  <format attr="border-style" value="solid" />
+                  <format attr="border-width" value="1" />
+                  <format attr="margin" value="4" />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+        </zone>
+      </zones>
+    </dashboard>
+    <dashboard name="4 Tendencia">
+      <style />
+      <size maxheight="700" maxwidth="1320" minheight="700" minwidth="1320" />
+      <zones>
+        <zone h="100000" id="3" type-v2="layout-basic" w="100000" x="0" y="0">
+          <zone h="98000" id="4" param="vert" type-v2="layout-flow" w="98400" x="800" y="1000">
+            <zone h="7000" id="5" type-v2="text" w="98400" x="800" y="1000">
+              <formatted-text>
+                <run bold="true" fontcolor="#222f30" fontsize="18">Evolución trimestral de las revisiones</run>
+              </formatted-text>
+            </zone>
+            <zone h="54600" id="6" param="horz" type-v2="layout-flow" w="98400" x="800" y="8000">
+              <zone h="54600" id="7" name="Revisiones por trimestre" w="98400" x="800" y="8000">
+                <zone-style>
+                  <format attr="border-color" value="#e1e0d9" />
+                  <format attr="border-style" value="solid" />
+                  <format attr="border-width" value="1" />
+                  <format attr="margin" value="4" />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone h="36400" id="8" param="horz" type-v2="layout-flow" w="98400" x="800" y="62600">
+              <zone h="36400" id="9" name="Conformidad por trimestre" w="98400" x="800" y="62600">
+                <zone-style>
+                  <format attr="border-color" value="#e1e0d9" />
+                  <format attr="border-style" value="solid" />
+                  <format attr="border-width" value="1" />
+                  <format attr="margin" value="4" />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+        </zone>
+      </zones>
+    </dashboard>
+    <dashboard name="5 Riesgo y dato">
+      <style />
+      <size maxheight="700" maxwidth="1320" minheight="700" minwidth="1320" />
+      <zones>
+        <zone h="100000" id="3" type-v2="layout-basic" w="100000" x="0" y="0">
+          <zone h="98000" id="4" param="vert" type-v2="layout-flow" w="98400" x="800" y="1000">
+            <zone h="7000" id="5" type-v2="text" w="98400" x="800" y="1000">
+              <formatted-text>
+                <run bold="true" fontcolor="#222f30" fontsize="18">Riesgo crítico y calidad del dato del inventario</run>
+              </formatted-text>
+            </zone>
+            <zone h="91000" id="6" param="horz" type-v2="layout-flow" w="98400" x="800" y="8000">
+              <zone h="91000" id="7" name="Tabla de riesgo crítico" w="49200" x="800" y="8000" fixed-size="800" is-fixed="true">
+                <zone-style>
+                  <format attr="border-color" value="#e1e0d9" />
+                  <format attr="border-style" value="solid" />
+                  <format attr="border-width" value="1" />
+                  <format attr="margin" value="4" />
+                </zone-style>
+              </zone>
+              <zone h="91000" id="8" name="Categoría correcta" w="49200" x="50000" y="8000">
+                <zone-style>
+                  <format attr="border-color" value="#e1e0d9" />
+                  <format attr="border-style" value="solid" />
+                  <format attr="border-width" value="1" />
+                  <format attr="margin" value="4" />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows source-height="30">
+    <window class="worksheet" hidden="true" name="KPI Total">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="KPI Conformidad">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="KPI Sin vigente">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="KPI Críticas NC">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="KPI Críticas sin revisión">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="Resultado de revisión">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="NC por herramienta">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="NC por responsable">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="Mapa de vigencia">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="Vigencia por criticidad">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="Revisiones por trimestre">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="Conformidad por trimestre">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="Tabla de riesgo crítico">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="worksheet" hidden="true" name="Categoría correcta">
+      <cards>
+        <edge name="left">
+          <strip size="160">
+            <card type="pages" />
+            <card type="filters" />
+            <card type="marks" />
+          </strip>
+        </edge>
+        <edge name="top">
+          <strip size="2147483647">
+            <card type="columns" />
+          </strip>
+          <strip size="2147483647">
+            <card type="rows" />
+          </strip>
+          <strip size="31">
+            <card type="title" />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class="dashboard" name="1 Resumen ejecutivo" maximized="true">
+      <viewpoints>
+        <viewpoint name="KPI Total">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="KPI Conformidad">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="KPI Sin vigente">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="KPI Críticas NC">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="KPI Críticas sin revisión">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Resultado de revisión">
+          <zoom type="entire-view" />
+        </viewpoint>
+      </viewpoints>
+      <active id="-1" />
+      <device-preview visible="false" />
+    </window>
+    <window class="dashboard" name="2 No conformidad">
+      <viewpoints>
+        <viewpoint name="NC por herramienta">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="NC por responsable">
+          <zoom type="entire-view" />
+        </viewpoint>
+      </viewpoints>
+      <active id="-1" />
+      <device-preview visible="false" />
+    </window>
+    <window class="dashboard" name="3 Vigencia">
+      <viewpoints>
+        <viewpoint name="Mapa de vigencia">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Vigencia por criticidad">
+          <zoom type="entire-view" />
+        </viewpoint>
+      </viewpoints>
+      <active id="-1" />
+      <device-preview visible="false" />
+    </window>
+    <window class="dashboard" name="4 Tendencia">
+      <viewpoints>
+        <viewpoint name="Revisiones por trimestre">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Conformidad por trimestre">
+          <zoom type="entire-view" />
+        </viewpoint>
+      </viewpoints>
+      <active id="-1" />
+      <device-preview visible="false" />
+    </window>
+    <window class="dashboard" name="5 Riesgo y dato">
+      <viewpoints>
+        <viewpoint name="Tabla de riesgo crítico">
+          <zoom type="fit-width" />
+        </viewpoint>
+        <viewpoint name="Categoría correcta">
+          <zoom type="entire-view" />
+        </viewpoint>
+      </viewpoints>
+      <active id="-1" />
+      <device-preview visible="false" />
+    </window>
+  </windows>
+</workbook>

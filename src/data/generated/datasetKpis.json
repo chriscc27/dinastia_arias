@@ -1,0 +1,597 @@
+{
+  "meta": {
+    "fuente": "Dataset_Gestion_Calidad.xlsx",
+    "registros": 1200,
+    "fecha_corte": "2026-04-30",
+    "generado": "2026-10-31T21:43:30.068Z"
+  },
+  "kpis": {
+    "total_herramientas": 1200,
+    "revisadas": 979,
+    "sin_revision": 221,
+    "tasa_conformidad": 68.3,
+    "tasa_no_conformidad": 9.3,
+    "sin_revision_vigente": 922,
+    "sin_revision_vigente_pct": 76.8,
+    "en_uso_no_conforme": 68,
+    "criticas_no_conformes_en_uso": 23,
+    "criticas_sin_revision": 60,
+    "categoria_inconsistente": 870,
+    "categoria_inconsistente_pct": 72.5,
+    "riesgo_alto": 68,
+    "riesgo_medio": 391
+  },
+  "resultados": [
+    {
+      "nombre": "Conforme",
+      "valor": 669,
+      "pct": 55.8
+    },
+    {
+      "nombre": "Con observaciones",
+      "valor": 219,
+      "pct": 18.3
+    },
+    {
+      "nombre": "No conforme",
+      "valor": 91,
+      "pct": 7.6
+    },
+    {
+      "nombre": "Sin revisión",
+      "valor": 221,
+      "pct": 18.4
+    }
+  ],
+  "por_herramienta": [
+    {
+      "nombre": "Jira Software QA Defect Tracking",
+      "total": 62,
+      "conforme": 28,
+      "con_observaciones": 11,
+      "no_conforme": 11,
+      "sin_revision": 12,
+      "tasa_no_conformidad": 22,
+      "tasa_conformidad": 56,
+      "categoria": "Gestión de Bugs"
+    },
+    {
+      "nombre": "Locust Distributed Load Server",
+      "total": 71,
+      "conforme": 45,
+      "con_observaciones": 9,
+      "no_conforme": 9,
+      "sin_revision": 8,
+      "tasa_no_conformidad": 14.3,
+      "tasa_conformidad": 71.4,
+      "categoria": "Pruebas de Rendimiento"
+    },
+    {
+      "nombre": "Postman Pro Automation API",
+      "total": 97,
+      "conforme": 51,
+      "con_observaciones": 18,
+      "no_conforme": 11,
+      "sin_revision": 17,
+      "tasa_no_conformidad": 13.8,
+      "tasa_conformidad": 63.8,
+      "categoria": "Automatización de Pruebas"
+    },
+    {
+      "nombre": "Selenium Grid Hub Clínico",
+      "total": 66,
+      "conforme": 34,
+      "con_observaciones": 10,
+      "no_conforme": 6,
+      "sin_revision": 16,
+      "tasa_no_conformidad": 12,
+      "tasa_conformidad": 68,
+      "categoria": "Automatización de Pruebas"
+    },
+    {
+      "nombre": "Snyk Open Source Security QA",
+      "total": 79,
+      "conforme": 46,
+      "con_observaciones": 14,
+      "no_conforme": 8,
+      "sin_revision": 11,
+      "tasa_no_conformidad": 11.8,
+      "tasa_conformidad": 67.6,
+      "categoria": "Análisis de Código"
+    },
+    {
+      "nombre": "Tricentis Tosca Automation",
+      "total": 70,
+      "conforme": 42,
+      "con_observaciones": 9,
+      "no_conforme": 6,
+      "sin_revision": 13,
+      "tasa_no_conformidad": 10.5,
+      "tasa_conformidad": 73.7,
+      "categoria": "Automatización de Pruebas"
+    },
+    {
+      "nombre": "Allure Reporting Service",
+      "total": 93,
+      "conforme": 54,
+      "con_observaciones": 15,
+      "no_conforme": 6,
+      "sin_revision": 18,
+      "tasa_no_conformidad": 8,
+      "tasa_conformidad": 72,
+      "categoria": "Gestión de Bugs"
+    },
+    {
+      "nombre": "Apache JMeter Cluster Pruebas Carga",
+      "total": 88,
+      "conforme": 47,
+      "con_observaciones": 23,
+      "no_conforme": 6,
+      "sin_revision": 12,
+      "tasa_no_conformidad": 7.9,
+      "tasa_conformidad": 61.8,
+      "categoria": "Pruebas de Rendimiento"
+    },
+    {
+      "nombre": "Playwright Regression Suite",
+      "total": 81,
+      "conforme": 48,
+      "con_observaciones": 10,
+      "no_conforme": 5,
+      "sin_revision": 18,
+      "tasa_no_conformidad": 7.9,
+      "tasa_conformidad": 76.2,
+      "categoria": "Automatización de Pruebas"
+    },
+    {
+      "nombre": "Cypress E2E Testing Suite",
+      "total": 75,
+      "conforme": 38,
+      "con_observaciones": 20,
+      "no_conforme": 5,
+      "sin_revision": 12,
+      "tasa_no_conformidad": 7.9,
+      "tasa_conformidad": 60.3,
+      "categoria": "Automatización de Pruebas"
+    },
+    {
+      "nombre": "Gatling Stress Test Gateway",
+      "total": 81,
+      "conforme": 54,
+      "con_observaciones": 11,
+      "no_conforme": 5,
+      "sin_revision": 11,
+      "tasa_no_conformidad": 7.1,
+      "tasa_conformidad": 77.1,
+      "categoria": "Pruebas de Rendimiento"
+    },
+    {
+      "nombre": "OWASP ZAP Dynamic QA Suite",
+      "total": 76,
+      "conforme": 37,
+      "con_observaciones": 16,
+      "no_conforme": 4,
+      "sin_revision": 19,
+      "tasa_no_conformidad": 7,
+      "tasa_conformidad": 64.9,
+      "categoria": "Análisis de Código"
+    },
+    {
+      "nombre": "TestRail Test Management",
+      "total": 91,
+      "conforme": 46,
+      "con_observaciones": 20,
+      "no_conforme": 5,
+      "sin_revision": 20,
+      "tasa_no_conformidad": 7,
+      "tasa_conformidad": 64.8,
+      "categoria": "Gestión de Bugs"
+    },
+    {
+      "nombre": "SonarQube Enterprise Code Scanner",
+      "total": 83,
+      "conforme": 45,
+      "con_observaciones": 18,
+      "no_conforme": 3,
+      "sin_revision": 17,
+      "tasa_no_conformidad": 4.5,
+      "tasa_conformidad": 68.2,
+      "categoria": "Análisis de Código"
+    },
+    {
+      "nombre": "k6 Performance Runner",
+      "total": 87,
+      "conforme": 54,
+      "con_observaciones": 15,
+      "no_conforme": 1,
+      "sin_revision": 17,
+      "tasa_no_conformidad": 1.4,
+      "tasa_conformidad": 77.1,
+      "categoria": "Pruebas de Rendimiento"
+    }
+  ],
+  "por_rol": [
+    {
+      "nombre": "Performance Eng",
+      "total": 192,
+      "conforme": 102,
+      "con_observaciones": 34,
+      "no_conforme": 22,
+      "sin_revision": 34,
+      "tasa_no_conformidad": 13.9,
+      "tasa_conformidad": 64.6,
+      "responsable": "Álvaro Beltrán"
+    },
+    {
+      "nombre": "QA Lead",
+      "total": 208,
+      "conforme": 110,
+      "con_observaciones": 36,
+      "no_conforme": 19,
+      "sin_revision": 43,
+      "tasa_no_conformidad": 11.5,
+      "tasa_conformidad": 66.7,
+      "responsable": "Patricia Benítez"
+    },
+    {
+      "nombre": "SDET Lead",
+      "total": 182,
+      "conforme": 100,
+      "con_observaciones": 28,
+      "no_conforme": 14,
+      "sin_revision": 40,
+      "tasa_no_conformidad": 9.9,
+      "tasa_conformidad": 70.4,
+      "responsable": "Sofía Cardozo"
+    },
+    {
+      "nombre": "QA Auditor",
+      "total": 204,
+      "conforme": 116,
+      "con_observaciones": 42,
+      "no_conforme": 14,
+      "sin_revision": 32,
+      "tasa_no_conformidad": 8.1,
+      "tasa_conformidad": 67.4,
+      "responsable": "Gonzalo Paredes"
+    },
+    {
+      "nombre": "Quality Assurance Analyst",
+      "total": 199,
+      "conforme": 114,
+      "con_observaciones": 34,
+      "no_conforme": 11,
+      "sin_revision": 40,
+      "tasa_no_conformidad": 6.9,
+      "tasa_conformidad": 71.7,
+      "responsable": "Lorena Ticona"
+    },
+    {
+      "nombre": "Test Automation Eng",
+      "total": 215,
+      "conforme": 127,
+      "con_observaciones": 45,
+      "no_conforme": 11,
+      "sin_revision": 32,
+      "tasa_no_conformidad": 6,
+      "tasa_conformidad": 69.4,
+      "responsable": "Marcelo Justiniano"
+    }
+  ],
+  "por_trimestre": [
+    {
+      "trimestre": "2023-T1",
+      "Conforme": 3,
+      "Con observaciones": 2,
+      "No conforme": 1
+    },
+    {
+      "trimestre": "2023-T2",
+      "Conforme": 27,
+      "Con observaciones": 11,
+      "No conforme": 7
+    },
+    {
+      "trimestre": "2023-T3",
+      "Conforme": 70,
+      "Con observaciones": 18,
+      "No conforme": 6
+    },
+    {
+      "trimestre": "2023-T4",
+      "Conforme": 77,
+      "Con observaciones": 21,
+      "No conforme": 6
+    },
+    {
+      "trimestre": "2024-T1",
+      "Conforme": 49,
+      "Con observaciones": 16,
+      "No conforme": 6
+    },
+    {
+      "trimestre": "2024-T2",
+      "Conforme": 62,
+      "Con observaciones": 23,
+      "No conforme": 11
+    },
+    {
+      "trimestre": "2024-T3",
+      "Conforme": 55,
+      "Con observaciones": 20,
+      "No conforme": 9
+    },
+    {
+      "trimestre": "2024-T4",
+      "Conforme": 47,
+      "Con observaciones": 18,
+      "No conforme": 10
+    },
+    {
+      "trimestre": "2025-T1",
+      "Conforme": 66,
+      "Con observaciones": 20,
+      "No conforme": 6
+    },
+    {
+      "trimestre": "2025-T2",
+      "Conforme": 70,
+      "Con observaciones": 20,
+      "No conforme": 12
+    },
+    {
+      "trimestre": "2025-T3",
+      "Conforme": 64,
+      "Con observaciones": 20,
+      "No conforme": 6
+    },
+    {
+      "trimestre": "2025-T4",
+      "Conforme": 49,
+      "Con observaciones": 19,
+      "No conforme": 9
+    },
+    {
+      "trimestre": "2026-T1",
+      "Conforme": 28,
+      "Con observaciones": 10,
+      "No conforme": 2
+    },
+    {
+      "trimestre": "2026-T2",
+      "Conforme": 2,
+      "Con observaciones": 1,
+      "No conforme": 0
+    }
+  ],
+  "matriz_vigencia": [
+    {
+      "criticidad": "Crítica",
+      "celdas": [
+        {
+          "estado": "En uso",
+          "total": 206,
+          "sin_vigente": 154,
+          "pct": 74.8
+        },
+        {
+          "estado": "En revisión",
+          "total": 54,
+          "sin_vigente": 38,
+          "pct": 70.4
+        },
+        {
+          "estado": "Suspendido",
+          "total": 25,
+          "sin_vigente": 20,
+          "pct": 80
+        },
+        {
+          "estado": "Retirado",
+          "total": 29,
+          "sin_vigente": 22,
+          "pct": 75.9
+        }
+      ]
+    },
+    {
+      "criticidad": "Alta",
+      "celdas": [
+        {
+          "estado": "En uso",
+          "total": 352,
+          "sin_vigente": 274,
+          "pct": 77.8
+        },
+        {
+          "estado": "En revisión",
+          "total": 77,
+          "sin_vigente": 60,
+          "pct": 77.9
+        },
+        {
+          "estado": "Suspendido",
+          "total": 43,
+          "sin_vigente": 30,
+          "pct": 69.8
+        },
+        {
+          "estado": "Retirado",
+          "total": 33,
+          "sin_vigente": 29,
+          "pct": 87.9
+        }
+      ]
+    },
+    {
+      "criticidad": "Media",
+      "celdas": [
+        {
+          "estado": "En uso",
+          "total": 200,
+          "sin_vigente": 154,
+          "pct": 77
+        },
+        {
+          "estado": "En revisión",
+          "total": 28,
+          "sin_vigente": 23,
+          "pct": 82.1
+        },
+        {
+          "estado": "Suspendido",
+          "total": 16,
+          "sin_vigente": 11,
+          "pct": 68.8
+        },
+        {
+          "estado": "Retirado",
+          "total": 17,
+          "sin_vigente": 14,
+          "pct": 82.4
+        }
+      ]
+    },
+    {
+      "criticidad": "Baja",
+      "celdas": [
+        {
+          "estado": "En uso",
+          "total": 88,
+          "sin_vigente": 72,
+          "pct": 81.8
+        },
+        {
+          "estado": "En revisión",
+          "total": 20,
+          "sin_vigente": 14,
+          "pct": 70
+        },
+        {
+          "estado": "Suspendido",
+          "total": 9,
+          "sin_vigente": 6,
+          "pct": 66.7
+        },
+        {
+          "estado": "Retirado",
+          "total": 3,
+          "sin_vigente": 1,
+          "pct": 33.3
+        }
+      ]
+    }
+  ],
+  "categorias": [
+    {
+      "nombre": "Análisis de Código",
+      "declaradas": 311,
+      "esperadas": 238,
+      "correctas": 66
+    },
+    {
+      "nombre": "Gestión de Bugs",
+      "declaradas": 294,
+      "esperadas": 246,
+      "correctas": 63
+    },
+    {
+      "nombre": "Automatización de Pruebas",
+      "declaradas": 308,
+      "esperadas": 389,
+      "correctas": 112
+    },
+    {
+      "nombre": "Pruebas de Rendimiento",
+      "declaradas": 287,
+      "esperadas": 327,
+      "correctas": 89
+    }
+  ],
+  "top_riesgo": [
+    {
+      "id": 304,
+      "herramienta": "Snyk Open Source Security QA - Instancia 30",
+      "responsable": "Patricia Benítez (QA Lead)",
+      "fecha_ultima_revision": "2026-02-16",
+      "dias_desde_revision": 73
+    },
+    {
+      "id": 417,
+      "herramienta": "Playwright Regression Suite - Instancia 90",
+      "responsable": "Sofía Cardozo (SDET Lead)",
+      "fecha_ultima_revision": "2025-11-28",
+      "dias_desde_revision": 153
+    },
+    {
+      "id": 1020,
+      "herramienta": "Apache JMeter Cluster Pruebas Carga - Instancia 17",
+      "responsable": "Lorena Ticona (Quality Assurance Analyst)",
+      "fecha_ultima_revision": "2025-11-27",
+      "dias_desde_revision": 154
+    },
+    {
+      "id": 626,
+      "herramienta": "Jira Software QA Defect Tracking - Instancia 59",
+      "responsable": "Álvaro Beltrán (Performance Eng)",
+      "fecha_ultima_revision": "2025-11-21",
+      "dias_desde_revision": 160
+    },
+    {
+      "id": 659,
+      "herramienta": "k6 Performance Runner - Instancia 21",
+      "responsable": "Álvaro Beltrán (Performance Eng)",
+      "fecha_ultima_revision": "2025-09-09",
+      "dias_desde_revision": 233
+    },
+    {
+      "id": 591,
+      "herramienta": "Jira Software QA Defect Tracking - Instancia 81",
+      "responsable": "Gonzalo Paredes (QA Auditor)",
+      "fecha_ultima_revision": "2025-08-20",
+      "dias_desde_revision": 253
+    },
+    {
+      "id": 193,
+      "herramienta": "Locust Distributed Load Server - Instancia 44",
+      "responsable": "Patricia Benítez (QA Lead)",
+      "fecha_ultima_revision": "2025-07-04",
+      "dias_desde_revision": 300
+    },
+    {
+      "id": 974,
+      "herramienta": "Tricentis Tosca Automation - Instancia 13",
+      "responsable": "Álvaro Beltrán (Performance Eng)",
+      "fecha_ultima_revision": "2025-04-29",
+      "dias_desde_revision": 366
+    },
+    {
+      "id": 12,
+      "herramienta": "Playwright Regression Suite - Instancia 17",
+      "responsable": "Álvaro Beltrán (Performance Eng)",
+      "fecha_ultima_revision": "2025-01-31",
+      "dias_desde_revision": 454
+    },
+    {
+      "id": 23,
+      "herramienta": "Playwright Regression Suite - Instancia 51",
+      "responsable": "Patricia Benítez (QA Lead)",
+      "fecha_ultima_revision": "2025-01-28",
+      "dias_desde_revision": 457
+    },
+    {
+      "id": 487,
+      "herramienta": "Apache JMeter Cluster Pruebas Carga - Instancia 89",
+      "responsable": "Gonzalo Paredes (QA Auditor)",
+      "fecha_ultima_revision": "2024-12-21",
+      "dias_desde_revision": 495
+    },
+    {
+      "id": 1170,
+      "herramienta": "Jira Software QA Defect Tracking - Instancia 33",
+      "responsable": "Lorena Ticona (Quality Assurance Analyst)",
+      "fecha_ultima_revision": "2024-12-01",
+      "dias_desde_revision": 515
+    }
+  ]
+}

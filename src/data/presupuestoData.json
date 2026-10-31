@@ -1,0 +1,57 @@
+{
+  "departamento": "Área de Calidad de Software (QA) — AITECH, software médico",
+  "moneda": "Bs",
+  "periodo": "Mensual",
+  "tipoCambio": 6.96,
+  "tipoCambioNota": "Tipo de cambio oficial referencial Banco Central de Bolivia (Bs 6,96 por USD). Las licencias se cotizan en USD.",
+  "manoDeObra": {
+    "cargasSociales": 0.6,
+    "imprevistos": 0.1,
+    "items": [
+      { "item": "Jefatura de Calidad (QA Lead)", "cantidad": 1, "costoMes": 13000, "area": "Jefatura de Calidad", "responsableDataset": "Patricia Benítez (QA Lead)", "coq": "Prevención", "justificacion": "Planifica el plan de calidad, aprueba la liberación de versiones y responde ante auditorías ISO 13485." },
+      { "item": "SDET Lead (Área de Automatización)", "cantidad": 1, "costoMes": 11500, "area": "Automatización", "responsableDataset": "Sofía Cardozo (SDET Lead)", "coq": "Prevención", "justificacion": "Diseña los frameworks de automatización (Playwright, Cypress, Tosca) y su integración en CI/CD." },
+      { "item": "Test Automation Engineer (Automatización)", "cantidad": 1, "costoMes": 9500, "area": "Automatización", "responsableDataset": "Marcelo Justiniano (Test Automation Eng)", "coq": "Evaluación", "justificacion": "Responsable del mayor número de herramientas del dataset (215 instancias)." },
+      { "item": "QA Analyst (Área de Calidad Funcional)", "cantidad": 1, "costoMes": 7500, "area": "Calidad Funcional", "responsableDataset": "Lorena Ticona (Quality Assurance Analyst)", "coq": "Evaluación", "justificacion": "Casos de prueba, pruebas UAT y validación clínica de historias de usuario." },
+      { "item": "Performance Engineer (Área de Rendimiento)", "cantidad": 1, "costoMes": 9500, "area": "Rendimiento", "responsableDataset": "Álvaro Beltrán (Performance Eng)", "coq": "Evaluación", "justificacion": "Opera JMeter, k6, Gatling y Locust: pruebas de carga del software hospitalario." },
+      { "item": "Especialista de Integración (HL7/FHIR, APIs)", "cantidad": 1, "costoMes": 9000, "area": "Integración", "responsableDataset": "—", "coq": "Evaluación", "justificacion": "Valida la interoperabilidad con equipos médicos y sistemas hospitalarios; administra el QA Hub (Zabbix)." },
+      { "item": "QA Auditor (cumplimiento ISO 13485 / IEC 62304)", "cantidad": 1, "costoMes": 9000, "area": "Jefatura de Calidad", "responsableDataset": "Gonzalo Paredes (QA Auditor)", "coq": "Evaluación", "justificacion": "Audita el inventario de herramientas (revisiones conforme/no conforme) y la trazabilidad regulatoria." }
+    ]
+  },
+  "equipo": {
+    "depreciacion": 0.15,
+    "imprevistos": 0.1,
+    "items": [
+      { "item": "Laptops de pruebas i7 / 32 GB (leasing 36 meses)", "cantidad": 7, "costoMes": 450, "coq": "Evaluación", "justificacion": "Una por integrante; capacidad para correr suites E2E y contenedores en local." },
+      { "item": "Monitores 27\" para revisión de evidencias", "cantidad": 7, "costoMes": 90, "coq": "Evaluación", "justificacion": "Doble pantalla para comparar resultados esperados vs. obtenidos." },
+      { "item": "Servidor QA Hub (VPS 4 vCPU / 8 GB): Zabbix + API + Weka", "cantidad": 1, "costoMes": 340, "coq": "Prevención", "justificacion": "Aloja el monitoreo Zabbix y la API que conecta la página web (≈ USD 48/mes)." },
+      { "item": "Clúster en la nube para pruebas de carga (bajo demanda)", "cantidad": 1, "costoMes": 1740, "coq": "Evaluación", "justificacion": "Generadores de carga para JMeter/k6/Gatling/Locust en ventanas de release (≈ USD 250/mes)." },
+      { "item": "Granja de dispositivos: tablets clínicas y smartphones", "cantidad": 6, "costoMes": 280, "coq": "Evaluación", "justificacion": "Pruebas en los dispositivos que usan médicos y enfermeras (amortización 24 meses)." },
+      { "item": "Estación de simulación HL7/FHIR y dispositivos médicos", "cantidad": 1, "costoMes": 600, "coq": "Evaluación", "justificacion": "Simula monitores de signos vitales y equipos de laboratorio para pruebas de integración." },
+      { "item": "UPS y switch del laboratorio de QA", "cantidad": 1, "costoMes": 250, "coq": "Prevención", "justificacion": "Continuidad eléctrica y red aislada para el ambiente de pruebas." }
+    ]
+  },
+  "materiales": {
+    "imprevistos": 0.1,
+    "nota": "Licencias de software (insumos digitales mensuales). Herramientas open source del dataset sin costo de licencia: Apache JMeter, k6, Gatling, Locust, Playwright, Selenium Grid, Cypress, OWASP ZAP, Allure, Zabbix y Weka.",
+    "items": [
+      { "item": "SonarQube Enterprise (hasta 1 M LOC)", "cantidad": 1, "costoMes": 11600, "usdMes": 1667, "herramientaDataset": "SonarQube Enterprise Code Scanner", "coq": "Prevención", "justificacion": "Análisis estático de código y quality gates; ≈ USD 20.000/año." },
+      { "item": "Tricentis Tosca (licencia de automatización)", "cantidad": 1, "costoMes": 8700, "usdMes": 1250, "herramientaDataset": "Tricentis Tosca Automation", "coq": "Evaluación", "justificacion": "Automatización sin código de flujos clínicos de regresión; ≈ USD 15.000/año." },
+      { "item": "TestRail Professional Cloud (usuarios)", "cantidad": 7, "costoMes": 265, "usdMes": 38, "herramientaDataset": "TestRail Test Management", "coq": "Evaluación", "justificacion": "Gestión de casos de prueba y trazabilidad requisito → prueba exigida por IEC 62304." },
+      { "item": "Jira Software Premium (usuarios)", "cantidad": 7, "costoMes": 120, "usdMes": 17, "herramientaDataset": "Jira Software QA Defect Tracking", "coq": "Fallas internas", "justificacion": "Registro y seguimiento de defectos y no conformidades." },
+      { "item": "Postman Professional (usuarios)", "cantidad": 7, "costoMes": 200, "usdMes": 29, "herramientaDataset": "Postman Pro Automation API", "coq": "Evaluación", "justificacion": "Pruebas de APIs REST/FHIR y colecciones automatizadas." },
+      { "item": "Snyk Team (desarrolladores)", "cantidad": 7, "costoMes": 175, "usdMes": 25, "herramientaDataset": "Snyk Open Source Security QA", "coq": "Prevención", "justificacion": "Análisis de dependencias vulnerables (SOUP) antes de liberar." },
+      { "item": "Tableau Cloud: 1 Creator + 2 Viewer", "cantidad": 1, "costoMes": 731, "usdMes": 105, "herramientaDataset": "—", "coq": "Prevención", "justificacion": "Tableros de indicadores de calidad para la gerencia (USD 75 + 2 × USD 15)." }
+    ]
+  },
+  "administrativos": [
+    { "item": "Servicios Renta Luz Agua Otros", "monto": 4000 },
+    { "item": "Servicios ISP", "monto": 400 },
+    { "item": "Seguros", "monto": 700 }
+  ],
+  "soporteExterno": [
+    { "id": "zabbix", "item": "Soporte especializado Zabbix (partner certificado)", "monto": 2800, "modalidad": "Servicio gestionado (managed service)", "coq": "Prevención" },
+    { "id": "certificacion", "item": "Auditoría externa y certificación ISO 13485:2016", "monto": 2500, "modalidad": "Precio fijo anual (prorrateado)", "coq": "Evaluación" },
+    { "id": "pentest", "item": "Pentesting y análisis de vulnerabilidades (2 campañas/año)", "monto": 3500, "modalidad": "Precio fijo por campaña (prorrateado)", "coq": "Evaluación" },
+    { "id": "staffing", "item": "Bolsa de 40 h/mes de testers por demanda (staff augmentation)", "monto": 3200, "modalidad": "Tiempo y materiales (Bs 80/h)", "coq": "Evaluación" }
+  ]
+}

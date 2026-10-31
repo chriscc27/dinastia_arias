@@ -9,6 +9,7 @@ import MBTISection from '../components/MBTISection';
 import ScrumSection from '../components/ScrumSection';
 import IDEF0Section from '../components/IDEF0Section';
 import BPMNSection from '../components/BPMNSection';
+import HerramientasSection from '../components/HerramientasSection';
 import AitechScopeSection from '../components/AitechScopeSection';
 import Footer from '../components/Footer';
 
@@ -26,6 +27,7 @@ export default function HomePage() {
       <ScrumSection />
       <IDEF0Section />
       <BPMNSection />
+      <HerramientasSection />
       <AitechScopeSection />
       <Footer />
     </>

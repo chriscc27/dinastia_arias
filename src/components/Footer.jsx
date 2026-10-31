@@ -40,6 +40,11 @@ export default function Footer() {
                 <li><Link to="/#scrum">SCRUM</Link></li>
                 <li><Link to="/#idef-0">IDEF-0</Link></li>
                 <li><Link to="/#bpmn">BPMN</Link></li>
+                <li><Link to="/tableau">Datos Tableau</Link></li>
+                <li><Link to="/weka">Patrones Weka</Link></li>
+                <li><Link to="/monitoreo">Monitoreo (Zabbix)</Link></li>
+                <li><Link to="/presupuesto">Presupuesto</Link></li>
+                <li><Link to="/soporte-externo">Soporte externo</Link></li>
               </ul>
             </div>
 
