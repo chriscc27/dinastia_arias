@@ -81,28 +81,6 @@ export default function TableauPage() {
           ))}
         </div>
       </ToolSection>
-
-      <ToolSection badge="CÓMO SE CONSTRUYE EN TABLEAU" title="Del CSV al dashboard publicado" lead="Pasos para replicar el libro de trabajo en Tableau Public con el archivo descargable de arriba.">
-        <div className="tl-steps">
-          {tableauData.steps.map((s) => (
-            <div key={s.paso} className="tl-step">
-              <span>{s.paso}</span>
-              <h4>{s.titulo}</h4>
-              <p>{s.detalle}</p>
-            </div>
-          ))}
-        </div>
-        <h3 className="tl-h3">Campos calculados del libro</h3>
-        <div className="tl-code-grid">
-          {tableauData.calculatedFields.map((c) => (
-            <div key={c.nombre} className="tl-code-card">
-              <h4>{c.nombre}</h4>
-              <pre><code>{c.formula}</code></pre>
-              <p>{c.nota}</p>
-            </div>
-          ))}
-        </div>
-      </ToolSection>
     </ToolPageLayout>
   );
 }

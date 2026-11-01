@@ -32,55 +32,6 @@ const hace = (iso) => {
   return `hace ${Math.round(min / 1440)} días`;
 };
 
-function Arquitectura() {
-  return (
-    <div className="tl-arch" role="img" aria-label="Arquitectura del QA Hub: la página consulta la API, que habla con Zabbix y Weka">
-      <div className="tl-arch-col">
-        <span className="tl-arch-label">Internet</span>
-        <div className="tl-arch-box web">
-          <strong>Página web</strong>
-          <span>GitHub Pages · React</span>
-        </div>
-        <div className="tl-arch-box tableau">
-          <strong>Tableau Public</strong>
-          <span>Dashboards del dataset</span>
-        </div>
-      </div>
-      <div className="tl-arch-arrow"><span>HTTPS · fetch</span></div>
-      <div className="tl-arch-col">
-        <span className="tl-arch-label">Puente</span>
-        <div className="tl-arch-box tunnel">
-          <strong>Cloudflare Tunnel</strong>
-          <span>URL pública sin abrir puertos</span>
-        </div>
-      </div>
-      <div className="tl-arch-arrow"><span>:8787</span></div>
-      <div className="tl-arch-col wide">
-        <span className="tl-arch-label">Servidor QA Hub · docker compose</span>
-        <div className="tl-arch-box api">
-          <strong>QA Hub API (Node 20)</strong>
-          <span>/kpis · /weka · /zabbix · CORS limitado</span>
-        </div>
-        <div className="tl-arch-row">
-          <div className="tl-arch-box zbx">
-            <strong>Zabbix 7.0</strong>
-            <span>server · web · PostgreSQL · agent 2</span>
-          </div>
-          <div className="tl-arch-box weka">
-            <strong>Weka 3.8.6</strong>
-            <span>Java 17 · CLI</span>
-          </div>
-          <div className="tl-arch-box data">
-            <strong>Dataset</strong>
-            <span>CSV · ARFF</span>
-          </div>
-        </div>
-        <p className="tl-arch-note">La API consulta Zabbix por JSON-RPC y, a la vez, Zabbix consulta la API cada minuto para convertir los KPIs en ítems y triggers.</p>
-      </div>
-    </div>
-  );
-}
-
 export default function MonitoreoPage() {
   const recurso = useHubResource('/api/zabbix/summary', zabbixSnapshot, { pollMs: 30000 });
   const z = recurso.data;
@@ -89,10 +40,6 @@ export default function MonitoreoPage() {
 
   return (
     <ToolPageLayout data={monitoreoData} videos={relatedVideosData.monitoreo}>
-      <ToolSection badge="ARQUITECTURA DE CONEXIÓN" title="Cómo se conecta Zabbix con la página" lead="GitHub Pages solo sirve archivos estáticos, así que las herramientas viven en un servidor propio, el QA Hub: un docker compose que corre en una PC del laboratorio o en una VPS y se publica con Cloudflare Tunnel. La página nunca ve las credenciales de Zabbix: solo habla con la API.">
-        <Arquitectura />
-      </ToolSection>
-
       <ToolSection badge="DEMOSTRACIÓN · ZABBIX EN VIVO" title="Panel de monitoreo del Área de Calidad" lead={`Problemas, KPIs vigilados y estado del servidor según Zabbix ${z.zabbix_version}. Con el servidor conectado, este panel se actualiza solo cada 30 segundos.`} id="panel">
         <HubStatusBar resource={recurso} fuente={`Zabbix ${z.zabbix_version} vía API JSON-RPC`} actualizado={z.generado} />
 
@@ -188,17 +135,6 @@ export default function MonitoreoPage() {
             </tbody>
           </table>
         </div>
-      </ToolSection>
-
-      <ToolSection badge="PUESTA EN MARCHA" title="Levantar el QA Hub" lead="Todo está en la carpeta qa-hub del repositorio; Zabbix se configura solo por API, así cualquier integrante puede reproducirlo.">
-        <ol className="tl-commands">
-          {monitoreoData.pasos.map((p) => (
-            <li key={p.comando}>
-              <code>{p.comando}</code>
-              <span>{p.detalle}</span>
-            </li>
-          ))}
-        </ol>
       </ToolSection>
     </ToolPageLayout>
   );
