@@ -52,6 +52,26 @@ export default function Header() {
       setActiveSection('ciencia-tecnologia');
       return;
     }
+    if (pathname === '/tableau') {
+      setActiveSection('tableau');
+      return;
+    }
+    if (pathname === '/weka') {
+      setActiveSection('weka');
+      return;
+    }
+    if (pathname === '/monitoreo') {
+      setActiveSection('monitoreo');
+      return;
+    }
+    if (pathname === '/presupuesto') {
+      setActiveSection('presupuesto');
+      return;
+    }
+    if (pathname === '/soporte-externo') {
+      setActiveSection('soporte-externo');
+      return;
+    }
 
     // 2. Detección dinámica y precisa mediante viewport (getBoundingClientRect)
     const handleScroll = () => {
@@ -91,7 +111,7 @@ export default function Header() {
     }
   };
 
-  const navItems = [
+  const row1Items = [
     { to: '/#inicio', id: 'inicio', label: 'Inicio' },
     { to: '/#gestion-tecnologias', id: 'gestion-tecnologias', label: 'Gestión' },
     { to: '/#ciencia-tecnologia', id: 'ciencia-tecnologia', label: 'Ciencia & Innovación' },
@@ -101,6 +121,9 @@ export default function Header() {
     { to: '/#scrum', id: 'scrum', label: 'SCRUM' },
     { to: '/#idef-0', id: 'idef-0', label: 'IDEF-0' },
     { to: '/#bpmn', id: 'bpmn', label: 'BPMN' },
+  ];
+
+  const row2Items = [
     { to: '/#herramientas', id: 'herramientas', label: 'Herramientas' },
     { to: '/tableau', id: 'tableau', label: 'Tableau' },
     { to: '/weka', id: 'weka', label: 'Weka' },
@@ -120,9 +143,25 @@ export default function Header() {
       </div>
 
       <div className="header-right">
-        <div className="nav-pill-container">
-          <nav className="nav-scrollable-inner" ref={navScrollRef} onWheel={handleWheel}>
-            {navItems.map((item) => {
+        <div className="nav-pill-container nav-two-rows">
+          <nav className="nav-row nav-row-top" aria-label="Navegación general">
+            {row1Items.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <Link
+                  key={item.id}
+                  to={item.to}
+                  onClick={() => setActiveSection(item.id)}
+                  className={`nav-item-link ${isActive ? 'active' : ''}`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+          <div className="nav-row-divider" aria-hidden="true" />
+          <nav className="nav-row nav-row-bottom" aria-label="Área de calidad y herramientas">
+            {row2Items.map((item) => {
               const isActive = activeSection === item.id;
               return (
                 <Link
