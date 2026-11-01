@@ -15,7 +15,7 @@ export function getHubUrl() {
   } catch {
     // localStorage bloqueado (modo privado): se usa la variable de compilación.
   }
-  return import.meta.env.VITE_QA_HUB_URL || '';
+  return import.meta.env.VITE_QA_HUB_URL || 'https://aitech-qa-hub.onrender.com';
 }
 
 export function setHubUrl(url) {
