@@ -1,5 +1,4 @@
 import ToolPageLayout, { ToolSection } from '../components/tools/ToolPageLayout';
-import HubStatusBar from '../components/tools/HubStatusBar';
 import QualityDashboard from '../components/tools/QualityDashboard';
 import TableauGallery from '../components/tools/TableauGallery';
 import { fmt } from '../components/charts/Charts';
@@ -62,11 +61,10 @@ export default function TableauPage() {
 
       <ToolSection
         badge="COMPLEMENTO · TABLERO INTERACTIVO"
-        title="Las mismas métricas, en vivo desde el servidor"
-        lead="Réplica interactiva de los dashboards alimentada por la QA Hub API (/api/dataset/kpis), la misma fuente que vigila Zabbix. Pasa el cursor sobre cualquier marca para ver el detalle o usa «Ver tabla»."
+        title="Tablero interactivo de métricas de calidad"
+        lead="Réplica interactiva de los indicadores clave construidos a partir del dataset. Pasa el cursor sobre cualquier marca para ver el detalle o usa «Ver tabla»."
         id="tablero"
       >
-        <HubStatusBar resource={recurso} fuente="KPIs calculados sobre dataset_calidad.csv" actualizado={d.meta.generado} />
         <QualityDashboard data={d} />
       </ToolSection>
 

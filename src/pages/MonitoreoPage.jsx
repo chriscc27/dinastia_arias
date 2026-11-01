@@ -1,5 +1,4 @@
 import ToolPageLayout, { ToolSection } from '../components/tools/ToolPageLayout';
-import HubStatusBar from '../components/tools/HubStatusBar';
 import { ChartCard, LineArea, fmt } from '../components/charts/Charts';
 import { useHubResource } from '../lib/qaHub';
 import { monitoreoData } from '../data/tools/monitoreoData';
@@ -40,9 +39,7 @@ export default function MonitoreoPage() {
 
   return (
     <ToolPageLayout data={monitoreoData} videos={relatedVideosData.monitoreo}>
-      <ToolSection badge="DEMOSTRACIÓN · ZABBIX EN VIVO" title="Panel de monitoreo del Área de Calidad" lead={`Problemas, KPIs vigilados y estado del servidor según Zabbix ${z.zabbix_version}. Con el servidor conectado, este panel se actualiza solo cada 30 segundos.`} id="panel">
-        <HubStatusBar resource={recurso} fuente={`Zabbix ${z.zabbix_version} vía API JSON-RPC`} actualizado={z.generado} />
-
+      <ToolSection badge="DEMOSTRACIÓN · MONITOREO" title="Panel de monitoreo del Área de Calidad" lead="Problemas, KPIs vigilados y estado de disponibilidad según las métricas y reglas de calidad." id="panel">
         <div className="tl-hosts">
           {z.hosts.map((h) => (
             <div key={h.host} className="tl-host">

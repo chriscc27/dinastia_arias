@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import ToolPageLayout, { ToolSection } from '../components/tools/ToolPageLayout';
-import HubStatusBar from '../components/tools/HubStatusBar';
 import { ChartCard, HBarChart, fmt } from '../components/charts/Charts';
 import { hubFetch, useHubResource } from '../lib/qaHub';
 import { wekaData } from '../data/tools/wekaData';
@@ -201,10 +200,9 @@ export default function WekaPage() {
       <ToolSection
         badge="DEMOSTRACIÓN · WEKA SOBRE EL DATASET"
         title="Cinco experimentos, resultados reales"
-        lead="Cada bloque muestra la configuración exacta, el resultado que devolvió Weka y su lectura para la gestión. Con el servidor conectado, el botón vuelve a ejecutar el experimento en el QA Hub."
+        lead="Cada bloque muestra la configuración exacta, el resultado que devolvió Weka y su lectura para la gestión del área de calidad."
         id="experimentos"
       >
-        <HubStatusBar resource={recurso} fuente="Weka 3.8.6 ejecutado por la QA Hub API" actualizado={primero?.ejecutado} />
         <div className="tl-experiments">
           {Object.entries(VISTAS).map(([id, Vista], i) => {
             const r = resultados[id];
