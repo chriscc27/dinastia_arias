@@ -1,6 +1,8 @@
+import { NavLink } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
 import RelatedVideosBlock from '../RelatedVideosBlock';
+import { toolsNav } from '../../data/tools/toolsNav';
 import '../../styles/tools.css';
 
 // Estructura común de las páginas de herramientas: header con navegación general de 2 filas, hero,

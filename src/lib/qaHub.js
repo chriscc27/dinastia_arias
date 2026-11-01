@@ -11,11 +11,15 @@ const EVENTO = 'qa-hub-url-change';
 export function getHubUrl() {
   try {
     const guardada = window.localStorage.getItem(STORAGE_KEY);
-    if (guardada) return guardada;
+    if (guardada && guardada.includes('onrender.com')) {
+      window.localStorage.removeItem(STORAGE_KEY);
+    } else if (guardada) {
+      return guardada;
+    }
   } catch {
     // localStorage bloqueado (modo privado): se usa la variable de compilación.
   }
-  return import.meta.env.VITE_QA_HUB_URL || 'https://aitech-qa-hub.onrender.com';
+  return import.meta.env.VITE_QA_HUB_URL || '';
 }
 
 export function setHubUrl(url) {
