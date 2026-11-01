@@ -1,37 +1,16 @@
-import { Link, NavLink } from 'react-router-dom';
+import Header from '../Header';
 import Footer from '../Footer';
 import RelatedVideosBlock from '../RelatedVideosBlock';
-import { toolsNav } from '../../data/tools/toolsNav';
 import '../../styles/tools.css';
 
-// Estructura común de las páginas de herramientas: header con navegación entre ellas, hero,
+// Estructura común de las páginas de herramientas: header con navegación general de 2 filas, hero,
 // citas, marco teórico, el contenido propio de cada página, referencias y videos.
 export default function ToolPageLayout({ data, videos, children }) {
   const { hero, quotes, theory, references } = data;
 
   return (
     <div className="subpage-wrapper tl-page">
-      <header className="site-header">
-        <div className="header-left">
-          <Link to="/#inicio" className="logo-link">
-            <span className="logo-text">
-              AITECH <span>| CALIDAD</span>
-            </span>
-          </Link>
-        </div>
-        <div className="header-right">
-          <div className="nav-pill-container">
-            <nav className="nav-scrollable-inner">
-              <Link to="/#herramientas" className="nav-item-link">← Inicio</Link>
-              {toolsNav.map((t) => (
-                <NavLink key={t.id} to={t.to} className={({ isActive }) => `nav-item-link ${isActive ? 'active' : ''}`}>
-                  {t.label}
-                </NavLink>
-              ))}
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <section className="tl-hero" style={{ backgroundImage: `linear-gradient(180deg, rgba(16, 25, 26, 0.82) 0%, rgba(18, 27, 28, 0.95) 100%), url('${import.meta.env.BASE_URL}assets/verticals/calidad.jpg')` }}>
         <div className="tl-hero-inner">

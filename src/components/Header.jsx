@@ -174,14 +174,14 @@ export default function Header() {
                 </Link>
               );
             })}
-            <a
-              href="#contacto"
+            <Link
+              to="/#contacto"
               onClick={() => setActiveSection('contacto')}
               className={`nav-item-link nav-cta-btn ${activeSection === 'contacto' ? 'active' : ''}`}
             >
               <span>Más</span>
               <span className="nav-cta-icon">+</span>
-            </a>
+            </Link>
           </nav>
         </div>
       </div>
