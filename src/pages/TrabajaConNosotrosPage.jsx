@@ -1,38 +1,8 @@
-import { Link } from 'react-router-dom';
-import Footer from '../components/Footer';
+import { teamMembers } from '../data/teamData';
 
 export default function TrabajaConNosotrosPage() {
-  const teamMembers = [
-    { name: 'Leonardo Delgado', email: 'leonardo.delgado@ucb.edu.bo' },
-    { name: 'Alan Flores', email: 'alan.flores.c@ucb.edu.bo' },
-    { name: 'Christian Coronel', email: 'christian.coronel@ucb.edu.bo' },
-    { name: 'Sergio Arias', email: 'sergio.arias@ucb.edu.bo' },
-    { name: 'Alejandro Zamorano', email: 'alejandro.zamorano@ucb.edu.bo' },
-  ];
-
   return (
     <div className="subpage-wrapper" style={{ background: 'var(--color-offwhite)', minHeight: '100vh', position: 'relative', overflowX: 'hidden' }}>
-      <header className="site-header">
-        <div className="header-left">
-          <Link to="/#inicio" className="logo-link">
-            <span className="logo-text">
-              AITECH <span>| CALIDAD</span>
-            </span>
-          </Link>
-        </div>
-
-        <div className="header-right">
-          <div className="nav-pill-container">
-            <nav className="nav-scrollable-inner">
-              <Link to="/#inicio" className="nav-item-link active" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                <span>← VOLVER A INICIO</span>
-                <span style={{ width: '22px', height: '22px', borderRadius: '50%', background: 'var(--color-lime)', color: 'var(--color-charcoal)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', fontWeight: 'bold' }}>↑</span>
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
-
       <section
         style={{
           position: 'relative',
@@ -113,7 +83,6 @@ export default function TrabajaConNosotrosPage() {
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 }

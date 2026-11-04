@@ -14,7 +14,10 @@ const EMPTY_TASK = { title: '', assignee: '', vertical: 'Calidad', priority: 'Me
 function readTasks() {
   try {
     const storedTasks = window.localStorage.getItem(STORAGE_KEY);
-    return storedTasks ? JSON.parse(storedTasks) : initialKanbanTasks;
+    const parsed = storedTasks ? JSON.parse(storedTasks) : initialKanbanTasks;
+    return Array.isArray(parsed) && parsed.every((task) => task && typeof task.id === 'string' && typeof task.title === 'string' && typeof task.priority === 'string' && COLUMNS.some((column) => column.id === task.status))
+      ? parsed
+      : initialKanbanTasks;
   } catch {
     return initialKanbanTasks;
   }
@@ -28,7 +31,13 @@ export default function KanbanBoard() {
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [notice, setNotice] = useState('Cambios guardados localmente');
 
-  useEffect(() => window.localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks)), [tasks]);
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+    } catch {
+      setNotice('El navegador no permite guardar. Los cambios se conservan solo en esta vista.');
+    }
+  }, [tasks]);
 
   const stats = useMemo(() => COLUMNS.reduce((result, column) => {
     result[column.id] = tasks.filter((task) => task.status === column.id).length;
@@ -119,7 +128,7 @@ export default function KanbanBoard() {
         {COLUMNS.map((column, index) => {
           const columnTasks = visibleTasks.filter((task) => task.status === column.id);
           return <article key={column.id} className={`kanban-column kanban-column-${column.id}`}>
-            <header><div><span className={`col-status-badge ${column.badgeClass}`} /><h2>{column.title}</h2></div><span>{stats[column.id] || 0}</span></header>
+            <header><div><span className={`col-status-badge ${column.badgeClass}`} /><h2>{column.title}</h2></div><span>{columnTasks.length}</span></header>
             <div className="kanban-column-body">
               {columnTasks.map((task) => <div key={task.id} className="kanban-task-card">
                 <div className="task-card-meta"><span className={`task-priority-pill priority-${task.priority.toLowerCase()}`}>{task.priority}</span><span className="task-vertical-tag">{task.vertical}</span></div>

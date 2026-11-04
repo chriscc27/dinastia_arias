@@ -103,6 +103,8 @@ export default function OrgChartSection() {
             className={`org-lead-card ${activeArea === 1 ? 'is-active' : ''}`}
             onMouseEnter={() => setActiveArea(1)}
             onMouseLeave={() => setActiveArea(null)}
+            onFocus={() => setActiveArea(1)}
+            onBlur={() => setActiveArea(null)}
             style={{ textDecoration: 'none', cursor: 'pointer' }}
           >
             <span className="lead-pulse-dot" />
@@ -138,6 +140,8 @@ export default function OrgChartSection() {
                   className={`org-child-card ${isActive ? 'is-active' : ''}`}
                   onMouseEnter={() => setActiveArea(area.positionId)}
                   onMouseLeave={() => setActiveArea(null)}
+                  onFocus={() => setActiveArea(area.positionId)}
+                  onBlur={() => setActiveArea(null)}
                   style={{ textDecoration: 'none', cursor: 'pointer' }}
                 >
                   <div className="child-icon-box">{area.icon}</div>
@@ -168,6 +172,8 @@ export default function OrgChartSection() {
               key={pos.id}
               onMouseEnter={() => setActiveArea(pos.id)}
               onMouseLeave={() => setActiveArea(null)}
+              onFocus={() => setActiveArea(pos.id)}
+              onBlur={() => setActiveArea(null)}
             >
               {/* Tarjeta Irregular con la Máscara del Cutout Corner */}
               <a
@@ -196,7 +202,7 @@ export default function OrgChartSection() {
 
                   {/* Texto de Acción "VER MÁS DETALLES" */}
                   <div className="cutout-action-row">
-                    <span className="cutout-link-text">VER MÁS DETALLES</span>
+                    <span className="cutout-link-text">ABRIR DESCRIPCIÓN DEL CARGO (PDF) ↗</span>
                   </div>
                 </div>
               </a>
@@ -207,7 +213,7 @@ export default function OrgChartSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cutout-pocket-arrow-btn"
-                aria-label={`Ver más detalles de ${pos.title}`}
+                aria-label={`Abrir descripción de ${pos.title} en PDF`}
               >
                 <svg width="14" height="14" viewBox="0 0 10 10" fill="none">
                   <path fill="currentColor" d="M7.703 5.8H.398V4.6h7.305l-3.36-3.36.855-.84 4.8 4.8-4.8 4.8-.855-.84 3.36-3.36Z" />

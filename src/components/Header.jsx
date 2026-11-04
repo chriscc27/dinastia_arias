@@ -1,188 +1,71 @@
-import { useRef, useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+import { primaryNav, secondaryNav } from '../data/siteNav';
 
-const SECTION_MAP = {
-  'inicio': 'inicio',
-  'gestion-tecnologias': 'gestion-tecnologias',
-  'ciencia-tecnologia': 'ciencia-tecnologia',
-  'mision-vision': 'mision-vision',
-  'equipo': null,       // Sección sin botón en header -> desmarca todo
-  'organizacion': 'organizacion',
-  'mbti': 'mbti',
-  'scrum': 'scrum',
-  'idef-0': 'idef-0',
-  'bpmn': 'bpmn',
-  'herramientas': 'herramientas',
-  'alcance': null,      // Sección sin botón en header -> desmarca todo
-  'contacto': 'contacto',
-};
-
-const ALL_SECTIONS = [
-  'inicio',
-  'gestion-tecnologias',
-  'ciencia-tecnologia',
-  'mision-vision',
-  'equipo',
-  'organizacion',
-  'mbti',
-  'scrum',
-  'idef-0',
-  'bpmn',
-  'herramientas',
-  'alcance',
-  'contacto'
-];
-
-export default function Header() {
-  const navScrollRef = useRef(null);
+export default function Header({ headerRef }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleRef = useRef(null);
+  const panelRef = useRef(null);
   const { pathname, hash } = useLocation();
-  const [activeSection, setActiveSection] = useState('inicio');
+
+  useEffect(() => { setMenuOpen(false); }, [pathname, hash]);
 
   useEffect(() => {
-    // 1. Manejo de subpáginas específicas fuera del home
-    if (pathname === '/mision-vision') {
-      setActiveSection('mision-vision');
-      return;
-    }
-    if (pathname === '/gestion-tecnologias') {
-      setActiveSection('gestion-tecnologias');
-      return;
-    }
-    if (pathname === '/ciencia-tecnologia-innovacion') {
-      setActiveSection('ciencia-tecnologia');
-      return;
-    }
-    if (pathname === '/tableau') {
-      setActiveSection('tableau');
-      return;
-    }
-    if (pathname === '/weka') {
-      setActiveSection('weka');
-      return;
-    }
-    if (pathname === '/monitoreo') {
-      setActiveSection('monitoreo');
-      return;
-    }
-    if (pathname === '/presupuesto') {
-      setActiveSection('presupuesto');
-      return;
-    }
-    if (pathname === '/soporte-externo') {
-      setActiveSection('soporte-externo');
-      return;
-    }
-
-    // 2. Detección dinámica y precisa mediante viewport (getBoundingClientRect)
-    const handleScroll = () => {
-      const triggerPoint = window.innerHeight * 0.38; // Punto focal en la pantalla (38%)
-      let currentActive = null;
-      let sectionFound = false;
-
-      for (const id of ALL_SECTIONS) {
-        const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= triggerPoint && rect.bottom >= triggerPoint) {
-            currentActive = SECTION_MAP[id];
-            sectionFound = true;
-            break;
-          }
-        }
+    if (!menuOpen) return undefined;
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+        toggleRef.current?.focus();
       }
-
-      // Si se está al inicio de la página, por defecto resalta Inicio
-      if (!sectionFound && window.scrollY < 120) {
-        currentActive = 'inicio';
-      }
-
-      setActiveSection(currentActive);
     };
+    const onPointerDown = (event) => {
+      if (!panelRef.current?.contains(event.target) && !toggleRef.current?.contains(event.target)) setMenuOpen(false);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    document.addEventListener('pointerdown', onPointerDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.removeEventListener('pointerdown', onPointerDown);
+    };
+  }, [menuOpen]);
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [pathname, hash]);
-
-  const handleWheel = (e) => {
-    if (navScrollRef.current) {
-      navScrollRef.current.scrollLeft += e.deltaY * 0.8;
-    }
-  };
-
-  const row1Items = [
-    { to: '/#inicio', id: 'inicio', label: 'Inicio' },
-    { to: '/#gestion-tecnologias', id: 'gestion-tecnologias', label: 'Gestión' },
-    { to: '/#ciencia-tecnologia', id: 'ciencia-tecnologia', label: 'Ciencia & Innovación' },
-    { to: '/#mision-vision', id: 'mision-vision', label: 'Misión & Visión' },
-    { to: '/#organizacion', id: 'organizacion', label: 'Organización' },
-    { to: '/#mbti', id: 'mbti', label: 'MBTI' },
-    { to: '/#scrum', id: 'scrum', label: 'SCRUM' },
-    { to: '/#idef-0', id: 'idef-0', label: 'IDEF-0' },
-    { to: '/#bpmn', id: 'bpmn', label: 'BPMN' },
-  ];
-
-  const row2Items = [
-    { to: '/#herramientas', id: 'herramientas', label: 'Herramientas' },
-    { to: '/tableau', id: 'tableau', label: 'Tableau' },
-    { to: '/weka', id: 'weka', label: 'Weka' },
-    { to: '/monitoreo', id: 'monitoreo', label: 'Monitoreo' },
-    { to: '/presupuesto', id: 'presupuesto', label: 'Presupuesto' },
-    { to: '/soporte-externo', id: 'soporte-externo', label: 'Soporte' },
-  ];
+  const renderLink = (item) => (
+    <NavLink
+      key={item.id}
+      to={item.to}
+      end
+      onClick={() => setMenuOpen(false)}
+      className={({ isActive }) => `nav-item-link${isActive ? ' active' : ''}${item.id === 'contacto' ? ' nav-contact-link' : ''}`}
+    >
+      {item.label}
+    </NavLink>
+  );
 
   return (
-    <header className="site-header">
+    <header className="site-header" ref={headerRef}>
       <div className="header-left">
-        <Link to="/" className="logo-link">
-          <span className="logo-text">
-            AITECH <span>| CALIDAD</span>
-          </span>
+        <Link to="/" className="logo-link" aria-label="AITECH Calidad — Inicio" onClick={() => setMenuOpen(false)}>
+          <span className="logo-text">AITECH <span>| CALIDAD</span></span>
         </Link>
       </div>
-
       <div className="header-right">
-        <div className="nav-pill-container nav-two-rows">
-          <nav className="nav-row nav-row-top" aria-label="Navegación general">
-            {row1Items.map((item) => {
-              const isActive = activeSection === item.id;
-              return (
-                <Link
-                  key={item.id}
-                  to={item.to}
-                  onClick={() => setActiveSection(item.id)}
-                  className={`nav-item-link ${isActive ? 'active' : ''}`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
+        <button
+          ref={toggleRef}
+          className="nav-menu-toggle"
+          type="button"
+          aria-expanded={menuOpen}
+          aria-controls="site-navigation"
+          aria-label={menuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          {menuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
+          <span>Menú</span>
+        </button>
+        <div id="site-navigation" ref={panelRef} className={`nav-pill-container nav-two-rows${menuOpen ? ' is-open' : ''}`}>
+          <nav className="nav-row nav-row-top" aria-label="Navegación general">{primaryNav.map(renderLink)}</nav>
           <div className="nav-row-divider" aria-hidden="true" />
-          <nav className="nav-row nav-row-bottom" aria-label="Área de calidad y herramientas">
-            {row2Items.map((item) => {
-              const isActive = activeSection === item.id;
-              return (
-                <Link
-                  key={item.id}
-                  to={item.to}
-                  onClick={() => setActiveSection(item.id)}
-                  className={`nav-item-link ${isActive ? 'active' : ''}`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-            <Link
-              to="/#contacto"
-              onClick={() => setActiveSection('contacto')}
-              className={`nav-item-link nav-cta-btn ${activeSection === 'contacto' ? 'active' : ''}`}
-            >
-              <span>Más</span>
-              <span className="nav-cta-icon">+</span>
-            </Link>
-          </nav>
+          <nav className="nav-row nav-row-bottom" aria-label="Herramientas y contacto">{secondaryNav.map(renderLink)}</nav>
         </div>
       </div>
     </header>

@@ -1,4 +1,5 @@
 import ToolPageLayout, { ToolSection } from '../components/tools/ToolPageLayout';
+import ToolDataStatus from '../components/tools/ToolDataStatus';
 import { ChartCard, LineArea, fmt } from '../components/charts/Charts';
 import { useHubResource } from '../lib/qaHub';
 import { monitoreoData } from '../data/tools/monitoreoData';
@@ -38,7 +39,7 @@ export default function MonitoreoPage() {
   const uptime = z.servidor.find((s) => s.clave === 'system.uptime');
 
   return (
-    <ToolPageLayout data={monitoreoData} videos={relatedVideosData.monitoreo}>
+    <ToolPageLayout data={monitoreoData} videos={relatedVideosData.monitoreo} status={<ToolDataStatus resource={recurso} updatedAt={z.generado} />}>
       <ToolSection badge="DEMOSTRACIÓN · MONITOREO" title="Panel de monitoreo del Área de Calidad" lead="Problemas, KPIs vigilados y estado de disponibilidad según las métricas y reglas de calidad." id="panel">
         <div className="tl-hosts">
           {z.hosts.map((h) => (

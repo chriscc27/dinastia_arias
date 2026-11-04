@@ -3,7 +3,7 @@ import { toolsNav } from '../data/tools/toolsNav';
 import kpisSnapshot from '../data/generated/datasetKpis.json';
 import '../styles/tools.css';
 
-// Sección del home que presenta las cinco herramientas de gestión del área y enlaza a sus páginas.
+// Catálogo completo de las cinco herramientas de gestión del área.
 export default function HerramientasSection() {
   const { kpis, meta } = kpisSnapshot;
   return (
@@ -17,8 +17,9 @@ export default function HerramientasSection() {
         <span className="text-muted-accent">Tableau, Weka, Zabbix, presupuesto y proveedores.</span>
       </h2>
       <p className="section-desc-lead">
-        Todo parte de un mismo dataset: el inventario de {meta.registros.toLocaleString('es-BO')} herramientas de QA de AITECH. Hoy el {kpis.sin_revision_vigente_pct.toLocaleString('es-BO')} % no tiene una revisión vigente y {kpis.criticas_no_conformes_en_uso} herramientas críticas siguen en uso pese a quedar No conformes. Así lo analizamos, lo vigilamos y lo financiamos.
+        Todo parte de un mismo dataset: el inventario de {meta.registros.toLocaleString('es-BO')} herramientas de QA de AITECH. En este corte, el {kpis.sin_revision_vigente_pct.toLocaleString('es-BO')} % no tiene una revisión vigente y {kpis.criticas_no_conformes_en_uso} herramientas críticas siguen en uso pese a quedar No conformes. Así lo analizamos, lo vigilamos y lo financiamos.
       </p>
+      <p className="dataset-cutoff">Corte del dataset: <time dateTime={meta.fecha_corte}>{new Intl.DateTimeFormat('es-BO', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(`${meta.fecha_corte}T00:00:00Z`))}</time>.</p>
       <div className="tl-home-grid">
         {toolsNav.map((t, i) => (
           <Link key={t.id} to={t.to} className="tl-home-card">
@@ -26,7 +27,7 @@ export default function HerramientasSection() {
             <span className="tl-home-tag">{t.tag}</span>
             <h3>{t.title}</h3>
             <p>{t.desc}</p>
-            <span className="tl-home-go">Abrir página →</span>
+            <span className="tl-home-go">Abrir {t.label} →</span>
           </Link>
         ))}
       </div>

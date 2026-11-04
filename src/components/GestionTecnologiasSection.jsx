@@ -1,11 +1,8 @@
-import { Link } from 'react-router-dom';
 import MarqueeBanner from './MarqueeBanner';
-import RelatedVideosBlock from './RelatedVideosBlock';
-import { relatedVideosData } from '../data/relatedVideosData';
 
 export default function GestionTecnologiasSection() {
   return (
-    <section id="gestion-tecnologias" className="light-section">
+    <section id="gestion-tecnologias" className="light-section consolidated-intro">
       <div className="section-hero-split">
         {/* Columna Izquierda: Badge + Arte Gráfico 3D Glass */}
         <div className="split-left">
@@ -23,7 +20,7 @@ export default function GestionTecnologiasSection() {
           </div>
         </div>
 
-        {/* Columna Derecha: Heading + Descripción + Botón CTA */}
+        {/* Introducción del tema, integrada en la página completa. */}
         <div className="split-right">
           <h2 className="section-heading-xl">
             Combinando estrategia operativa, procesos y control en{' '}
@@ -34,23 +31,6 @@ export default function GestionTecnologiasSection() {
             La Gestión es nuestra estrategia operativa para la correcta planificación, organización, dirección y control de los recursos para alcanzar los objetivos de forma eficiente.
           </p>
 
-          <div className="split-cta-wrapper">
-            <Link to="/gestion-tecnologias" className="u-btn--1">
-              <span className="btn_label">
-                Explorar Página Completa
-                <div className="label_corner">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="48" fill="none" viewBox="0 0 18 48">
-                    <path fill="#222F30" d="M0 0h5.63c7.808 0 13.536 7.337 11.642 14.91l-6.09 24.359A11.527 11.527 0 0 1 0 48V0Z" />
-                  </svg>
-                </div>
-              </span>
-              <i className="btn_icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="51" height="48" fill="none" viewBox="0 0 51 48">
-                  <path fill="currentColor" d="M6.728 9.09A12 12 0 0 1 18.369 0H39c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H12.37C4.561 48-1.167 40.663.727 33.09l6-24Z" />
-                </svg>
-              </i>
-            </Link>
-          </div>
         </div>
       </div>
 
@@ -79,9 +59,6 @@ export default function GestionTecnologiasSection() {
         </div>
       </div>
 
-      <RelatedVideosBlock data={relatedVideosData.gestionTecnologias} />
-
-      {/* Reemplazo de las 3 tarjetas por el Marquee infinito estilo IntegratedBio */}
       <MarqueeBanner text="El Futuro de la Ingeniería de Calidad — Estándares Internacionales ISO/IEEE — Dinastía Arias — AITECH — " />
     </section>
   );

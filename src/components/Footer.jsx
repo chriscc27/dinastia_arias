@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { siteNav } from '../data/siteNav';
+import { teamMembers } from '../data/teamData';
 
 export default function Footer() {
   return (
@@ -31,20 +33,7 @@ export default function Footer() {
             <div className="footer-col">
               <h5>Navegación</h5>
               <ul>
-                <li><Link to="/#inicio">Inicio</Link></li>
-                <li><Link to="/gestion-tecnologias">Gestión de Tecnologías</Link></li>
-                <li><Link to="/ciencia-tecnologia-innovacion">Ciencia e Innovación</Link></li>
-                <li><Link to="/mision-vision">Misión y Visión</Link></li>
-                <li><Link to="/#organizacion">Organización</Link></li>
-                <li><Link to="/#mbti">MBTI</Link></li>
-                <li><Link to="/#scrum">SCRUM</Link></li>
-                <li><Link to="/#idef-0">IDEF-0</Link></li>
-                <li><Link to="/#bpmn">BPMN</Link></li>
-                <li><Link to="/tableau">Datos Tableau</Link></li>
-                <li><Link to="/weka">Patrones Weka</Link></li>
-                <li><Link to="/monitoreo">Monitoreo (Zabbix)</Link></li>
-                <li><Link to="/presupuesto">Presupuesto</Link></li>
-                <li><Link to="/soporte-externo">Soporte externo</Link></li>
+                {siteNav.map((item) => <li key={item.id}><Link to={item.to}>{item.label}</Link></li>)}
               </ul>
             </div>
 
@@ -60,11 +49,7 @@ export default function Footer() {
             <div className="footer-col">
               <h5>Contactos</h5>
               <ul>
-                <li><a href="mailto:leonardo.delgado@ucb.edu.bo">Leonardo Delgado</a></li>
-                <li><a href="mailto:alan.flores.c@ucb.edu.bo">Alan Flores</a></li>
-                <li><a href="mailto:christian.coronel@ucb.edu.bo">Christian Coronel</a></li>
-                <li><a href="mailto:sergio.arias@ucb.edu.bo">Sergio Arias</a></li>
-                <li><a href="mailto:alejandro.zamorano@ucb.edu.bo">Alejandro Zamorano</a></li>
+                {teamMembers.map((member) => <li key={member.initials}><a href={`mailto:${member.email}`}>{member.name}</a></li>)}
               </ul>
             </div>
           </div>

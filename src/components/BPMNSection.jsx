@@ -164,6 +164,15 @@ export default function BPMNSection() {
               <div
                 key={elem.id}
                 className={`bpmn-element-card ${isSelected ? 'active' : ''}`}
+                role="button"
+                tabIndex={0}
+                aria-pressed={isSelected}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setSelectedElementId(elem.id);
+                  }
+                }}
                 onClick={() => setSelectedElementId(elem.id)}
               >
                 <div className="elem-card-header">
@@ -207,6 +216,7 @@ export default function BPMNSection() {
               className="bpmn-tool-btn bpmn-tool-round"
               onClick={handleZoomIn}
               title="Acercar zoom"
+              aria-label="Acercar zoom"
             >
               +
             </button>
@@ -215,6 +225,7 @@ export default function BPMNSection() {
               className="bpmn-tool-btn bpmn-tool-round"
               onClick={handleZoomOut}
               title="Alejar zoom"
+              aria-label="Alejar zoom"
             >
               −
             </button>
@@ -223,6 +234,7 @@ export default function BPMNSection() {
               className="bpmn-tool-btn bpmn-tool-pill"
               onClick={handleResetZoom}
               title="Restablecer vista centrada"
+              aria-label="Restablecer vista centrada"
             >
               Ajustar
             </button>
@@ -440,6 +452,16 @@ export default function BPMNSection() {
                       <g
                         key={node.id}
                         className={`bpmn-interactive-node ${isActive ? 'node-active' : ''}`}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={node.label}
+                        aria-pressed={isActive}
+                        onKeyDown={(event) => {
+                          if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            setSelectedNodeId(node.id);
+                          }
+                        }}
                         onClick={() => setSelectedNodeId(node.id)}
                         style={{ cursor: 'pointer' }}
                         filter={isActive ? 'url(#node-active-glow)' : undefined}
@@ -482,6 +504,16 @@ export default function BPMNSection() {
                       <g
                         key={node.id}
                         className={`bpmn-interactive-node ${isActive ? 'node-active' : ''}`}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={node.label}
+                        aria-pressed={isActive}
+                        onKeyDown={(event) => {
+                          if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            setSelectedNodeId(node.id);
+                          }
+                        }}
                         onClick={() => setSelectedNodeId(node.id)}
                         style={{ cursor: 'pointer' }}
                         filter={isActive ? 'url(#node-active-glow)' : undefined}
@@ -525,6 +557,16 @@ export default function BPMNSection() {
                         key={node.id}
                         className={`bpmn-interactive-node ${isActive ? 'node-active' : ''}`}
                         transform={`translate(${node.x}, ${node.y})`}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={node.label}
+                        aria-pressed={isActive}
+                        onKeyDown={(event) => {
+                          if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            setSelectedNodeId(node.id);
+                          }
+                        }}
                         onClick={() => setSelectedNodeId(node.id)}
                         style={{ cursor: 'pointer' }}
                         filter={isActive ? 'url(#node-active-glow)' : undefined}
@@ -575,6 +617,16 @@ export default function BPMNSection() {
                       key={node.id}
                       className={`bpmn-interactive-node ${isActive ? 'node-active' : ''}`}
                       transform={`translate(${node.x}, ${node.y})`}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={node.label}
+                      aria-pressed={isActive}
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          event.preventDefault();
+                          setSelectedNodeId(node.id);
+                        }
+                      }}
                       onClick={() => setSelectedNodeId(node.id)}
                       style={{ cursor: 'pointer' }}
                       filter={isActive ? 'url(#node-active-glow)' : undefined}

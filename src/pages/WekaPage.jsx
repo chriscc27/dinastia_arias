@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ToolPageLayout, { ToolSection } from '../components/tools/ToolPageLayout';
+import ToolDataStatus from '../components/tools/ToolDataStatus';
 import { ChartCard, HBarChart, fmt } from '../components/charts/Charts';
 import { hubFetch, useHubResource } from '../lib/qaHub';
 import { wekaData } from '../data/tools/wekaData';
@@ -183,7 +184,7 @@ export default function WekaPage() {
   const primero = Object.values(resultados)[0];
 
   return (
-    <ToolPageLayout data={wekaData} videos={relatedVideosData.weka}>
+    <ToolPageLayout data={wekaData} videos={relatedVideosData.weka} status={<ToolDataStatus resource={recurso} updatedAt={primero?.ejecutado} />}>
       <ToolSection badge="EL REPERTORIO" title="Algoritmos utilizados" lead="Weka no trae un modelo: trae un repertorio. Cada pregunta del Área de Calidad pide una tarea distinta.">
         <div className="viz-table-wrap">
           <table className="viz-table">

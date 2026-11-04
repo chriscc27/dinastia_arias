@@ -1,35 +1,11 @@
-import { Link } from 'react-router-dom';
+import CienciaTecnologiaSection from '../components/CienciaTecnologiaSection';
 import { cienciaTecnologiaData } from '../data/knowledgeDetailData';
 import RelatedVideosBlock from '../components/RelatedVideosBlock';
 import { relatedVideosData } from '../data/relatedVideosData';
-import Footer from '../components/Footer';
 
 export default function CienciaTecnologiaPage() {
   return (
     <div className="subpage-wrapper" style={{ background: 'var(--color-offwhite)', minHeight: '100vh', position: 'relative', overflowX: 'hidden' }}>
-      {/* Header Flotante Sticky (Misma clase site-header que en inicio para acompañar el scroll) */}
-      <header className="site-header">
-        <div className="header-left">
-          <Link to="/#inicio" className="logo-link">
-            <span className="logo-text">
-              AITECH <span>| CALIDAD</span>
-            </span>
-          </Link>
-        </div>
-
-        <div className="header-right">
-          {/* Cápsula Liquid Glass idéntica a la barra de navegación del inicio */}
-          <div className="nav-pill-container">
-            <nav className="nav-scrollable-inner">
-              <Link to="/#ciencia-tecnologia" className="nav-item-link active" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                <span>← VOLVER A INICIO</span>
-                <span style={{ width: '22px', height: '22px', borderRadius: '50%', background: 'var(--color-lime)', color: 'var(--color-charcoal)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', fontWeight: 'bold' }}>↑</span>
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Full-Width a Pantalla Completa sin Marcos */}
       <section
         style={{
@@ -71,6 +47,7 @@ export default function CienciaTecnologiaPage() {
 
       {/* Contenido Principal con Margen Lateral Estándar */}
       <div style={{ paddingLeft: '4%', paddingRight: '4%' }}>
+        <CienciaTecnologiaSection />
         {/* Sección de Citas Destacadas en Tarjetas Interactivas Oscuras */}
         <div style={{ marginBottom: '5rem' }}>
           <div className="section-badge">
@@ -275,7 +252,6 @@ export default function CienciaTecnologiaPage() {
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 }

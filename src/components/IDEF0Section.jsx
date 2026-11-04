@@ -140,6 +140,7 @@ export default function IDEF0Section() {
               <button
                 type="button"
                 className={`icom-port-btn ${selectedIcomType === 'controls' ? 'active' : ''}`}
+                aria-pressed={selectedIcomType === 'controls'}
                 onClick={() => setSelectedIcomType('controls')}
               >
                 <span className="port-icon">↓</span>
@@ -149,15 +150,17 @@ export default function IDEF0Section() {
             </div>
             <div className="icom-flow-chips">
               {getDisplayedItems('controls').map((c) => (
-                <div
+                <button
+                  type="button"
                   key={c.id}
                   className="flow-chip chip-control"
+                  aria-pressed={selectedIcomType === 'controls'}
                   onClick={() => setSelectedIcomType('controls')}
                   title={c.desc}
                 >
                   <span className="chip-arrow">↓</span>
                   <span className="chip-text">{c.title}</span>
-                </div>
+                </button>
               ))}
               {!showAllIcomItems && (
                 <button
@@ -168,7 +171,7 @@ export default function IDEF0Section() {
                     setShowAllIcomItems(true);
                   }}
                 >
-                  +{icomData.controls.length - 5} controles más...
+                  +{icomData.controls.length - getDisplayedItems('controls').length} controles más...
                 </button>
               )}
             </div>
@@ -181,6 +184,7 @@ export default function IDEF0Section() {
               <button
                 type="button"
                 className={`icom-port-btn ${selectedIcomType === 'inputs' ? 'active' : ''}`}
+                aria-pressed={selectedIcomType === 'inputs'}
                 onClick={() => setSelectedIcomType('inputs')}
               >
                 <span className="port-icon">→</span>
@@ -189,15 +193,17 @@ export default function IDEF0Section() {
               </button>
               <div className="icom-flow-chips vertical">
                 {getDisplayedItems('inputs').map((i) => (
-                  <div
+                  <button
+                    type="button"
                     key={i.id}
                     className="flow-chip chip-input"
+                    aria-pressed={selectedIcomType === 'inputs'}
                     onClick={() => setSelectedIcomType('inputs')}
                     title={i.desc}
                   >
                     <span className="chip-arrow">→</span>
                     <span className="chip-text">{i.title}</span>
-                  </div>
+                  </button>
                 ))}
                 {!showAllIcomItems && (
                   <button
@@ -208,7 +214,7 @@ export default function IDEF0Section() {
                       setShowAllIcomItems(true);
                     }}
                   >
-                    +{icomData.inputs.length - 5} entradas más...
+                    +{icomData.inputs.length - getDisplayedItems('inputs').length} entradas más...
                   </button>
                 )}
               </div>
@@ -233,6 +239,7 @@ export default function IDEF0Section() {
               <button
                 type="button"
                 className={`icom-port-btn ${selectedIcomType === 'outputs' ? 'active' : ''}`}
+                aria-pressed={selectedIcomType === 'outputs'}
                 onClick={() => setSelectedIcomType('outputs')}
               >
                 <span className="port-icon">→</span>
@@ -241,15 +248,17 @@ export default function IDEF0Section() {
               </button>
               <div className="icom-flow-chips vertical">
                 {getDisplayedItems('outputs').map((o) => (
-                  <div
+                  <button
+                    type="button"
                     key={o.id}
                     className="flow-chip chip-output"
+                    aria-pressed={selectedIcomType === 'outputs'}
                     onClick={() => setSelectedIcomType('outputs')}
                     title={o.desc}
                   >
                     <span className="chip-arrow">→</span>
                     <span className="chip-text">{o.title}</span>
-                  </div>
+                  </button>
                 ))}
                 {!showAllIcomItems && (
                   <button
@@ -260,7 +269,7 @@ export default function IDEF0Section() {
                       setShowAllIcomItems(true);
                     }}
                   >
-                    +{icomData.outputs.length - 5} salidas más...
+                    +{icomData.outputs.length - getDisplayedItems('outputs').length} salidas más...
                   </button>
                 )}
               </div>
@@ -271,15 +280,17 @@ export default function IDEF0Section() {
           <div className="idef0-row-mechanisms">
             <div className="icom-flow-chips">
               {getDisplayedItems('mechanisms').map((m) => (
-                <div
+                <button
+                  type="button"
                   key={m.id}
                   className="flow-chip chip-mechanism"
+                  aria-pressed={selectedIcomType === 'mechanisms'}
                   onClick={() => setSelectedIcomType('mechanisms')}
                   title={m.desc}
                 >
                   <span className="chip-arrow">↑</span>
                   <span className="chip-text">{m.title}</span>
-                </div>
+                </button>
               ))}
               {!showAllIcomItems && (
                 <button
@@ -290,7 +301,7 @@ export default function IDEF0Section() {
                     setShowAllIcomItems(true);
                   }}
                 >
-                  +{icomData.mechanisms.length - 5} mecanismos más...
+                  +{icomData.mechanisms.length - getDisplayedItems('mechanisms').length} mecanismos más...
                 </button>
               )}
             </div>
@@ -298,6 +309,7 @@ export default function IDEF0Section() {
               <button
                 type="button"
                 className={`icom-port-btn ${selectedIcomType === 'mechanisms' ? 'active' : ''}`}
+                aria-pressed={selectedIcomType === 'mechanisms'}
                 onClick={() => setSelectedIcomType('mechanisms')}
               >
                 <span className="port-icon">↑</span>

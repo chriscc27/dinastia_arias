@@ -2,6 +2,7 @@ export const teamMembers = [
   {
     initials: 'CC',
     name: 'Christian Coronel',
+    email: 'christian.coronel@ucb.edu.bo',
     role: 'Especialista en Calidad',
     mission:
       'Impulsar la calidad mediante revisiones rigurosas, criterios claros y una atención constante a los detalles que fortalecen cada entrega de AITECH.',
@@ -11,6 +12,7 @@ export const teamMembers = [
   {
     initials: 'SA',
     name: 'Sergio Arias',
+    email: 'sergio.arias@ucb.edu.bo',
     role: 'Especialista en Calidad',
     mission:
       'Asegurar que los procesos y productos cumplan los estándares definidos, promoviendo la coordinación y el compromiso de todo el equipo.',
@@ -20,6 +22,7 @@ export const teamMembers = [
   {
     initials: 'LD',
     name: 'Leonardo Delgado',
+    email: 'leonardo.delgado@ucb.edu.bo',
     role: 'Especialista en Calidad',
     mission:
       'Detectar oportunidades de mejora y convertirlas en acciones concretas que reduzcan riesgos y eleven la excelencia operativa.',
@@ -29,6 +32,7 @@ export const teamMembers = [
   {
     initials: 'AF',
     name: 'Alan Flores',
+    email: 'alan.flores.c@ucb.edu.bo',
     role: 'Especialista en Calidad',
     mission:
       'Promover soluciones prácticas y consistentes que integren la calidad en cada etapa del trabajo y faciliten resultados confiables.',
@@ -38,6 +42,7 @@ export const teamMembers = [
   {
     initials: 'DZ',
     name: 'Daniel Zamorano',
+    email: 'daniel.zamorano@ucb.edu.bo',
     role: 'Especialista en Calidad',
     mission:
       'Fortalecer el aseguramiento de calidad con disciplina, colaboración y seguimiento oportuno de los compromisos del equipo.',

@@ -1,18 +1,14 @@
 import { NavLink } from 'react-router-dom';
-import Header from '../Header';
-import Footer from '../Footer';
 import RelatedVideosBlock from '../RelatedVideosBlock';
 import { toolsNav } from '../../data/tools/toolsNav';
 import '../../styles/tools.css';
 
-// Estructura común de las páginas de herramientas: header con navegación general de 2 filas, hero,
-// citas, marco teórico, el contenido propio de cada página, referencias y videos.
-export default function ToolPageLayout({ data, videos, children }) {
+// Contenido de herramientas dentro del layout compartido del sitio.
+export default function ToolPageLayout({ data, videos, status, children }) {
   const { hero, quotes, theory, references } = data;
 
   return (
     <div className="subpage-wrapper tl-page">
-      <Header />
 
       <section className="tl-hero" style={{ backgroundImage: `linear-gradient(180deg, rgba(16, 25, 26, 0.82) 0%, rgba(18, 27, 28, 0.95) 100%), url('${import.meta.env.BASE_URL}assets/verticals/calidad.jpg')` }}>
         <div className="tl-hero-inner">
@@ -32,7 +28,8 @@ export default function ToolPageLayout({ data, videos, children }) {
         </div>
       </section>
 
-      <main className="tl-main">
+      <div className="tl-main">
+        {status}
         <section className="tl-block">
           <div className="section-badge">
             <span className="badge-dot" />
@@ -99,9 +96,8 @@ export default function ToolPageLayout({ data, videos, children }) {
             </NavLink>
           ))}
         </nav>
-      </main>
+      </div>
 
-      <Footer />
     </div>
   );
 }
