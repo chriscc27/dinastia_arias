@@ -22,10 +22,12 @@ La base por defecto es `/dinastia_arias/`, utilizada en GitHub Pages. Se puede c
 
 ## Navegación y contenido
 
-- El inicio resume el proyecto y enlaza a las vistas completas.
-- Todos los temas tienen acceso directo desde el mismo menú, disponible en escritorio y móvil.
+- El inicio resume el proyecto con imágenes y enlaza a las vistas completas. Conserva la animación original de scroll, texto letra por letra y video; permite saltar al resumen y respeta la preferencia de movimiento reducido.
+- El menú conserva sus títulos originales y Contacto: 16 opciones con acceso directo, disponibles en escritorio y móvil.
 - Gestión, Ciencia y Misión reúnen sus introducciones y contenido ampliado.
-- Equipo, Organización, MBTI, Scrum, IDEF-0, BPMN, Herramientas y Alcance tienen sus propias páginas.
+- Equipo forma parte de Organización, con sus perfiles completos. La ruta antigua `/equipo` abre `/organizacion#equipo`.
+- MBTI, Scrum, IDEF-0, BPMN y Herramientas tienen sus propias páginas. Alcance se consulta desde el inicio y no aparece como título del navbar.
+- El footer organiza los enlaces por Proyecto, Procesos y Herramientas, e incluye contactos directos, acceso al equipo y un botón para volver arriba.
 - Se mantienen las páginas de Tableau, Weka, Monitoreo, Presupuesto y Soporte externo.
 - Los enlaces antiguos al inicio, como `/#scrum`, se traducen a las nuevas rutas; las anclas internas como `/tableau#tablero` siguen funcionando.
 

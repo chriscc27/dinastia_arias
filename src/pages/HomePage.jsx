@@ -1,18 +1,25 @@
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import Hero from '../components/Hero';
-import { getSiteTopic, homeGroups, legacyHomeRoutes, siteNav } from '../data/siteNav';
+import { getSiteTopic, homeGroups, homeVisuals, legacyHomeRoutes, siteNav } from '../data/siteNav';
 import { toolsNav } from '../data/tools/toolsNav';
 import { aitechAreas } from '../data/aitechData';
 import snapshot from '../data/generated/datasetKpis.json';
 
 function SummaryCard({ item, index }) {
+  const visual = homeVisuals[item.id];
   return (
     <Link to={item.to} className="summary-card">
-      <div className="summary-card-top"><span>{String(index + 1).padStart(2, '0')}</span><ArrowUpRight size={23} aria-hidden="true" /></div>
-      <h3>{item.title}</h3>
-      <p>{item.desc}</p>
-      <span className="summary-card-action">Ver {item.label}<span aria-hidden="true"> →</span></span>
+      <div className={`summary-card-media${visual.dashboard ? ' is-dashboard' : ''}`}>
+        <img src={`${import.meta.env.BASE_URL}${visual.src}`} alt={visual.alt} width="1024" height="576" loading="lazy" decoding="async" />
+        <span className="summary-image-arrow" aria-hidden="true"><ArrowUpRight size={21} /></span>
+      </div>
+      <div className="summary-card-content">
+        <div className="summary-card-top"><span>{String(index + 1).padStart(2, '0')}</span><span>AITECH · CALIDAD</span></div>
+        <h3>{item.title}</h3>
+        <p>{item.desc}</p>
+        <span className="summary-card-action">Ver {item.label}<span aria-hidden="true"> →</span></span>
+      </div>
     </Link>
   );
 }
@@ -28,7 +35,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <section className="home-overview light-section" aria-labelledby="resumen-titulo">
+      <section id="resumen-proyecto" className="home-overview light-section" aria-labelledby="resumen-titulo">
         <div className="section-badge"><span className="badge-dot" /><span>EL PROYECTO EN UN VISTAZO</span></div>
         <div className="summary-section-heading">
           <h2 id="resumen-titulo" className="section-heading-xl">Calidad que conecta todo AITECH.</h2>
@@ -49,7 +56,7 @@ export default function HomePage() {
             <h2 id={`resumen-${group.id}`} className="section-heading-xl">{group.title}</h2>
             <p className="section-desc-lead">{group.desc}</p>
           </div>
-          <div className="home-summary-grid">{siteNav.filter((item) => item.group === group.id).map((item, index) => <SummaryCard key={item.id} item={item} index={index} />)}</div>
+          <div className={`home-summary-grid${group.id === 'personas' ? ' is-two-columns' : ''}`}>{siteNav.filter((item) => item.group === group.id).map((item, index) => <SummaryCard key={item.id} item={item} index={index} />)}</div>
         </section>
       ))}
 
@@ -69,7 +76,14 @@ export default function HomePage() {
           <h2 id="resumen-alcance" className="section-heading-xl">Siete verticales. Un compromiso con la calidad.</h2>
           <p className="section-desc-lead">Garantizamos la excelencia técnica y operativa en Software, Hardware, Redes, Seguridad, Cloud, Big Data y Calidad. Conoce el enfoque, las métricas y los estándares de cada vertical.</p>
         </div>
-        <div className="home-vertical-list">{aitechAreas.map((area) => <span key={area.id}>{area.title}</span>)}</div>
+        <div className="home-vertical-gallery">
+          {[...aitechAreas].sort((a, b) => Number(Boolean(b.isPrimary)) - Number(Boolean(a.isPrimary))).map((area) => (
+            <figure key={area.id} className={area.isPrimary ? 'is-primary' : ''}>
+              <img src={area.image} alt={`Representación de la vertical ${area.title} de AITECH.`} width="1024" height="1024" loading="lazy" decoding="async" />
+              <figcaption>{area.title}{area.isPrimary && <span>El centro de nuestro trabajo</span>}</figcaption>
+            </figure>
+          ))}
+        </div>
         <Link to={getSiteTopic('alcance').to} className="summary-text-link">Explorar el alcance de Calidad <span aria-hidden="true">↗</span></Link>
       </section>
     </>

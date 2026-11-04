@@ -1,71 +1,66 @@
 import { Link } from 'react-router-dom';
-import { siteNav } from '../data/siteNav';
+import { ArrowUp, ArrowUpRight, Mail } from 'lucide-react';
+import { footerGroups, getSiteTopic } from '../data/siteNav';
 import { teamMembers } from '../data/teamData';
 
 export default function Footer() {
+  const backToTop = () => {
+    document.getElementById('contenido')?.focus({ preventScroll: true });
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+  };
+
   return (
     <div className="footer-wrapper" id="contacto">
-      <footer className="c-footer-xl">
+      <footer className="c-footer-xl site-footer">
         <div className="footer-top">
-          <div>
-            <h2 className="footer-heading">
-              Impulsando los más altos estándares tecnológicos para el futuro de AITECH.
-            </h2>
-
-            <Link className="u-btn--1" to="/trabaja-con-nosotros">
-              <span className="btn_label">
-                Trabaja con Nosotros
-                <div className="label_corner">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="48" fill="none" viewBox="0 0 18 48">
-                    <path fill="#222F30" d="M0 0h5.63c7.808 0 13.536 7.337 11.642 14.91l-6.09 24.359A11.527 11.527 0 0 1 0 48V0Z" />
-                  </svg>
-                </div>
-              </span>
-              <i className="btn_icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="51" height="48" fill="none" viewBox="0 0 51 48">
-                  <path fill="currentColor" d="M6.728 9.09A12 12 0 0 1 18.369 0H39c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H12.37C4.561 48-1.167 40.663.727 33.09l6-24Z" />
-                </svg>
-              </i>
-            </Link>
+          <div className="footer-invitation">
+            <span className="footer-eyebrow"><span />SIGAMOS CONSTRUYENDO CALIDAD</span>
+            <h2 className="footer-heading">El siguiente paso hacia la excelencia empieza con una conversación.</h2>
+            <p>Conoce a quienes impulsan la calidad en AITECH y conecta con nuestro equipo.</p>
+            <Link className="footer-contact-action" to="/trabaja-con-nosotros">Hablemos con el equipo <ArrowUpRight size={21} aria-hidden="true" /></Link>
           </div>
+          <Link to="/organizacion#equipo" className="footer-team-card">
+            <span className="footer-team-label">DINASTÍA ARIAS <ArrowUpRight size={20} aria-hidden="true" /></span>
+            <div className="footer-team-avatars" aria-hidden="true">{teamMembers.map((member) => <span key={member.initials}>{member.initials}</span>)}</div>
+            <strong>{teamMembers.length} especialistas.<br />Un compromiso compartido.</strong>
+            <span className="footer-team-description">Explora nuestro equipo, sus responsabilidades y su visión de la calidad.</span>
+            <span className="footer-team-link">Conoce al equipo <span aria-hidden="true">→</span></span>
+          </Link>
+        </div>
 
-          <div className="footer-columns">
-            <div className="footer-col">
-              <h5>Navegación</h5>
-              <ul>
-                {siteNav.map((item) => <li key={item.id}><Link to={item.to}>{item.label}</Link></li>)}
-              </ul>
-            </div>
-
-            <div className="footer-col">
-              <h5>Conectar</h5>
-              <ul>
-                <li><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a></li>
-                <li><a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a></li>
-                <li><a href="https://x.com" target="_blank" rel="noreferrer">X (Twitter)</a></li>
-              </ul>
-            </div>
-
-            <div className="footer-col">
-              <h5>Contactos</h5>
-              <ul>
-                {teamMembers.map((member) => <li key={member.initials}><a href={`mailto:${member.email}`}>{member.name}</a></li>)}
-              </ul>
-            </div>
+        <div className="footer-directory">
+          {footerGroups.map((group) => (
+            <nav key={group.title} className="footer-directory-group" aria-label={`Pie de página: ${group.title}`}>
+              <h3>{group.title}</h3>
+              <ul>{group.ids.map((id) => {
+                const item = getSiteTopic(id);
+                return <li key={id}><Link to={item.to}>{item.label}</Link></li>;
+              })}</ul>
+            </nav>
+          ))}
+          <div className="footer-directory-group footer-people">
+            <h3>Contacto directo</h3>
+            <ul>{teamMembers.map((member) => (
+              <li key={member.initials}>
+                <a href={`mailto:${member.email}`} aria-label={`Enviar correo a ${member.name}`}>
+                  <span>{member.name}<small>{member.email}</small></span><Mail size={16} aria-hidden="true" />
+                </a>
+              </li>
+            ))}</ul>
           </div>
         </div>
 
-        {/* Marca de agua tipográfica gigante estilo Integrated Bio */}
-        <div className="footer-watermark">
-          <div className="footer-watermark-text">
-            AITECH CALIDAD
+        <div className="footer-utility">
+          <div className="footer-external-links">
+            <span>Conectar</span>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={12} aria-hidden="true" /></a>
+            <a href="https://github.com" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={12} aria-hidden="true" /></a>
+            <a href="https://x.com" target="_blank" rel="noreferrer">X <ArrowUpRight size={12} aria-hidden="true" /></a>
           </div>
+          <button type="button" className="footer-back-top" onClick={backToTop}>Volver arriba <ArrowUp size={16} aria-hidden="true" /></button>
         </div>
-
-        <div className="footer-copyright">
-          <span>&copy; 2026 AITECH. Dirección de Calidad — Equipo Dinastía Arias.</span>
-          <span>Todos los derechos reservados.</span>
-        </div>
+        <div className="footer-watermark" aria-hidden="true"><div className="footer-watermark-text">AITECH CALIDAD</div></div>
+        <div className="footer-copyright"><span>© 2026 AITECH · Dirección de Calidad</span><span>Equipo Dinastía Arias</span></div>
       </footer>
     </div>
   );

@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 const routes = [
   ['', 'Inicio'], ['gestion-tecnologias', 'Gestión'],
   ['ciencia-tecnologia-innovacion', 'Ciencia e Innovación'], ['mision-vision', 'Misión y Visión'],
-  ['equipo', 'Equipo'], ['organizacion', 'Organización'], ['mbti', 'MBTI'], ['scrum', 'Scrum'],
+  ['organizacion', 'Organización'], ['mbti', 'MBTI'], ['scrum', 'Scrum'],
   ['idef-0', 'IDEF-0'], ['bpmn', 'BPMN'], ['alcance', 'Alcance'], ['herramientas', 'Herramientas'],
   ['tableau', 'Tableau'], ['weka', 'Weka'], ['monitoreo', 'Monitoreo'],
   ['presupuesto', 'Presupuesto'], ['soporte-externo', 'Soporte externo'], ['trabaja-con-nosotros', 'Contacto'],
@@ -27,8 +27,9 @@ for (const [route, label] of routes) {
     await expect(page.locator('main')).toHaveCount(1);
     await expect(page.locator('.site-header')).toHaveCount(1);
     await expect(page.locator('.c-footer-xl')).toHaveCount(1);
-    await expect(page.locator('#site-navigation a')).toHaveCount(routes.length);
-    await expect(page.locator('#site-navigation [aria-current="page"]')).toHaveText(label);
+    await expect(page.locator('#site-navigation a')).toHaveCount(16);
+    if (route === 'alcance') await expect(page.locator('#site-navigation [aria-current="page"]')).toHaveCount(0);
+    else await expect(page.locator('#site-navigation [aria-current="page"]')).toHaveText(label);
     const positions = await page.evaluate(() => ({
       title: document.querySelector('h1').getBoundingClientRect().top,
       header: document.querySelector('.site-header').getBoundingClientRect().bottom,
@@ -40,7 +41,7 @@ for (const [route, label] of routes) {
 
 test('El inicio resume y enlaza las vistas completas', async ({ page }) => {
   await page.goto('./');
-  await expect(page.locator('.summary-card')).toHaveCount(14);
+  await expect(page.locator('.summary-card')).toHaveCount(13);
   await expect(page.locator('.kanban-board-grid, .bpmn-standard-container, .idef0-diagram-container')).toHaveCount(0);
   await expect(page.locator('.home-data-note')).toContainText('30 de abril de 2026');
   await expect(page.locator('video')).toHaveJSProperty('paused', true);
@@ -57,7 +58,7 @@ test('Fragmentos antiguos y anclas propias de una página', async ({ page }) => 
   for (const [hash, destination] of [
     ['inicio', ''], ['gestion-tecnologias', 'gestion-tecnologias'],
     ['ciencia-tecnologia', 'ciencia-tecnologia-innovacion'], ['mision-vision', 'mision-vision'],
-    ['equipo', 'equipo'], ['organizacion', 'organizacion'], ['mbti', 'mbti'],
+    ['equipo', 'organizacion#equipo'], ['organizacion', 'organizacion'], ['mbti', 'mbti'],
     ['scrum', 'scrum'], ['idef-0', 'idef-0'], ['bpmn', 'bpmn'],
     ['herramientas', 'herramientas'], ['alcance', 'alcance'], ['contacto', 'trabaja-con-nosotros'],
   ]) {
@@ -69,6 +70,68 @@ test('Fragmentos antiguos y anclas propias de una página', async ({ page }) => 
   await expect(page).toHaveURL(/\/tableau#tablero$/);
   await expect.poll(() => page.locator('#tablero').evaluate((el) => el.getBoundingClientRect().top)).toBeGreaterThan(0);
   await expect(page.locator('#tablero')).toBeInViewport();
+});
+
+test('Equipo se integra en Organización y el navbar conserva los títulos solicitados', async ({ page }) => {
+  await page.goto('organizacion');
+  await expect(page.locator('#site-navigation a')).toHaveText([
+    'Inicio', 'Gestión', 'Ciencia e Innovación', 'Misión y Visión', 'Organización', 'MBTI', 'Scrum', 'IDEF-0', 'BPMN',
+    'Herramientas', 'Tableau', 'Weka', 'Monitoreo', 'Presupuesto', 'Soporte externo', 'Contacto',
+  ]);
+  await expect(page.locator('.team-card-bio')).toHaveCount(5);
+  await expect(page.locator('#equipo')).toContainText('Daniel Zamorano');
+  await expect(page.locator('#equipo')).toContainText('MISIÓN');
+  await expect(page.locator('#equipo')).toContainText('VISIÓN');
+  await page.goto('equipo');
+  await expect(page).toHaveURL(/\/organizacion#equipo$/);
+  await expect(page.locator('#equipo')).toBeInViewport();
+  await expect(page.locator('#site-navigation [aria-current="page"]')).toHaveText('Organización');
+});
+
+test('La portada mantiene la animación de scroll y permite saltar al resumen', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('./');
+  await expect(page.locator('h1')).toBeVisible();
+  expect(await page.locator('.home-hero-pin').evaluate((el) => el.offsetHeight)).toBeGreaterThan(2500);
+  for (const [progress, message] of [[.2, '1'], [.55, '2'], [.87, '3']]) {
+    await page.evaluate((fraction) => {
+      const pin = document.querySelector('.home-hero-pin');
+      const sticky = document.querySelector('.hero-sticky-container');
+      window.scrollTo({ top: (pin.offsetHeight - sticky.offsetHeight) * fraction, behavior: 'instant' });
+    }, progress);
+    await expect(page.locator('.scroller_item.active')).toHaveAttribute('data-message', message);
+    expect(await page.locator('.char_reveal.revealed').count()).toBeGreaterThan(0);
+    expect(await page.locator('.hero-sticky-container').evaluate((el) => el.getBoundingClientRect().top)).toBe(0);
+  }
+  await page.getByRole('link', { name: 'Ver resumen', exact: true }).click();
+  await expect(page).toHaveURL(/#resumen-proyecto$/);
+  await expect(page.locator('#resumen-titulo')).toBeInViewport();
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto('./');
+  await expect(page.getByRole('link', { name: 'Ver resumen', exact: true })).toBeInViewport();
+  await expect.poll(() => page.locator('.hero-motion-toggle').evaluate((el) => el.getBoundingClientRect().bottom)).toBeLessThanOrEqual(568);
+});
+
+test('Imágenes del inicio y footer accesible con contactos y navegación agrupada', async ({ page, request }) => {
+  await page.goto('./');
+  await expect(page.locator('.summary-card-media img')).toHaveCount(13);
+  await expect(page.locator('.home-vertical-gallery img')).toHaveCount(7);
+  await page.locator('.home-summary-section').first().scrollIntoViewIfNeeded();
+  await expect.poll(() => page.locator('.home-summary-section').first().locator('img').evaluateAll((els) => els.every((img) => img.complete && img.naturalWidth > 0))).toBeTruthy();
+  const images = await page.locator('main img').evaluateAll((els) => [...new Set(els.map((el) => el.src))]);
+  for (const image of images) {
+    const response = await request.get(image);
+    expect(response.ok(), image).toBeTruthy();
+    expect(response.headers()['content-type']).toMatch(/image\//);
+  }
+  const footer = page.locator('.site-footer');
+  await expect(footer.locator('a[href^="mailto:"]')).toHaveCount(5);
+  await expect(footer.getByRole('navigation')).toHaveCount(3);
+  await footer.getByRole('link', { name: /DINASTÍA ARIAS/ }).click();
+  await expect(page).toHaveURL(/\/organizacion#equipo$/);
+  await expect(page.locator('#equipo')).toBeInViewport();
+  await footer.getByRole('button', { name: 'Volver arriba', exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
 });
 
 test('Menú móvil con teclado, enlaces directos y cierre al navegar', async ({ page }) => {

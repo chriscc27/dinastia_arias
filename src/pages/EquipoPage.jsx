@@ -1,6 +1,5 @@
-import TopicPage from '../components/TopicPage';
-import TeamSection from '../components/TeamSection';
+import { Navigate } from 'react-router-dom';
 
 export default function EquipoPage() {
-  return <TopicPage topicId="equipo" related={["organizacion","mbti","contacto"]}><TeamSection /></TopicPage>;
+  return <Navigate to="/organizacion#equipo" replace />;
 }
