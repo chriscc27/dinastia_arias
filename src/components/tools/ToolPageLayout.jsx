@@ -4,7 +4,7 @@ import { toolsNav } from '../../data/tools/toolsNav';
 import '../../styles/tools.css';
 
 // Contenido de herramientas dentro del layout compartido del sitio.
-export default function ToolPageLayout({ data, videos, status, children }) {
+export default function ToolPageLayout({ data, videos, children }) {
   const { hero, quotes, theory, references } = data;
 
   return (
@@ -29,7 +29,6 @@ export default function ToolPageLayout({ data, videos, status, children }) {
       </section>
 
       <div className="tl-main">
-        {status}
         <section className="tl-block">
           <div className="section-badge">
             <span className="badge-dot" />

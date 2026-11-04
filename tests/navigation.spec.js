@@ -267,7 +267,8 @@ test('Capturas, actualización y ejecución Weka con una API simulada', async ({
   const weka = JSON.parse(await readFile(new URL('../src/data/generated/wekaResults.json', import.meta.url)));
   const zabbix = JSON.parse(await readFile(new URL('../src/data/generated/zabbixSnapshot.json', import.meta.url)));
   await page.goto('tableau');
-  await expect(page.locator('.tool-data-status')).toContainText('Última captura guardada');
+  await expect(page.locator('#tablero')).toBeAttached();
+  await expect(page.getByText('Última captura guardada', { exact: true })).toHaveCount(0);
   await page.evaluate(() => localStorage.setItem('aitech-qa-hub-url', `${location.origin}/mock-api`));
   await page.route('**/mock-api/api/**', async (route) => {
     const path = new URL(route.request().url()).pathname;
@@ -275,16 +276,18 @@ test('Capturas, actualización y ejecución Weka con una API simulada', async ({
     await route.fulfill({ json: data });
   });
   await page.goto('weka');
-  await expect(page.locator('.tool-data-status')).toContainText('Datos consultados al servidor');
   await page.getByRole('button', { name: 'Ejecutar en el servidor', exact: true }).first().click();
   await expect(page.locator('.tl-hub-msg.ok')).toContainText('Ejecutado en el servidor');
+  const monitoringResponse = page.waitForResponse((response) => response.url().endsWith('/api/zabbix/summary') && response.status() === 200);
   await page.goto('monitoreo');
-  await expect(page.locator('.tool-data-status')).toContainText('Datos consultados al servidor');
+  await monitoringResponse;
+  await expect(page.locator('#panel')).toBeAttached();
   await page.unroute('**/mock-api/api/**');
   await page.route('**/mock-api/api/**', (route) => route.fulfill({ status: 503, json: { error: 'Servidor no disponible' } }));
+  const failedResponse = page.waitForResponse((response) => response.url().endsWith('/api/dataset/kpis') && response.status() === 503);
   await page.goto('tableau');
-  await expect(page.locator('.tool-data-status')).toContainText('No se pudo actualizar');
-  await expect(page.locator('.tool-data-status')).toContainText('Última captura guardada');
+  await failedResponse;
+  await expect(page.getByText('Última captura guardada', { exact: true })).toHaveCount(0);
   await expect(page.locator('#tablero')).toBeAttached();
 });
 

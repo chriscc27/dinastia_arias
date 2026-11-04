@@ -37,7 +37,7 @@ El Kanban conserva la clave `dinastia-arias-scrum-kanban-tasks` para mantener la
 
 ## QA Hub
 
-Tableau, Weka y Monitoreo pueden consultar QA Hub mediante `VITE_QA_HUB_URL`. Cuando no hay conexión, muestran las capturas incluidas en `src/data/generated/`, identificadas como datos de respaldo con su fecha.
+Tableau, Weka y Monitoreo pueden consultar QA Hub mediante `VITE_QA_HUB_URL`. Cuando no hay conexión, utilizan los datos incluidos en `src/data/generated/`. Las páginas no muestran el aviso de «Última captura guardada».
 
 La configuración de la API, Zabbix, Weka, Docker y la generación de documentos está descrita en [qa-hub/README.md](qa-hub/README.md).
 

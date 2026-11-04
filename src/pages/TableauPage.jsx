@@ -1,5 +1,4 @@
 import ToolPageLayout, { ToolSection } from '../components/tools/ToolPageLayout';
-import ToolDataStatus from '../components/tools/ToolDataStatus';
 import QualityDashboard from '../components/tools/QualityDashboard';
 import TableauGallery from '../components/tools/TableauGallery';
 import { fmt } from '../components/charts/Charts';
@@ -26,7 +25,7 @@ export default function TableauPage() {
   ];
 
   return (
-    <ToolPageLayout data={tableauData} videos={relatedVideosData.tableau} status={<ToolDataStatus resource={recurso} updatedAt={d.meta.generado} />}>
+    <ToolPageLayout data={tableauData} videos={relatedVideosData.tableau}>
       <ToolSection
         badge="EL DATASET DEL ÁREA DE CALIDAD"
         title="Inventario de herramientas de QA"

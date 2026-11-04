@@ -196,10 +196,6 @@ header.site-header { gap: 24px; }
 .consolidated-intro .split-hero-image { max-height: 340px; object-fit: cover; }
 .not-found-page { padding: calc(var(--site-header-height) + 80px) 6% 100px; min-height: 70vh; }
 .footer-col a { overflow-wrap: anywhere; }
-.tool-data-status { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 36px; padding: 20px 24px; border: 1px solid rgba(34, 47, 48, .15); border-radius: 16px; background: #edf0e7; }
-.tool-data-status strong { font-size: .95rem; font-weight: 600; }
-.tool-data-status p { font-size: .85rem; line-height: 1.65; color: var(--color-slate); margin-top: 4px; max-width: 720px; }
-.tool-data-status.is-live { border-color: #9bbd89; }
 .flow-chip:is(button) { font: inherit; text-align: left; }
 
 @media (max-width: 1199px) {
