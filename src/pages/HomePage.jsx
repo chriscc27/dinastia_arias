@@ -1,6 +1,7 @@
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import Hero from '../components/Hero';
+import ClosingSummarySection from '../components/ClosingSummarySection';
 import { getSiteTopic, homeGroups, homeVisuals, legacyHomeRoutes, siteNav } from '../data/siteNav';
 import { toolsNav } from '../data/tools/toolsNav';
 import { aitechAreas } from '../data/aitechData';
@@ -86,6 +87,8 @@ export default function HomePage() {
         </div>
         <Link to={getSiteTopic('alcance').to} className="summary-text-link">Explorar el alcance de Calidad <span aria-hidden="true">↗</span></Link>
       </section>
+
+      <ClosingSummarySection />
     </>
   );
 }

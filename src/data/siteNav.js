@@ -14,6 +14,7 @@ export const siteNav = [
   { id: 'bpmn', to: '/bpmn', label: 'BPMN', title: 'Procesos con BPMN', group: 'procesos', desc: 'Recorre la evaluación y aprobación de software, explora cada actividad y descarga el diagrama.' },
   { id: 'plan-contingencia', to: '/plan-contingencia', label: 'Plan de contingencia', title: 'Plan de contingencia', group: 'procesos', desc: 'Prevención de riesgos, respuesta ante incidentes y recuperación de los servicios TIC en La Paz, Bolivia.' },
   { id: 'alcance', to: '/alcance', label: 'Alcance', title: 'Alcance en AITECH', nav: false, desc: 'Calidad transversal en Software, Hardware, Redes, Seguridad, Cloud, Big Data y Calidad Global.' },
+  { id: 'conclusiones-recomendaciones', to: '/conclusiones-recomendaciones', label: 'Conclusiones y Recomendaciones', title: 'Conclusiones y Recomendaciones', nav: false, desc: 'Aporte integral del equipo Dinastía Arias en el Área de Calidad de AITECH y hoja de ruta recomendada a futuro.' },
   { id: 'herramientas', to: '/herramientas', label: 'Herramientas', title: 'Herramientas del Área de Calidad', desc: 'Un mismo inventario conecta los indicadores, el análisis, el monitoreo y la gestión de recursos.' },
   ...toolsNav.map((tool) => ({ ...tool, group: 'herramientas' })),
   { id: 'contacto', to: '/trabaja-con-nosotros', label: 'Contacto', title: 'Trabaja con nosotros', desc: 'Contacta al equipo de Dinastía Arias y conoce a los responsables del Área de Calidad.' },
@@ -22,7 +23,11 @@ export const siteNav = [
 export const primaryNav = siteNav.filter((item) => item.nav !== false && item.id !== 'herramientas' && item.group !== 'herramientas' && item.id !== 'contacto');
 export const secondaryNav = siteNav.filter((item) => item.id === 'herramientas' || item.group === 'herramientas' || item.id === 'contacto');
 export const getSiteTopic = (id) => siteNav.find((item) => item.id === id);
-export const legacyHomeRoutes = Object.fromEntries(siteNav.map((item) => [item.id, item.to]));
+export const legacyHomeRoutes = {
+  ...Object.fromEntries(siteNav.map((item) => [item.id, item.to])),
+  conclusiones: '/conclusiones-recomendaciones#conclusiones',
+  recomendaciones: '/conclusiones-recomendaciones#recomendaciones',
+};
 
 export const homeGroups = [
   { id: 'estrategia', badge: 'ESTRATEGIA Y FUNDAMENTOS', title: 'El propósito que guía cada decisión.', desc: 'Integramos gestión tecnológica, conocimiento científico y estándares internacionales para una calidad preventiva.' },
@@ -48,7 +53,7 @@ export const homeVisuals = {
 };
 
 export const footerGroups = [
-  { title: 'Proyecto', ids: ['inicio', 'gestion-tecnologias', 'ciencia-tecnologia', 'mision-vision', 'organizacion', 'mbti'] },
+  { title: 'Proyecto', ids: ['inicio', 'gestion-tecnologias', 'ciencia-tecnologia', 'mision-vision', 'organizacion', 'mbti', 'conclusiones-recomendaciones'] },
   { title: 'Procesos', ids: ['scrum', 'idef-0', 'bpmn', 'plan-contingencia'] },
   { title: 'Herramientas', ids: ['herramientas', ...toolsNav.map((tool) => tool.id)] },
 ];

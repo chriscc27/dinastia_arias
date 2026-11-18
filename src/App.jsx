@@ -22,6 +22,7 @@ const MonitoreoPage = lazy(() => import('./pages/MonitoreoPage'));
 const PresupuestoPage = lazy(() => import('./pages/PresupuestoPage'));
 const SoporteExternoPage = lazy(() => import('./pages/SoporteExternoPage'));
 const PlanContingenciaPage = lazy(() => import('./pages/PlanContingenciaPage'));
+const ConclusionesRecomendacionesPage = lazy(() => import('./pages/ConclusionesRecomendacionesPage'));
 
 export default function App() {
   return (
@@ -46,6 +47,7 @@ export default function App() {
         <Route path="monitoreo" element={<MonitoreoPage />} />
         <Route path="presupuesto" element={<PresupuestoPage />} />
         <Route path="soporte-externo" element={<SoporteExternoPage />} />
+        <Route path="conclusiones-recomendaciones" element={<ConclusionesRecomendacionesPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

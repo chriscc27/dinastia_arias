@@ -350,6 +350,28 @@ test('Capturas, actualización y ejecución Weka con una API simulada', async ({
   await expect(page.locator('#tablero')).toBeAttached();
 });
 
+test('Conclusiones y recomendaciones: sección compacta al final del inicio y vista completa', async ({ page }) => {
+  await page.goto('./');
+  const closing = page.locator('#cierre-proyecto');
+  await expect(closing).toBeVisible();
+  await expect(closing).toContainText('Conclusiones');
+  await expect(closing).toContainText('Recomendaciones');
+  await expect(closing).toContainText('General');
+  await expect(closing).toContainText('Objetivo');
+  await expect(closing).toContainText('Tecnológicas');
+  await closing.getByRole('link', { name: /Explorar pantalla completa/ }).click();
+  await expect(page).toHaveURL(/\/conclusiones-recomendaciones$/);
+  await expect(page.locator('h1')).toHaveText('Conclusiones y Recomendaciones');
+  await expect(page.locator('#conclusiones .cr-detail-card')).toHaveCount(3);
+  await expect(page.locator('#recomendaciones .cr-detail-card')).toHaveCount(3);
+  await expect(page.locator('#sintesis-cierre .cr-matrix-row')).toHaveCount(3);
+  for (const width of [320, 768, 1280]) {
+    await page.setViewportSize({ width, height: 900 });
+    const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+    expect(scrollWidth, `conclusiones-recomendaciones a ${width}px`).toBeLessThanOrEqual(width);
+  }
+});
+
 test('Ruta desconocida con salida clara', async ({ page }) => {
   await page.goto('pagina-inexistente');
   await expect(page.locator('h1')).toHaveText('No encontramos esta página.');
