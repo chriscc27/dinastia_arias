@@ -1,10 +1,11 @@
 import { Fragment, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowDown, ArrowRight, CheckCircle2, ChevronDown, Cloud, Database, Download, HardDrive, LockKeyhole, MapPin, Network, Server, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowDown, ArrowRight, CheckCircle2, ChevronDown, Cloud, Database, Download, FileText, HardDrive, LockKeyhole, MapPin, Network, Server, ShieldCheck, Zap } from 'lucide-react';
 import TopicPage from '../components/TopicPage';
 import RecoveryPlaybook from '../components/RecoveryPlaybook';
 import originalDocument from '../data/plan-contingencia-original.txt?raw';
 import originalDocumentUrl from '../data/plan-contingencia-original.txt?url';
+import fullContingencyPlanUrl from '../docs/PLAN CONTINGENCIAS IAtech V3.docx?url';
 import { contingencyRoles, contingencySources, localScenarios, recoveryExamples, responseSteps } from '../data/planContingencia';
 import { parseContingencyDocument } from '../lib/contingencyDocument';
 import '../styles/contingencia.css';
@@ -55,6 +56,11 @@ export default function PlanContingenciaPage() {
         <div className="pc-overview">
           <div className="pc-overview-copy"><span className="pc-eyebrow">CONTINUIDAD OPERATIVA · LA PAZ</span><h2>Preparados para seguir adelante.</h2><p>Proteger a las personas. Mantener los servicios esenciales. Recuperar la información y volver a operar con confianza.</p><div className="pc-overview-phases"><span><ShieldCheck size={18} aria-hidden="true" />Prevenir</span><ArrowRight size={16} aria-hidden="true" /><span><Server size={18} aria-hidden="true" />Responder</span><ArrowRight size={16} aria-hidden="true" /><span><CheckCircle2 size={18} aria-hidden="true" />Recuperar</span></div></div>
           <figure className="pc-overview-art"><img src={`${import.meta.env.BASE_URL}assets/verticals/seguridad.jpg`} alt="Escudo de vidrio verde que representa la protección de la información." width="1024" height="1024" decoding="async" /><figcaption>Protección de la información y continuidad del servicio.</figcaption></figure>
+        </div>
+        <div className="pc-plan-download">
+          <FileText className="pc-plan-download-icon" size={32} aria-hidden="true" />
+          <div><span className="pc-eyebrow">DOCUMENTO DEL EQUIPO </span><h2>Plan de contingencia de IAtech area de Calidad</h2><p>Análisis de riesgos y plan de contingencia</p></div>
+          <a className="pc-button" href={fullContingencyPlanUrl} download="PLAN CONTINGENCIAS IAtech V3.docx"><Download size={18} aria-hidden="true" />Descargar plan completo (.docx)</a>
         </div>
         <nav className="pc-index" aria-label="Contenido del plan de contingencia">
           <Link to="#documento-original">01 · Fundamentos del plan <ArrowDown size={15} aria-hidden="true" /></Link>

@@ -87,6 +87,14 @@
 .pc-overview-art { position: relative; min-width: 0; margin: 0; background: #d4ddd0; }
 .pc-overview-art img { width: 100%; height: 100%; max-height: 450px; object-fit: cover; display: block; }
 .pc-overview-art figcaption { position: absolute; bottom: 18px; left: 20px; right: 20px; padding: 10px 14px; border: 1px solid rgba(255, 255, 255, .5); border-radius: 10px; color: var(--color-charcoal); background: rgba(247, 247, 245, .88); font-size: .76rem; line-height: 1.5; }
+.pc-plan-download { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; padding: 28px; margin-top: 24px; border: 1px solid #ccd6c4; border-radius: 18px; background: white; }
+.pc-plan-download-icon { flex-shrink: 0; color: var(--color-slate); }
+.pc-plan-download > div { flex: 1 1 280px; min-width: 0; }
+.pc-plan-download .pc-eyebrow { margin-bottom: 8px; }
+.pc-plan-download h2 { margin: 0 0 8px; font-size: clamp(1.25rem, 2vw, 1.65rem); font-weight: 600; line-height: 1.3; }
+.pc-plan-download p { font-size: .94rem; line-height: 1.7; color: var(--color-slate); }
+.pc-plan-download .pc-button { background: var(--color-lime); font-weight: 600; text-align: center; }
+.pc-plan-download .pc-button:hover { background: var(--color-mint); }
 .pc-recovery-feature { display: grid; grid-template-columns: 1fr 1.2fr; margin: 32px 0; background: var(--color-charcoal); border-radius: 22px; overflow: hidden; }
 .pc-recovery-feature figure { min-width: 0; margin: 0; }
 .pc-recovery-feature img { width: 100%; height: 100%; min-height: 390px; max-height: 490px; object-fit: cover; display: block; }
@@ -155,6 +163,9 @@
   .pc-document-toggle { width: 100%; }
   .pc-document-header .pc-button { width: 100%; }
   .pc-overview, .pc-recovery-feature, .pc-guide-columns { grid-template-columns: minmax(0, 1fr); }
+  .pc-plan-download { padding: 22px; gap: 16px; }
+  .pc-plan-download > div { flex-basis: calc(100% - 50px); }
+  .pc-plan-download .pc-button { width: 100%; }
   .pc-overview-art img { max-height: 310px; object-position: center 40%; }
   .pc-overview-phases { gap: 8px; }
   .pc-overview-phases > svg { width: 12px; }
