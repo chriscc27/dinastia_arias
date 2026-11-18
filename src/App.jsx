@@ -21,6 +21,7 @@ const WekaPage = lazy(() => import('./pages/WekaPage'));
 const MonitoreoPage = lazy(() => import('./pages/MonitoreoPage'));
 const PresupuestoPage = lazy(() => import('./pages/PresupuestoPage'));
 const SoporteExternoPage = lazy(() => import('./pages/SoporteExternoPage'));
+const PlanContingenciaPage = lazy(() => import('./pages/PlanContingenciaPage'));
 
 export default function App() {
   return (
@@ -37,6 +38,7 @@ export default function App() {
         <Route path="scrum" element={<ScrumPage />} />
         <Route path="idef-0" element={<IDEF0Page />} />
         <Route path="bpmn" element={<BPMNPage />} />
+        <Route path="plan-contingencia" element={<PlanContingenciaPage />} />
         <Route path="herramientas" element={<HerramientasPage />} />
         <Route path="alcance" element={<AlcancePage />} />
         <Route path="tableau" element={<TableauPage />} />

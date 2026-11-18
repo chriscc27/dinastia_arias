@@ -12,6 +12,7 @@ export const siteNav = [
   { id: 'scrum', to: '/scrum', label: 'Scrum', title: 'Scrum y tablero Kanban', group: 'procesos', desc: 'Roles, eventos y artefactos para organizar el sprint, con un tablero Kanban interactivo.' },
   { id: 'idef-0', to: '/idef-0', label: 'IDEF-0', title: 'Modelado funcional IDEF-0', group: 'procesos', desc: 'Entradas, controles, salidas y mecanismos del Área de Calidad en un modelo funcional interactivo.' },
   { id: 'bpmn', to: '/bpmn', label: 'BPMN', title: 'Procesos con BPMN', group: 'procesos', desc: 'Recorre la evaluación y aprobación de software, explora cada actividad y descarga el diagrama.' },
+  { id: 'plan-contingencia', to: '/plan-contingencia', label: 'Plan de contingencia', title: 'Plan de contingencia', group: 'procesos', desc: 'Prevención de riesgos, respuesta ante incidentes y recuperación de los servicios TIC en La Paz, Bolivia.' },
   { id: 'alcance', to: '/alcance', label: 'Alcance', title: 'Alcance en AITECH', nav: false, desc: 'Calidad transversal en Software, Hardware, Redes, Seguridad, Cloud, Big Data y Calidad Global.' },
   { id: 'herramientas', to: '/herramientas', label: 'Herramientas', title: 'Herramientas del Área de Calidad', desc: 'Un mismo inventario conecta los indicadores, el análisis, el monitoreo y la gestión de recursos.' },
   ...toolsNav.map((tool) => ({ ...tool, group: 'herramientas' })),
@@ -38,6 +39,7 @@ export const homeVisuals = {
   scrum: { src: 'assets/verticals/software.jpg', alt: 'Módulos tecnológicos conectados como las etapas de un proceso.' },
   'idef-0': { src: 'assets/verticals/redes.jpg', alt: 'Conexiones entre nodos que representan funciones relacionadas.' },
   bpmn: { src: 'assets/verticals/cloud.jpg', alt: 'Estructura de vidrio verde con múltiples conexiones y recorridos.' },
+  'plan-contingencia': { src: 'assets/verticals/seguridad.jpg', alt: 'Estructura de vidrio verde que representa protección y continuidad de los servicios TIC.' },
   tableau: { src: 'assets/tableau/dashboard-1-resumen.png', alt: 'Dashboard de Tableau con el resumen de indicadores del inventario de Calidad.', dashboard: true },
   weka: { src: 'assets/verticals/bigdata.jpg', alt: 'Composición de datos y conexiones para representar el análisis de patrones.' },
   monitoreo: { src: 'assets/verticals/cloud.jpg', alt: 'Infraestructura conectada que representa el monitoreo tecnológico.' },
@@ -47,6 +49,6 @@ export const homeVisuals = {
 
 export const footerGroups = [
   { title: 'Proyecto', ids: ['inicio', 'gestion-tecnologias', 'ciencia-tecnologia', 'mision-vision', 'organizacion', 'mbti'] },
-  { title: 'Procesos', ids: ['scrum', 'idef-0', 'bpmn'] },
+  { title: 'Procesos', ids: ['scrum', 'idef-0', 'bpmn', 'plan-contingencia'] },
   { title: 'Herramientas', ids: ['herramientas', ...toolsNav.map((tool) => tool.id)] },
 ];

@@ -5,11 +5,70 @@ const routes = [
   ['', 'Inicio'], ['gestion-tecnologias', 'Gestión'],
   ['ciencia-tecnologia-innovacion', 'Ciencia e Innovación'], ['mision-vision', 'Misión y Visión'],
   ['organizacion', 'Organización'], ['mbti', 'MBTI'], ['scrum', 'Scrum'],
-  ['idef-0', 'IDEF-0'], ['bpmn', 'BPMN'], ['alcance', 'Alcance'], ['herramientas', 'Herramientas'],
+  ['idef-0', 'IDEF-0'], ['bpmn', 'BPMN'], ['plan-contingencia', 'Plan de contingencia'], ['alcance', 'Alcance'], ['herramientas', 'Herramientas'],
   ['tableau', 'Tableau'], ['weka', 'Weka'], ['monitoreo', 'Monitoreo'],
   ['presupuesto', 'Presupuesto'], ['soporte-externo', 'Soporte externo'], ['trabaja-con-nosotros', 'Contacto'],
 ];
 const storageKey = 'dinastia-arias-scrum-kanban-tasks';
+
+test('Plan de contingencia permite ampliar la lectura limpia y descargar el original', async ({ page }) => {
+  const original = await readFile(new URL('../src/data/plan-contingencia-original.txt', import.meta.url), 'utf8');
+  await page.goto('plan-contingencia');
+  const rendered = await page.getByTestId('documento-original-texto').textContent();
+  const normalize = (text) => text.replace(/\uFFFD/g, '').replace(/\s+/g, ' ').trim();
+  expect(normalize(rendered)).toBe(normalize(original));
+  expect(rendered).not.toContain('\uFFFD');
+  await expect(page.locator('#pc-document-rest')).toBeHidden();
+  const expand = page.getByRole('button', { name: 'Leer documento completo' });
+  await expect(expand).toHaveAttribute('aria-expanded', 'false');
+  await expand.click();
+  await expect(page.locator('#pc-document-rest')).toBeVisible();
+  await expect(page.getByRole('heading', { name: /ETAPA X:/ })).toBeVisible();
+  await expect(page.locator('.pc-document-subheading.is-stage')).toHaveCount(10);
+  await page.getByRole('button', { name: 'Mostrar menos' }).click();
+  await expect(page.locator('#pc-document-rest')).toBeHidden();
+  await expect(page.locator('#pc-original-title')).toBeInViewport();
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByRole('link', { name: 'Descargar original (.txt)' }).click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toBe('plan-contingencia-original.txt');
+  expect(await readFile(await download.path(), 'utf8')).toBe(original);
+  await page.getByRole('link', { name: '02 · Aplicación en La Paz' }).click();
+  await expect(page).toHaveURL(/\/plan-contingencia#aplicacion-la-paz$/);
+  await expect(page.locator('#pc-local-title')).toBeInViewport();
+  await expect(page.locator('.pc-scenario')).toHaveCount(5);
+  await expect(page.locator('a[href="tel:114"]')).toHaveText('114');
+  await expect(page.locator('.pc-table')).toContainText('RTO');
+  await expect(page.locator('.pc-table')).toContainText('RPO');
+  await page.reload();
+  await expect(page.locator('#pc-local-title')).toBeInViewport();
+});
+
+test('Plan de contingencia es accesible desde el menú móvil', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('./');
+  await page.getByRole('button', { name: 'Abrir menú de navegación' }).click();
+  await page.locator('#site-navigation').getByRole('link', { name: 'Plan de contingencia', exact: true }).click();
+  await expect(page).toHaveURL(/\/plan-contingencia$/);
+  await expect(page.locator('h1')).toHaveText('Plan de contingencia');
+  await expect(page.locator('#site-navigation')).toBeHidden();
+  await expect(page.getByTestId('documento-original-texto')).toBeVisible();
+  for (const [incident, title] of [
+    ['Corte eléctrico', 'Restablecer la infraestructura con seguridad'],
+    ['Fallo de conexión', 'Recuperar el acceso a los servicios'],
+    ['Pérdida de datos', 'Restaurar una copia y comprobar su integridad'],
+    ['Sede inaccesible', 'Continuar desde una ubicación alternativa'],
+  ]) {
+    const button = page.getByRole('button', { name: incident, exact: true });
+    await button.click();
+    await expect(button).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('#pc-recovery-guide h4')).toHaveText(title);
+    await expect(page.locator('.pc-guide-actions li')).toHaveCount(4);
+    await expect(page.locator('.pc-guide-validation li')).toHaveCount(3);
+  }
+  await page.locator('.pc-recovery-feature img').scrollIntoViewIfNeeded();
+  await expect.poll(() => page.locator('.pc-overview img, .pc-recovery-feature img').evaluateAll((images) => images.every((image) => image.complete && image.naturalWidth > 0))).toBeTruthy();
+});
 
 test.beforeEach(async ({ context }) => {
   // Las pruebas no dependen de YouTube, fuentes externas ni servicios desplegados.
@@ -27,7 +86,7 @@ for (const [route, label] of routes) {
     await expect(page.locator('main')).toHaveCount(1);
     await expect(page.locator('.site-header')).toHaveCount(1);
     await expect(page.locator('.c-footer-xl')).toHaveCount(1);
-    await expect(page.locator('#site-navigation a')).toHaveCount(16);
+    await expect(page.locator('#site-navigation a')).toHaveCount(17);
     if (route === 'alcance') await expect(page.locator('#site-navigation [aria-current="page"]')).toHaveCount(0);
     else await expect(page.locator('#site-navigation [aria-current="page"]')).toHaveText(label);
     const positions = await page.evaluate(() => ({
@@ -41,7 +100,7 @@ for (const [route, label] of routes) {
 
 test('El inicio resume y enlaza las vistas completas', async ({ page }) => {
   await page.goto('./');
-  await expect(page.locator('.summary-card')).toHaveCount(13);
+  await expect(page.locator('.summary-card')).toHaveCount(14);
   await expect(page.locator('.kanban-board-grid, .bpmn-standard-container, .idef0-diagram-container')).toHaveCount(0);
   await expect(page.locator('.home-data-note')).toContainText('30 de abril de 2026');
   await expect(page.locator('video')).toHaveJSProperty('paused', true);
@@ -75,7 +134,7 @@ test('Fragmentos antiguos y anclas propias de una página', async ({ page }) => 
 test('Equipo se integra en Organización y el navbar conserva los títulos solicitados', async ({ page }) => {
   await page.goto('organizacion');
   await expect(page.locator('#site-navigation a')).toHaveText([
-    'Inicio', 'Gestión', 'Ciencia e Innovación', 'Misión y Visión', 'Organización', 'MBTI', 'Scrum', 'IDEF-0', 'BPMN',
+    'Inicio', 'Gestión', 'Ciencia e Innovación', 'Misión y Visión', 'Organización', 'MBTI', 'Scrum', 'IDEF-0', 'BPMN', 'Plan de contingencia',
     'Herramientas', 'Tableau', 'Weka', 'Monitoreo', 'Presupuesto', 'Soporte externo', 'Contacto',
   ]);
   await expect(page.locator('.team-card-bio')).toHaveCount(5);
@@ -114,7 +173,7 @@ test('La portada mantiene la animación de scroll y permite saltar al resumen', 
 
 test('Imágenes del inicio y footer accesible con contactos y navegación agrupada', async ({ page, request }) => {
   await page.goto('./');
-  await expect(page.locator('.summary-card-media img')).toHaveCount(13);
+  await expect(page.locator('.summary-card-media img')).toHaveCount(14);
   await expect(page.locator('.home-vertical-gallery img')).toHaveCount(7);
   await page.locator('.home-summary-section').first().scrollIntoViewIfNeeded();
   await expect.poll(() => page.locator('.home-summary-section').first().locator('img').evaluateAll((els) => els.every((img) => img.complete && img.naturalWidth > 0))).toBeTruthy();
@@ -157,7 +216,7 @@ test('Menú móvil con teclado, enlaces directos y cierre al navegar', async ({ 
 test('Sin desbordamiento horizontal en tamaños pequeños y medianos', async ({ page }) => {
   for (const width of [320, 390, 768, 1024, 1280]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const route of ['', 'alcance', 'scrum', 'tableau', 'trabaja-con-nosotros']) {
+    for (const route of ['', 'alcance', 'scrum', 'tableau', 'trabaja-con-nosotros', 'plan-contingencia']) {
       await page.goto(route || './');
       await expect(page.locator('h1')).toBeVisible();
       const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);

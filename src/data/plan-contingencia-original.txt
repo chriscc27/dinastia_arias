@@ -1,0 +1,283 @@
+PLAN DE CONTINGENCIA EN LOS CENTROS DE
+TECNOLOGÍAS DE INFORMACIÓN Y COMUNICACIONES
+
+Gestión de TIC 2026
+
+INTRODUCCION
+El presente documento describe la metodología práctica para el desarrollo de
+planes de contingencia en los centros de cómputo, abarcando la identificación de
+riesgos, la calificación de su probabilidad de ocurrencia, la evaluación del impacto
+en los procesos críticos y la creación de estrategias de contingencia.
+Estos planes permiten mantener la continuidad de los sistemas de información y
+de los procesos del área de calidad ante eventos críticos, minimizando el impacto
+negativo sobre la organización, sus empleados y usuarios.
+El plan forma parte integral de la gestión de calidad y de la estrategia general de
+continuidad operativa del Centro de Tecnologías de Información y
+Comunicaciones (CTIC), garantizando una respuesta organizada, eficiente y
+oportuna ante cualquier incidente.
+¿Qué es un Plan de Contingencia?
+
+Podríamos definir a un plan de contingencias como una estrategia planificada con
+una serie de procedimientos que nos faciliten o nos orienten alternativas que nos
+permita restituir rápidamente los servicios de la organización ante la eventualidad
+de todo lo que lo pueda paralizar, ya sea de forma parcial o total.
+
+El plan de contingencia es una herramienta que le ayudará a que los procesos
+críticos de su empresa u organización continúen funcionando a pesar de una
+posible falla en los sistemas computarizados. Es decir, un plan que le permite a su
+negocio u organización, seguir operando aunque sea al mínimo.
+
+Objetivos del Plan de Contingencia
+
+El Plan de Contingencia del Departamento de Calidad tiene como propósito
+fundamental asegurar la continuidad operativa de los procesos y sistemas de
+información frente a posibles interrupciones o desastres.
+Este plan busca minimizar las pérdidas, reducir los tiempos de inactividad y
+garantizar que los servicios esenciales puedan ser restaurados de forma rápida y
+ordenada.
+Objetivo General
+Garantizar la continuidad de los sistemas de información y procesos críticos del
+Departamento de Calidad, ante cualquier evento que pueda afectar su
+
+funcionamiento, asegurando la integridad, disponibilidad y confiabilidad de la
+información.
+Objetivos Específicos
+Identificar los posibles riesgos que puedan interrumpir las actividades del área de
+calidad.
+Evaluar la probabilidad e impacto de los riesgos en los sistemas de información.
+Definir procedimientos y estrategias para la prevención, mitigación y recuperación
+ante incidentes.
+Establecer responsabilidades y protocolos de actuación para el personal
+involucrado.
+Asegurar la recuperación oportuna de datos y la reanudación de los servicios
+esenciales.
+Promover una cultura de prevención y respuesta rápida dentro del equipo de
+calidad.
+
+Aspectos Generales de la Seguridad de la Información
+La Seguridad Física
+
+La seguridad física garantiza la integridad de los activos humanos, lógicos y
+materiales de un sistema de información de datos. Si se entiende la contingencia o
+proximidad de un daño como la definición de Riesgo de Fallo, local o general, tres
+serían las medidas a preparar para ser utilizadas en relación a la cronología del
+fallo.
+Antes
+El nivel adecuado de seguridad física, o grado de seguridad, es un conjunto de
+acciones utilizadas para evitar el fallo o, en su caso, aminorar las consecuencias
+que de el se puedan derivar. Es un concepto aplicable a cualquier actividad, no sólo
+a la informática, en la que las personas hagan uso particular o profesional de
+entornos físicos.
+
+• Ubicación del Centro de Procesamiento de Datos dentro del edificio.
+• Sistemas contra Incendios.
+• Control de accesos.
+• Selección de personal.
+• Seguridad de los medios.
+
+• Medidas de protección.
+
+Durante
+Se debe de ejecutar un plan de contingencia adecuado. En general, cualquier
+desastre es cualquier evento que, cuando ocurre, tiene la capacidad de interrumpir
+el normal proceso de una empresa. La probabilidad de que ocurra un desastre es
+muy baja, aunque se diera, el impacto podría ser tan grande que resultaría fatal
+para la organización. Por otra parte, no es corriente que un negocio responda por
+sí mismo ante un acontecimiento como el que se comenta, se deduce la necesidad
+de contar con los medios necesarios para afrontarlo. Estos medios quedan
+definidos en el Plan de Recuperación de Desastres que junto con el Centro
+Alternativo de Proceso de Datos, constituye el plan de contingencia que coordina
+las necesidades del negocio y las operaciones de recuperación del mismo.
+Son puntos imprescindibles del plan de contingencia:
+
+• Realizar un análisis de riesgos de sistemas críticos que determine la tolerancia de
+los sistemas
+• Establecer un periodo crítico de recuperación, en la cual los procesos debe de ser
+reanudados antes de sufrir pérdidas significativas o irrecuperables.
+• Realizar un Análisis de Aplicaciones Críticas por que se establecerán las
+prioridades del proceso.
+
+Después
+Los contratos de seguros vienen a compensar, en mayor o menor medida las
+pérdidas, gastos o responsabilidades que se puedan derivar para el centro de
+proceso de datos una vez detectado y corregido el fallo.
+
+De la gama de seguros existentes, se pueden indicar los siguientes:
+
+• Centros de proceso y equipamiento: se contrata la cobertura sobre el daño físico
+en el CPD (Centro de Procesamiento de Datos) y el equipo contenido en el.
+• Reconstrucción de medios de software: cubre el daño producido sobre medios
+software tanto los que son de propiedad del tomador de seguro como aquellos que
+constituyen su responsabilidad.
+• Gastos extra: cubre los gastos extra que derivan de la continuidad de las
+operaciones tras un desastre o daño en el centro de proceso de datos. Es suficiente
+para compensar los costos de ejecución del plan de contingencia.
+• Interrupción del negocio: cubre las pérdidas de beneficios netos causadas por las
+caídas de los medios informáticos o por la suspensión de las operaciones.
+• Documentos y registros valiosos: Se contrata para obtener una compensación en
+el valor metálico real por la perdida o daño físico sobre documentos y registros
+valiosos no amparados por el seguro de reconstrucción de medios software.
+
+• Errores y omisiones: proporciona protección legal ante la responsabilidad en que
+pudiera incurrir un profesional que cometiera un acto, error u omisión que
+ocasione una pérdida financiera a un cliente.
+• Cobertura de fidelidad: cubre las pérdidas derivadas de actos deshonestos o
+fraudulentos cometidos por empleados.
+• Transporte de medios: proporciona cobertura ante pérdidas o daños a los medios
+transportados.
+• Contratos con proveedores y de mantenimiento: proveedores o fabricantes que
+aseguren la existencia de repuestos y consumibles, así como garantías de
+fabricación.
+
+Fases de la Metodología para el Desarrollo de un Plan de
+Contingencia de los Centros de Computo
+
+Debemos de tener presente que mucho dependerá de la infraestructura de la
+empresa y de los servicios que ésta ofrezca para determinar un modelo de
+desarrollo de plan, no existe un modelo único para todos, lo que se intenta es dar
+los puntos más importantes a tener en cuenta.
+La presente metodología se podría resumir en ocho fases de la
+siguiente manera:
+
+• Planificación: preparación y aprobación de esfuerzos y costos.
+• Identificación de riesgos: funciones y flujos del proceso de la empresa.
+• Identificación de soluciones: Evaluación de Riesgos de fallas o interrupciones.
+• Estrategias: Otras opciones, soluciones alternativas, procedimientos manuales.
+• Documentación del proceso: Creación de un manual del proceso.
+• Realización de pruebas: selección de casos soluciones que probablemente
+funcionen.
+• Implementación: creación de las soluciones requeridas, documentación de los
+casos.
+• Monitoreo: Probar nuevas soluciones o validar los casos.
+
+VISIÓN PRÁCTICA PARA REALIZAR UN PLAN DE
+CONTINGENCIA DE LOS SISTEMAS DE INFORMACIÓN
+
+PASOS PARA DESARROLLAR EL PLAN DE CONTINGENCIA
+DEL DEPARTAMENTO DE CALIDAD
+�� ETAPA I: Análisis y Selección de las Operaciones Críticas
+En esta etapa se definen las operaciones críticas del Departamento de Calidad, en
+función de los componentes de los sistemas de información: Datos, Aplicaciones,
+Hardware, Software, Instalaciones y Personal.
+
+Entre las operaciones críticas se incluyen la gestión de documentación de calidad,
+evaluación de cumplimiento de estándares, auditorías internas y control de
+versiones de informes de calidad.
+Estas operaciones deben mantenerse activas incluso ante contingencias.
+�� ETAPA II: Identificación de Procesos en Cada Operación
+Para cada operación crítica identificada, se deben enumerar los procesos internos.
+El equipo responsable del plan de contingencia trabajará junto con el personal del
+área de calidad, quienes conocen a fondo los procesos analizados.
+Durante esta etapa se investigan los recursos administrativos y técnicos utilizados
+en cada proceso (equipos, software, red, almacenamiento en la nube, etc.),
+modificándose según su nivel de criticidad (crítico o no crítico).
+� ETAPA III: Listado de Recursos Utilizados por las
+Operaciones
+Se identifican los proveedores y recursos empleados en las operaciones críticas del
+departamento, tales como:
+Servidores internos o en la nube (Cloud Computing).
+Equipos de respaldo y almacenamiento.
+Software de control de calidad y auditoría.
+Servicios de red, energía y soporte técnico.
+Cada recurso debe tener contacto de proveedor, responsable interno y nivel de
+prioridad asignado.
+� ETAPA IV: Especificación de Escenarios en los Cuales
+Pueden Ocurrir los Problemas
+En esta etapa se establecen los posibles escenarios que podrían afectar la
+continuidad operativa.
+Ejemplos:
+Fallo del servidor de gestión documental.
+Pérdida temporal de conectividad de red.
+Infección por malware o ransomware.
+Corte de energía eléctrica.
+Ausencia del personal clave.
+Cada escenario se evalúa según su probabilidad de ocurrencia (alta, media o baja)
+y su impacto sobre los sistemas de información y los procesos de calidad.
+
+� ETAPA V: Determinación y Detalle de las Medidas
+Preventivas
+Se definen las acciones preventivas y correctivas para cada recurso o escenario,
+considerando el tiempo de interrupción aceptable.
+Ejemplos:
+Copias de seguridad automáticas y en la nube.
+Servidores de respaldo para el sistema de calidad.
+Procedimientos manuales alternativos para auditorías.
+Protocolos de seguridad y autenticación.
+Capacitación del personal en respuesta ante incidentes.
+Cada medida debe ser evaluada en costo, efectividad y viabilidad.
+
+��ETAPA VI: Formación y Funciones de los Grupos de Trabajo
+Se conforma el Comité de Contingencia del Departamento de Calidad, responsable
+de la ejecución del plan.
+Este grupo estará operativo durante cualquier incidente y seguirá un organigrama
+funcional, que incluye:
+Gerente de Calidad: coordinación general.
+Coordinador QA: dirección técnica de las acciones.
+Auditores y Técnicos de Calidad: ejecución de medidas y recuperación de datos.
+
+�� ETAPA VII: Desarrollo de los Planes de Acción
+Se definen los procedimientos específicos que deben seguirse en los días o
+momentos más propensos a fallos, como actualizaciones de sistema, auditorías o
+picos de demanda.
+El plan detalla las acciones a ejecutar en caso de emergencia, los recursos
+alternativos disponibles y los tiempos estimados de recuperación.
+� ETAPA VIII: Preparación de la Lista de Contactos de
+Emergencia
+Se elabora un directorio actualizado con:
+
+Personal esencial del Departamento de Calidad.
+Responsables de recuperación de sistemas.
+Proveedores de servicios tecnológicos, eléctricos o de soporte.
+Este directorio se usa para comunicaciones rápidas ante incidentes y debe
+mantenerse accesible tanto en formato digital como físico.
+
+�� ETAPA IX: Pruebas y Monitoreo del Plan
+La estrategia debe probarse y monitorearse periódicamente, asegurando que los
+procedimientos definidos son efectivos.
+Antes de las pruebas, se revisa la documentación y se entrena al personal
+involucrado.
+�� Prueba de Plan de Contingencia
+Las pruebas verifican la capacidad del plan para mantener la continuidad de los
+procesos críticos del Departamento de Calidad.
+Durante las pruebas se identifican debilidades y se actualizan los procedimientos.
+Objetivos de las Pruebas
+Determinar si los planes individuales son capaces de brindar el nivel deseado de
+apoyo a los procesos críticos.
+Evaluar los costos y tiempos reales de recuperación durante una contingencia.
+
+Niveles de Prueba
+1. Pruebas en pequeñas unidades funcionales del área.
+
+2. Pruebas departamentales (todo el Departamento de Calidad).
+
+3. Pruebas interdepartamentales con otros sectores del CTIC.
+Métodos de Prueba
+Prueba específica: una sola actividad o procedimiento.
+Prueba de escritorio: simulación teórica mediante preguntas y escenarios.
+Simulación en tiempo real: recreación de un evento real para medir la capacidad
+de respuesta.
+
+Preparación Pre-Prueba
+Revisar planes seleccionados y verificar responsabilidades.
+Asegurar aprobación del plan por la Dirección TIC.
+Entrenar al personal y definir fecha, hora y alcance.
+Garantizar disponibilidad de recursos y espacio físico.
+
+��ETAPA X: Comprobación, Mantenimiento y Revisión del Plan
+Después de las pruebas, se evalúa la eficacia del plan y se actualiza según los
+resultados obtenidos.
+Las observaciones y mejoras deben documentarse y aplicarse en la siguiente
+versión del plan.
+El Plan de Contingencia del Departamento de Calidad se revisará semestralmente
+o cada vez que haya cambios en los sistemas, infraestructura o personal clave.
+
+CONCLUSION
+Dependiendo del tamaño de la institución u organización se tendrá que realizar
+paralelamente un plan de contingencia por cada módulo del sistema de
+Información.
+Adicionalmente al plan de contingencias se debe desarrollar pruebas para verificar
+la efectividad de las acciones en caso de la ocurrencia de los problemas y tener la
+seguridad de que se cuenta con un método seguro. No existe un plan único para
+todas las organizaciones, esto depende mucho de la capacidad de la infraestructura
+física como de las funciones que realiza en CPD (Centro de Procesamiento de
+Datos) mas conocido como Centro de Cómputo.
