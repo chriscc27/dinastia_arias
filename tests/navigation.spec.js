@@ -2,12 +2,28 @@ import { expect, test } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 
 const routes = [
-  ['', 'Inicio'], ['gestion-tecnologias', 'Gestión'],
-  ['ciencia-tecnologia-innovacion', 'Ciencia e Innovación'], ['mision-vision', 'Misión y Visión'],
-  ['organizacion', 'Organización'], ['mbti', 'MBTI'], ['scrum', 'Scrum'],
-  ['idef-0', 'IDEF-0'], ['bpmn', 'BPMN'], ['plan-contingencia', 'Plan de contingencia'], ['alcance', 'Alcance'], ['herramientas', 'Herramientas'],
-  ['tableau', 'Tableau'], ['weka', 'Weka'], ['monitoreo', 'Monitoreo'],
-  ['presupuesto', 'Presupuesto'], ['soporte-externo', 'Soporte externo'], ['trabaja-con-nosotros', 'Contacto'],
+  ['', 'Inicio'],
+  ['gestion-tecnologias', 'Gestión'],
+  ['ciencia-tecnologia-innovacion', 'Ciencia e Innovación'],
+  ['mision-vision', 'Misión y Visión'],
+  ['organizacion', 'Organización'],
+  ['descripcion-posiciones', 'Descripción de Posiciones'],
+  ['mbti', 'MBTI'],
+  ['scrum', 'SCRUM'],
+  ['goals', 'Goals: Objetivos y asignación de personal'],
+  ['inventarios', 'Inventarios'],
+  ['idef-0', 'IDEF0'],
+  ['bpmn', 'BPMN'],
+  ['tableau', 'Datos Tableau'],
+  ['weka', 'Patrones Weka'],
+  ['monitoreo', 'Monitoreo'],
+  ['presupuesto', 'Presupuesto'],
+  ['soporte-externo', 'Soporte externo'],
+  ['plan-contingencia', 'Plan de Contingencia'],
+  ['conclusiones-recomendaciones', 'Conclusiones y Recomendaciones'],
+  ['trabaja-con-nosotros', 'Contactos'],
+  ['alcance', 'Alcance'],
+  ['herramientas', 'Herramientas'],
 ];
 const storageKey = 'dinastia-arias-scrum-kanban-tasks';
 
@@ -48,9 +64,9 @@ test('Plan de contingencia es accesible desde el menú móvil', async ({ page })
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('./');
   await page.getByRole('button', { name: 'Abrir menú de navegación' }).click();
-  await page.locator('#site-navigation').getByRole('link', { name: 'Plan de contingencia', exact: true }).click();
+  await page.locator('#site-navigation').getByRole('link', { name: /Plan de [cC]ontingencia/ }).click();
   await expect(page).toHaveURL(/\/plan-contingencia$/);
-  await expect(page.locator('h1')).toHaveText('Plan de contingencia');
+  await expect(page.locator('h1')).toHaveText('Plan de Contingencia');
   await expect(page.locator('#site-navigation')).toBeHidden();
   await expect(page.getByTestId('documento-original-texto')).toBeVisible();
   for (const [incident, title] of [
@@ -86,8 +102,8 @@ for (const [route, label] of routes) {
     await expect(page.locator('main')).toHaveCount(1);
     await expect(page.locator('.site-header')).toHaveCount(1);
     await expect(page.locator('.c-footer-xl')).toHaveCount(1);
-    await expect(page.locator('#site-navigation a')).toHaveCount(17);
-    if (route === 'alcance') await expect(page.locator('#site-navigation [aria-current="page"]')).toHaveCount(0);
+    await expect(page.locator('#site-navigation a')).toHaveCount(20);
+    if (route === 'alcance' || route === 'herramientas') await expect(page.locator('#site-navigation [aria-current="page"]')).toHaveCount(0);
     else await expect(page.locator('#site-navigation [aria-current="page"]')).toHaveText(label);
     const positions = await page.evaluate(() => ({
       title: document.querySelector('h1').getBoundingClientRect().top,
@@ -134,8 +150,26 @@ test('Fragmentos antiguos y anclas propias de una página', async ({ page }) => 
 test('Equipo se integra en Organización y el navbar conserva los títulos solicitados', async ({ page }) => {
   await page.goto('organizacion');
   await expect(page.locator('#site-navigation a')).toHaveText([
-    'Inicio', 'Gestión', 'Ciencia e Innovación', 'Misión y Visión', 'Organización', 'MBTI', 'Scrum', 'IDEF-0', 'BPMN', 'Plan de contingencia',
-    'Herramientas', 'Tableau', 'Weka', 'Monitoreo', 'Presupuesto', 'Soporte externo', 'Contacto',
+    'Inicio',
+    'Gestión',
+    'Ciencia e Innovación',
+    'Misión y Visión',
+    'Organización',
+    'Descripción de Posiciones',
+    'MBTI',
+    'SCRUM',
+    'Goals: Objetivos y asignación de personal',
+    'Inventarios',
+    'IDEF0',
+    'BPMN',
+    'Datos Tableau',
+    'Patrones Weka',
+    'Monitoreo',
+    'Presupuesto',
+    'Soporte externo',
+    'Plan de Contingencia',
+    'Conclusiones y Recomendaciones',
+    'Contactos',
   ]);
   await expect(page.locator('.team-card-bio')).toHaveCount(5);
   await expect(page.locator('#equipo')).toContainText('Daniel Zamorano');

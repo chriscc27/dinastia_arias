@@ -20,7 +20,9 @@ export default function Header({ headerRef }) {
       }
     };
     const onPointerDown = (event) => {
-      if (!panelRef.current?.contains(event.target) && !toggleRef.current?.contains(event.target)) setMenuOpen(false);
+      if (!panelRef.current?.contains(event.target) && !toggleRef.current?.contains(event.target)) {
+        setMenuOpen(false);
+      }
     };
     document.addEventListener('keydown', onKeyDown);
     document.addEventListener('pointerdown', onPointerDown);
@@ -37,6 +39,7 @@ export default function Header({ headerRef }) {
       end
       onClick={() => setMenuOpen(false)}
       className={({ isActive }) => `nav-item-link${isActive ? ' active' : ''}${item.id === 'contacto' ? ' nav-contact-link' : ''}`}
+      title={item.desc || item.title}
     >
       {item.label}
     </NavLink>
@@ -49,6 +52,7 @@ export default function Header({ headerRef }) {
           <span className="logo-text">AITECH <span>| CALIDAD</span></span>
         </Link>
       </div>
+
       <div className="header-right">
         <button
           ref={toggleRef}
@@ -60,12 +64,21 @@ export default function Header({ headerRef }) {
           onClick={() => setMenuOpen((open) => !open)}
         >
           {menuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
-          <span>Menú</span>
+          <span>20 Secciones</span>
         </button>
-        <div id="site-navigation" ref={panelRef} className={`nav-pill-container nav-two-rows${menuOpen ? ' is-open' : ''}`}>
-          <nav className="nav-row nav-row-top" aria-label="Navegación general">{primaryNav.map(renderLink)}</nav>
+
+        <div
+          id="site-navigation"
+          ref={panelRef}
+          className={`nav-pill-container nav-two-rows${menuOpen ? ' is-open' : ''}`}
+        >
+          <nav className="nav-row nav-row-top" aria-label="Navegación general">
+            {primaryNav.map(renderLink)}
+          </nav>
           <div className="nav-row-divider" aria-hidden="true" />
-          <nav className="nav-row nav-row-bottom" aria-label="Herramientas y contacto">{secondaryNav.map(renderLink)}</nav>
+          <nav className="nav-row nav-row-bottom" aria-label="Herramientas y procesos">
+            {secondaryNav.map(renderLink)}
+          </nav>
         </div>
       </div>
     </header>

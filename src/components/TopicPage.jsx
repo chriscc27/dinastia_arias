@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { getSiteTopic } from '../data/siteNav';
 
 export default function TopicPage({ topicId, related = [], children }) {
-  const topic = getSiteTopic(topicId);
+  const topic = getSiteTopic(topicId) || { label: topicId, title: topicId, desc: '', to: '/' };
   return (
     <div className="topic-page">
       <section className="topic-hero" style={{ backgroundImage: `linear-gradient(180deg, rgba(16, 25, 26, .85), rgba(18, 27, 28, .95)), url('${import.meta.env.BASE_URL}assets/verticals/calidad.jpg')` }}>
