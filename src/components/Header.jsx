@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { primaryNav, secondaryNav } from '../data/siteNav';
+import { navRow1, navRow2, navRow3 } from '../data/siteNav';
 
 export default function Header({ headerRef }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,7 +38,7 @@ export default function Header({ headerRef }) {
       to={item.to}
       end
       onClick={() => setMenuOpen(false)}
-      className={({ isActive }) => `nav-item-link${isActive ? ' active' : ''}${item.id === 'contacto' ? ' nav-contact-link' : ''}`}
+      className={({ isActive }) => `nav-item-link${isActive && item.id !== 'presupuesto' ? ' active' : ''}${item.id === 'contacto' ? ' nav-contact-link' : ''}`}
       title={item.desc || item.title}
     >
       {item.label}
@@ -70,14 +70,18 @@ export default function Header({ headerRef }) {
         <div
           id="site-navigation"
           ref={panelRef}
-          className={`nav-pill-container nav-two-rows${menuOpen ? ' is-open' : ''}`}
+          className={`nav-pill-container nav-three-rows${menuOpen ? ' is-open' : ''}`}
         >
-          <nav className="nav-row nav-row-top" aria-label="Navegación general">
-            {primaryNav.map(renderLink)}
+          <nav className="nav-row nav-row-1" aria-label="Estrategia y Organización (1–7)">
+            {navRow1.map(renderLink)}
           </nav>
           <div className="nav-row-divider" aria-hidden="true" />
-          <nav className="nav-row nav-row-bottom" aria-label="Herramientas y procesos">
-            {secondaryNav.map(renderLink)}
+          <nav className="nav-row nav-row-2" aria-label="Metodología y Procesos (8–14)">
+            {navRow2.map(renderLink)}
+          </nav>
+          <div className="nav-row-divider" aria-hidden="true" />
+          <nav className="nav-row nav-row-3" aria-label="Operación y Cierre (15–20)">
+            {navRow3.map(renderLink)}
           </nav>
         </div>
       </div>

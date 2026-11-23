@@ -305,6 +305,11 @@ export const navDropdownGroups = [
 export const primaryNav = headerNavItems.slice(0, 10);
 export const secondaryNav = headerNavItems.slice(10, 20);
 
+// Distribución oficial en 3 filas (Fila 1: 1–7, Fila 2: 8–14, Fila 3: 15–20)
+export const navRow1 = headerNavItems.slice(0, 7);
+export const navRow2 = headerNavItems.slice(7, 14);
+export const navRow3 = headerNavItems.slice(14, 20);
+
 export const getSiteTopic = (id) => siteNav.find((item) => item.id === id);
 
 export const legacyHomeRoutes = {
